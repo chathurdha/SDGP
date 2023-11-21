@@ -1,0 +1,168 @@
+.banner-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: #FFFEF2EF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.banner-content h3{
+    color: #A2B970;
+    font-family: Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400; 
+}
+
+.banner-content h1{
+color: #444434;
+font-family: Roboto;
+font-size: 50px;
+font-style: normal;
+font-weight: 700;
+}
+
+.banner-content h1 span{
+    color: #628A2E;
+}
+
+.banner-content p{
+    color: #444434;
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px;
+}
+
+.banner-content button{
+    display: flex;
+    width: 277px;
+    height: 45px;
+    padding: 8px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border-radius: 6px;
+    color: white;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+    background: #8AC014;
+    border: none;
+    transition: 300ms ease-in-out;
+}
+
+.banner-container button:hover{
+    background: #628A2E;
+    transform: scale(1.01);
+}
+
+.image-container {
+   width: 100px;
+   height: 100px;
+   transition: 300ms ease-in-out;
+}
+
+.banner-container:hover > .image-container img{
+    transform: scale(1.05);
+}
+
+.service-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.leaf-image1{
+    position: absolute;
+    translate: -50vw 30%;
+    width: 700px;
+    height: 600px;
+    transform: rotate(60deg);
+    transition: 600ms ease-in-out;
+}
+
+.leaf-image2{
+    position: absolute;
+    translate: 50vw -30%;
+    width: 700px;
+    height: 600px;
+    transform: rotate(-130deg);
+    transition: 600ms ease-in-out;
+}
+
+.service-content:hover ~ .leaf-image1{
+    rotate: 5deg;
+    translate: -55vw 30%;
+}
+
+.service-content:hover ~ .leaf-image2{
+    translate: 55vw -30%;
+    rotate: -5deg;
+}
+
+.service-content {
+    display: flex;
+    border-radius: 13px;
+    background: #FFF;
+    box-shadow: 0px 4px 40px 0px rgba(98, 138, 46, 0.10);
+    width: 864px;
+    height: 417px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    transition: 600ms ease-in-out;
+}
+
+.service-content:hover{
+    transform: scale(1.03);
+}
+
+.service-content h1{
+    color: #444434;
+    font-family: Roboto;
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 60px;
+}
+
+.service-content > div{
+    text-align: center;
+    width: 90%;
+    height: 70%;
+}
+
+.service-images-container img{
+    width: 70px;
+    height: 70px;
+}
+
+.service-images-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    transition: 300ms ease-in-out;
+}
+
+.service-images-container p{
+    color: #444434;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+}
+
