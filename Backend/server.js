@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const organizationRoutes = require('./routes/organizationRoutes');
 require('dotenv').config();
 
 //express app
@@ -14,6 +15,7 @@ app.use((req, res, next) => {
 })
 
 //routes
+app.use('/api/organizations', organizationRoutes);
 
 //connect to mongodb
 mongoose.connect(process.env.MONGO_URI)
@@ -32,8 +34,6 @@ mongoose.connect(process.env.MONGO_URI)
 //imeth's code
 app.use("/api", require("./routes/register"));
 app.use("/api", require("./routes/login"));
-
-app.use('/api/organizations', require('./routes/organizationRoutes'));
 
 
 
