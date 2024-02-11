@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb1d85d3-cb76-4686-aa1a-c741a2134cb3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Frontend/src/components/SchoolProfile.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/ProfileBackground.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/AddReview.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/ReviewBackground.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.jsx" afterDir="false" />
     </list>
@@ -39,7 +39,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "fix-33",
+    "git-widget-placeholder": "fix-35",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
