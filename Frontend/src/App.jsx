@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import SignInBackground from "./pages/SignInBackground.jsx";
+import ProfileBackground from "./pages/ProfileBackground.jsx";
 
 function App() {
     // const [count, setCount] = useState(0)
 
     return (
-        <SignInBackground />
+    <ProfileBackground />
     )
 }
 
