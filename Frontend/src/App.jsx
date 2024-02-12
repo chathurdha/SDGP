@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import ReviewBackground from './pages/ReviewBackground'
+import React from 'react';
+import './App.css';
+import PastEvents from './PastEvents';
 
-function App() {
-    // const [count, setCount] = useState(0)
-
-    return (
-    <ReviewBackground />
-    )
+const App = () => {
+  return (     
+    <div className="App">
+      <PastEvents />
+    </div> 
+  );
 }
-
-export default App
+ 
+export default App;
