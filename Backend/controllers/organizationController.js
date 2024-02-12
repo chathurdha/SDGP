@@ -26,7 +26,7 @@ const getOrganization = async (req, res) => {
 
 //create an organization
 const createOrganization = async (req, res) => {
-    const {name, description} = req.body;
+    const {name, description, email, phone, website, logo, user} = req.body;
 
     let emptyFields = [];
 
@@ -38,13 +38,21 @@ const createOrganization = async (req, res) => {
         emptyFields.push('description');
     }
 
+    if (!email) {
+        emptyFields.push('email');
+    }
+
+    if (!phone) {
+        emptyFields.push('phone number');
+    }
+
     if (emptyFields.length > 0) {
         return res.status(400).send(`The following fields are required`, emptyFields);
     }
 
     //add to database
     try{
-        const organization = await Organization.create({name, description})
+        const organization = await Organization.create({name, description, email, phone, website, logo, user})
         res.status(200).json(organization)
     }catch(error){
         res.status(400).json({error: error.message});

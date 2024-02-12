@@ -1,20 +1,4 @@
-// const express = require('express');
-// const User = require("../models/userModel");
-// const app = express()
-// app.use(express.json())
 
-// function containsSpecialChars(str) {
-//     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-//     return specialChars.test(str);
-// }
-
-// function containsNumbers(str) {
-//     const numbers = /0-9/;
-//     return numbers.test(str);
-// }
-
-// <<<<<<< Current
-// =======
 const express = require('express');
 const User = require("../models/userModel");
 const app = express()
