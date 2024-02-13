@@ -1,25 +1,19 @@
-// import image from '../images/1.jpeg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';//faStar is the solid star icon
+import Ratings from './Ratings';
 
 const Card = ({seminar}) => {
 
     const imagePath = './images/' + seminar._id +'.jpeg';
 
     return ( 
-        <div className='bg-white rounded-lg shadow-md'>
-            <img src="/Users/isuru500/Documents/GitHub/SDGP/Frontend/src/images/1.jpeg" alt="" />
-            <img src={imagePath} alt={seminar.name + " image :" + seminar._id} className='rounded-t-lg w-full h-48 object-cover'/>
-            <div className="p-4">
-                <h2 className='text-xl font-bold mb-2'>{seminar.name}</h2>
-                <h1 className='text-grey-700'>{seminar.description}</h1>
-                {/* <p>{seminar.createdAt}</p> */}{/* when the issue of backend is solved add this */}
-                <div className='flex justify-between w-full sm:flex-col sm:w-1/2 gap-4'>
-                    <div className='grid grid-cols-2'>
-                        <p>4.0</p>{/* add rating later */}
-                        <FontAwesomeIcon icon={faStar} className='text-green-600 h-full' />
-                    </div>
-                    <p>2 days ago</p>
+        <div className='bg-white rounded-lg shadow-md mb-4 md:w-1/2 lg:w-1/3'>
+            <img src={imagePath} alt={seminar.name + " image :" + seminar._id} className='w-full h-60 object-cover mb-2 rounded-lg'/>
+            <div className='mt-4 text-left pl-4'>
+                <h2 className='text-2xl font-semibold'>{seminar.name}</h2>
+                <h1 className='text-[1rem] pt-4'>{seminar.description}</h1>
+                <div className='text-[0.8rem] pt-4 pb-2 pr-2 flex flex-row justify-between'>
+                    <Ratings rating={seminar.rating} />
+                    <p className='text-right'>2 days ago</p>
+                    {/* <p>{seminar.createdAt}</p> */}{/* when the issue of backend is solved add this instead of '2 days ago' */}
                 </div>
             </div>
         </div>
