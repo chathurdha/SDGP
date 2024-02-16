@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar'; 
 import Homepage from './components/Home/homepage';
 
+
 const Home = () => <div>Home Page</div>;
 const PastEvents = () => <div>Past Events Page</div>;
 const ContactUs = () => <div>Contact Us Page</div>;
