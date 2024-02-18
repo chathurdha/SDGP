@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
+const ProfNav = () => {
   const location = useLocation(); // Get the current location
   const [isOpen, setIsOpen] = useState(false);
 
@@ -77,4 +77,4 @@ const Navbar = () => {
 // Remove the unnecessary closing curly brace
 // };
 
-export default Navbar;
+export default ProfNav;

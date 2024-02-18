@@ -1,5 +1,5 @@
 // import AddReview from "../components/AddReview.jsx";
-import ReviewCard from "../components/ReviewCard.jsx";
+import ReviewCard from "../ReviewCard.jsx";
 
 export default function ReviewBackground() {
     return(

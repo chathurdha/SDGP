@@ -1,7 +1,7 @@
 // export default App
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/OrgProfile/Header'
+import Header from './components/Profiles/Header'
 import Homepage from './components/Home/homepage';
 import OrgProfile from './pages/OrgProfilePage';
 import Logo from './assets/Rated.png';
@@ -24,7 +24,7 @@ const App =() => {
         <Routes>
             
             <Route exact path="./pages/OrgProfilePage" component={OrgProfilePage} />
-            <Route path="/" component={PastEvents} />
+            <Route path="./components/Home/homepage" component={PastEvents} />
             <Route path="/" component={RecievedSeminarsReq} />
             <Route path="/" component={RecievedVolunteerReq} />
             <Route path="/" component={Seminars} />
@@ -38,7 +38,7 @@ const App =() => {
 export default App
 
 
-// const Home = () => <div>Home Page</div>;
+{/*/ const Home = () => <div>Home Page</div>;
 // const PastEvents = () => <div>Past Events Page</div>;
 // const ContactUs = () => <div>Contact Us Page</div>;
 // const AboutUs = () => <div>About Us Page</div>;
@@ -63,3 +63,4 @@ export default App
 // };
 
 // export default App;
+*/}
