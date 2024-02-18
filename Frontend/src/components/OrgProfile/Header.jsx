@@ -10,7 +10,7 @@ function MyFunction(){
 function Header(props) {
     const OrgLogo = props.OLogo;
   return (
-    <div>
+    <div className="container mx-auto flex justify-between items-center">
         <div>
             <img src={Logo} alt="Logo" />
         </div>
@@ -19,7 +19,7 @@ function Header(props) {
                 Dashboard
             </p>
         </div>
-        <div>
+        <div className="w-1/6 flex justify-between items-center">
             <div>
                 <button >
                     <img src={NotifIcon} alt="Notif_Icon" onClick={MyFunction}/>
@@ -32,7 +32,7 @@ function Header(props) {
             </div>
             <div>
                 <div>
-                    <button >
+                    <button className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm">
                         button
                     </button>
                 </div>
