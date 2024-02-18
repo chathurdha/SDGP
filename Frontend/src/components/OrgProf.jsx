@@ -46,7 +46,7 @@ function OrgProf({OrgName, OrgLogo, OrgDesc, OrgRate, OrgReviewCount, OrgDet}) {
                     </div>
                 </div>
                 <div>
-                    //data table without border
+                    {/*data table without border*/}
                     <div>
                         <div>
                             <p>
@@ -98,7 +98,7 @@ function OrgProf({OrgName, OrgLogo, OrgDesc, OrgRate, OrgReviewCount, OrgDet}) {
                 </div>
                 <div>
                     <div>
-                        <button>
+                        <button type='button' className='w-1/2 h-12 text-sm text-white bg-[#8260E2] rounded-md mb-9'>
                             <label htmlFor="/">
                                 Edit Profile
                             </label>
