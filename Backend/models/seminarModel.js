@@ -11,6 +11,7 @@ const seminarSchema = new Schema({
         type: String,
         required: true
     }
+    // volunteer organization id should be added here
 },{
     timestamps: true,
 });
