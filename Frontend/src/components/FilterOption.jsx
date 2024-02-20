@@ -14,12 +14,12 @@ const FilterOption = () => {
     ];
 
     const seminars = [
-        { _id: 1, name: "Seminar 1", description: "This is the first seminar", rating: 4.0, organizationId: 1, year: 2021, location: "location 1"},
-        { _id: 2, name: "Seminar 2", description: "This is the second seminar", rating: 3.0, organizationId: 2, year: 2022, location: "location 2"},
-        { _id: 3, name: "Seminar 3", description: "This is the third seminar", rating: 3.5, organizationId: 3, year: 2023, location: "location 3"},
-        { _id: 4, name: "Seminar 4", description: "This is the fourth seminar", rating: 4.5, organizationId: 1, year: 2021, location: "location 1"},
-        { _id: 5, name: "Seminar 5", description: "This is the fifth seminar", rating: 5.0, organizationId: 2, year: 2022, location: "location 2"},
-        { _id: 6, name: "Seminar 6", description: "This is the sixth seminar", rating: 3.5, organizationId: 3, year: 2023, location: "location 3"}
+        { _id: 1, name: "Seminar 1", description: "This is the first seminar", rating: 4.0, organizationId: 1, year: 2021, location: "location 1", status: "completed"},
+        { _id: 2, name: "Seminar 2", description: "This is the second seminar", rating: 3.0, organizationId: 2, year: 2022, location: "location 2", status: "completed"},
+        { _id: 3, name: "Seminar 3", description: "This is the third seminar", rating: 3.5, organizationId: 3, year: 2023, location: "location 3", status: "completed"},
+        { _id: 4, name: "Seminar 4", description: "This is the fourth seminar", rating: 4.5, organizationId: 1, year: 2021, location: "location 1", status: "completed"},
+        { _id: 5, name: "Seminar 5", description: "This is the fifth seminar", rating: 5.0, organizationId: 2, year: 2022, location: "location 2", status: "completed"},
+        { _id: 6, name: "Seminar 6", description: "This is the sixth seminar", rating: 3.5, organizationId: 3, year: 2023, location: "location 3", status: "completed"}
     ];
 
     const organizationOptions = organizations.map((organization) => {
