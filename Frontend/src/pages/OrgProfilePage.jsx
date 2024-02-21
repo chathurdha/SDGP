@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import OrgNav from "../components/navbar/ProfNav.jsx";
 import Profile from "../components/Profiles/ProfileCard.jsx";
-import Logo from "../assets/Rated.png";
 import axios from "axios";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-import { string } from "prop-types";
 
 function OrgProfilePage() {
-
- let dataa ;
 
   const { isLoading, error, data, refetch } = useQuery(
     "fetchData",
@@ -19,7 +15,7 @@ function OrgProfilePage() {
       return response.data; // Assuming response.data contains the desired data
     }, {
       onSuccess:()=>{
-        console.log("Wade goda....😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀");
+        console.log("Data retrieved...");
        
       }
     }
@@ -27,7 +23,9 @@ function OrgProfilePage() {
 
 
 if(isLoading){
-  return <div>Loading...</div>
+  return <div>
+    Loading...
+    </div>
 }
 
 console.log("data: " + data[0].name)
