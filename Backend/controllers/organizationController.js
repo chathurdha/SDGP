@@ -3,8 +3,15 @@ const mongoose = require('mongoose');
 
 //get all organizations
 const getOrganizations = async (req, res) => {
+
+
     const organizations = await Organization.find({}).sort({createdAt: -1});
-    res.status(200).json(organizations);
+    setTimeout(() => {
+        console.log(organizations)
+        
+        
+        res.status(200).json(organizations);
+    }, 2000);
 }
 
 //get single organization

@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const organizationRoutes = require('./routes/organizationRoutes');
 const volunteerRoutes = require('./routes/volunteerRoutes');
@@ -15,6 +16,7 @@ const app = express();
 
 //middleware
 app.use(express.json());
+app.use(cors());
 
 app.use((req, res, next) => {
    console.log(req.path, req.method);
