@@ -6,6 +6,7 @@ import { faAngleDown, faCircleCheck, faCircleXmark } from '@fortawesome/free-sol
 {/* <FontAwesomeIcon icon={faCircleXmark} /> */}
 
 import SchoolFirstLetter from './components/SchoolFirstLetter';
+import ProfileImage from './components/ProfileImage';
 
 const ReceivedSeminarRequests = () => {
 
@@ -19,9 +20,9 @@ const ReceivedSeminarRequests = () => {
   ];
 
   const schools = [
-      { _id: 1, name: "School 1", address: "address 1", profileColor: "bg-red-400"},
-      { _id: 2, name: "School 2", address: "address 2", profileColor: "bg-green-200"},
-      { _id: 3, name: "School 3", address: "address 3", profileColor: "bg-blue-400"}
+      { _id: 1, name: "School 1", address: "address 1", profileColor: "bg-red-400", profileImageAvailable: true},
+      { _id: 2, name: "School 2", address: "address 2", profileColor: "bg-green-200", profileImageAvailable: false},
+      { _id: 3, name: "School 3", address: "address 3", profileColor: "bg-blue-400", profileImageAvailable: true}
   ]
 
   // Function to find the corresponding school object for a seminar
@@ -35,9 +36,11 @@ const ReceivedSeminarRequests = () => {
       // Combine seminar and school data (adjust properties as needed)
       return {
           ...seminar,
+          schoolId: school ? school._id : null, // Handle cases where school is not found
           schoolName: school ? school.name : null, // Handle cases where school is not found
           schoolAddress: school ? school.address : null,
-          schoolProfileColor: school ? school.profileColor : null
+          schoolProfileColor: school ? school.profileColor : null,
+          schoolProfileImageAvailable: school ? school.profileImageAvailable : null
       };
   });
 
@@ -103,7 +106,14 @@ const ReceivedSeminarRequests = () => {
           <div className="flex items-center m-2">
             <div className={`md:w-14 md:h-14 w-12 h-12 rounded-full flex justify-center items-center md:mr-10 mr-5 ${seminar.schoolProfileColor}`}>
               <h1>
-                <SchoolFirstLetter name={seminar.schoolName} />
+                {
+                  seminar.schoolProfileImageAvailable ? (
+                    <ProfileImage schoolId={seminar.schoolId} />
+                  ) : (
+                    <SchoolFirstLetter name={seminar.schoolName} />
+                  )
+                }
+                {/* <SchoolFirstLetter name={seminar.schoolName} /> */}
               </h1>
             </div>
             <h1 className="text-2xl font-bold pr-2">{seminar.schoolName}</h1>
@@ -143,6 +153,35 @@ const ReceivedSeminarRequests = () => {
               </div>
             </div>
           )}
+          {/* <div 
+            className={`flex justify-center items-center gap-2 md:mt-0 mt-2 ${
+            seminarStatuses[seminar._id] ? "hidden" : ""
+            }`}
+          >
+            <button
+              onClick={() => handleUpdateStatus(seminar._id, "rejected")}
+              className='w-28 h-12 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+            >
+              Reject
+            </button>
+            <button
+              onClick={() => handleUpdateStatus(seminar._id, "accepted")}
+              className='w-28 h-12 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+            >
+              Accept
+            </button>
+          </div> */}
+          <div className={`${
+            !rotatedSeminarIds.includes(seminar._id) ? "md:flex items-center" : ""
+          }`}>
+            <FontAwesomeIcon
+              icon={seminarStatuses[seminar._id] === "accepted" ? faCircleCheck : faCircleXmark}
+              className={`text-6xl ${
+                seminarStatuses[seminar._id] === "accepted" ? "text-green-500" : "text-red-500"
+              } ${seminarStatuses[seminar._id] ? "" : "hidden"}`}
+            />
+          </div>
+
           <div 
             className={`flex justify-center items-center gap-2 md:mt-0 mt-2 ${
             seminarStatuses[seminar._id] ? "hidden" : ""
@@ -161,16 +200,7 @@ const ReceivedSeminarRequests = () => {
               Accept
             </button>
           </div>
-          <div className={`${
-            !rotatedSeminarIds.includes(seminar._id) ? "md:flex items-center" : ""
-          }`}>
-            <FontAwesomeIcon
-              icon={seminarStatuses[seminar._id] === "accepted" ? faCircleCheck : faCircleXmark}
-              className={`text-6xl ${
-                seminarStatuses[seminar._id] === "accepted" ? "text-green-500" : "text-red-500"
-              } ${seminarStatuses[seminar._id] ? "" : "hidden"}`}
-            />
-          </div>
+
         </div>
       ))}
     </div>
