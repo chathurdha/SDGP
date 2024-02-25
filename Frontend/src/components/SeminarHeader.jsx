@@ -20,7 +20,7 @@ const SeminarHeader = ({
         >
             <div className={`md:w-14 md:h-14 w-12 h-12 place-self-center rounded-full flex justify-center items-center md:mr-10 md:mb-0 mb-2 ${seminar.schoolProfileColor}`}>
                 {seminar.schoolProfileImageAvailable ? (
-                <ProfileImage schoolId={seminar.schoolId} />
+                <ProfileImage id={seminar.schoolId} />
                 ) : (
                 <SchoolFirstLetter name={seminar.schoolName} />
                 )}
