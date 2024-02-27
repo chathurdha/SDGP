@@ -55,9 +55,9 @@ const ProfNav = () => {
             </li>
             <li>
               <Link
-                to="/Seminar"
+                to="/"
                 className={`text-${
-                  isActive("/Seminar") ? "custom-green" : "#1B2336"
+                  isActive("/") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -77,9 +77,9 @@ const ProfNav = () => {
             </li>
             <li>
               <Link
-                to="/PrevEvents"
+                to="/OrgSeminar"
                 className={`text-${
-                  isActive("/PrevEvents") ? "custom-green" : "#1B2336"
+                  isActive("/OrgSeminar") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -141,9 +141,9 @@ const ProfNav = () => {
                 </li>
                 <li>
                   <Link
-                    to="/Seminar"
+                    to="/"
                     className={`block px-4 py-2 text-${
-                      isActive("/Seminar") ? "custom-green" : "#1B2336"
+                      isActive("/") ? "custom-green" : "#1B2336"
                     } hover:text-gray-300 text-sm`}
                     onClick={() => handleLinkClick("Received Seminar Requests")}
                   >
@@ -165,9 +165,9 @@ const ProfNav = () => {
                 </li>
                 <li>
                   <Link
-                    to="/PrevEvents"
+                    to="/OrgSeminar"
                     className={`block px-4 py-2 text-${
-                      isActive("/PrevEvents") ? "custom-green" : "#1B2336"
+                      isActive("/OrgSeminar") ? "custom-green" : "#1B2336"
                     } hover:text-gray-300 text-sm`}
                     onClick={() => handleLinkClick("Seminars")}
                   >
