@@ -99,7 +99,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/sign-up"
-            className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-4 rounded text-sm"
+            className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm"
             style={{ fontFamily: 'Saira' }}
           >
             Sign up
