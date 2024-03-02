@@ -49,7 +49,7 @@ function Hero() {
     <div className='w-screen h-screen pt-8'>
       <div className='h-full w-full flex flex-col md:flex-row bg-gradient-to-tr from-[#084FC7] via-[#5148f4] to-[#7F56D9]'>
         <div className='md:w-[60%] h-full native'>
-          <div><p className='md:w-[60%] pr-8 pl-8 absolute bottom-0 left-0 text-left text-[280%] text-[#FFFFFF]' style={{ fontFamily: 'Roboto' }}>Connecting rural <p className='text-custom-green'>Sri Lankan</p> students with volunteers, sparking brighter futures !</p></div>
+          <div><p className='md:w-[60%] pr-8 pl-8 absolute bottom-0 left-0 text-left text-[280%] text-[#FFFFFF]' style={{ fontFamily: 'Roboto' }}>Connecting rural <br /><span className='text-custom-green'>Sri Lankan</span><br /> students with volunteers, sparking brighter futures !</p></div>
           <div><p className='md:w-[60%] pr-8 pl-8 absolute bottom-0 left-0 text-left text-[100%] text-[#B7B7B7]'>Every child deserves quality education, join us to bridge the gap!</p></div>
           <div></div>
         </div>

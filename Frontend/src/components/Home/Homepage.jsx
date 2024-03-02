@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '../navbar/Navbar'
 import AboutUs from './Sections/AboutUs'
 import ChooseUs from './Sections/ChooseUs'
 import Organizations from './Sections/Organizations'
@@ -9,6 +10,7 @@ import Hero from './Sections/Hero'
 function Homepage() {
   return (
     <>
+    <Navbar />
     <div className=''></div>
     <Hero />
       <AboutUs />

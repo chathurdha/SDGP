@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { ClerkProvider, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
+
+
+
 
 const Navbar = () => {
   const location = useLocation(); // Get the current location
@@ -90,6 +94,7 @@ const Navbar = () => {
 
         {/* Sign in and Sign up buttons */}
         <div className="flex space-x-6 items-center">
+
           <Link
             to="/sign-in"
             className="hidden md:block text-custom-lightb hover:text-gray-300 text-sm"
