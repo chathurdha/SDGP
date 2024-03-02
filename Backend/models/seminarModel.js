@@ -3,12 +3,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const seminarSchema = new Schema({
-    name: {
+    school: {
         type: String,
         required: true
     },
     description: {
         type: String,
+        required: true
+    },
+    organization: {
+        type: mongoose.SchemaTypes.ObjectId,
         required: true
     }
     // volunteer organization id should be added here

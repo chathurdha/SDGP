@@ -26,16 +26,19 @@ const getSeminar = async (req, res) => {
 
 //create a seminar
 const createSeminar = async (req, res) => {
-    const { name, description} = req.body;
+    const { school, description, organization} = req.body;
 
     let emptyFields = [];
 
-    if(!name) {
-        emptyFields.push('name');
+    if(!school) {
+        emptyFields.push('school');
     }
 
     if(!description) {
         emptyFields.push('description');
+    }
+    if(!organization) {
+        emptyFields.push('organization');
     }
 
     if(emptyFields.length > 0) {
@@ -45,8 +48,9 @@ const createSeminar = async (req, res) => {
     //add to database
     try{
         const seminar = await Seminar.create({
-            name,
-            description
+            school,
+            description,
+            organization
         });
         res.status(200).json(seminar);
     }catch (error) {
@@ -74,7 +78,7 @@ const deleteSeminar = async (req, res) => {
 //update a seminar
 const updateSeminar = async (req, res) => {
     const { id } = req.params;
-    const { name, description, date, time, location, image } = req.body;
+    const { school, description, date, time, location, image } = req.body;
 
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).json({error: 'No seminar with that id'});
