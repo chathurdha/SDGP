@@ -5,7 +5,8 @@ const Card = ({seminar}) => {
     const imagePath = './images/' + seminar._id +'.jpeg';
 
     return ( 
-        <div className='bg-white rounded-lg shadow-md mb-4 md:w-1/2 lg:w-1/3'>
+        <div className='bg-white rounded-md shadow-md hover:shadow-lg pb-2 mx-2 mb-4'>
+        {/* <div> */}
             <img src={imagePath} alt={seminar.name + " image :" + seminar._id} className='w-full h-60 object-cover mb-2 rounded-lg'/>
             <div className='mt-4 text-left pl-4'>
                 <h2 className='text-2xl font-semibold'>{seminar.name}</h2>
