@@ -3,8 +3,8 @@ import SeminarBtns from "../../Profiles/SeminarBtns";
 
 const OrgSeminar = () => {
   // Define URLs for the organization's upcoming and previous seminar pages
-  const organizationUpcomingPageUrl = "/UpSemiar"; 
-  const organizationPreviousPageUrl = "/PrevSeminar"; 
+  const organizationUpcomingPageUrl = "/UpSeminar";
+  const organizationPreviousPageUrl = "/PrevSeminar";
 
   return (
     <SeminarBtns
