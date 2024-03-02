@@ -79,7 +79,9 @@ const ProfNav = () => {
               <Link
                 to="/UpSeminar"
                 className={`text-${
-                  isActive("/UpSeminar") ? "custom-green" : "#1B2336"
+                  isActive("/UpSeminar") || isActive("/PrevSeminar")
+                    ? "custom-green"
+                    : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -167,7 +169,9 @@ const ProfNav = () => {
                   <Link
                     to="/UpSeminar"
                     className={`block px-4 py-2 text-${
-                      isActive("/UpSeminar") ? "custom-green" : "#1B2336"
+                      isActive("/UpSeminar") || isActive("/PrevSeminar")
+                        ? "custom-green"
+                        : "#1B2336"
                     } hover:text-gray-300 text-sm`}
                     onClick={() => handleLinkClick("Seminars")}
                   >
