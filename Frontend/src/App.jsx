@@ -7,7 +7,6 @@
 // import { ClerkProvider, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 // const VITE_CLERK_PUBLISHABLE_KEY = import.meta.env;
 
-
 // const Home = () => <div>Home Page</div>;
 // const PastEvents = () => <div>Past Events Page</div>;
 // const ContactUs = () => <div>Contact Us Page</div>;
@@ -17,23 +16,20 @@
 
 // const App = () => {
 //   return (
-    // <Router>
-    //   <Navbar />
-    //   <Homepage />
-    //   <Routes>
-    //     <Route exact path="./components/Home/homepage" component={Home} />
-    //     <Route path="/past-events" component={PastEvents} />
-    //     <Route path="/contact-us" component={ContactUs} />
-    //     <Route path="/about-us" component={AboutUs} />
-    //     <Route path="/sign-in" component={Login} />
-    //     <Route path="/sign-up" component={SignUp} />
-    //   </Routes>
-    // </Router>
+// <Router>
+//   <Navbar />
+//   <Homepage />
+//   <Routes>
+//     <Route exact path="./components/Home/homepage" component={Home} />
+//     <Route path="/past-events" component={PastEvents} />
+//     <Route path="/contact-us" component={ContactUs} />
+//     <Route path="/about-us" component={AboutUs} />
+//     <Route path="/sign-in" component={Login} />
+//     <Route path="/sign-up" component={SignUp} />
+//   </Routes>
+// </Router>
 //   );
 // };
-
-
-
 
 // // import React from 'react';
 // // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -43,16 +39,12 @@
 // // import Logo from './assets/Rated.png';
 // // import SeminarNav from './components/navbar/SeminarNav';
 
-
 // // // const OrgProfilePage = () => <Homepage />;
 // // // const PastEvents = () => <div>PastEvents</div>;
 // // // const RecievedSeminarsReq = () => <div>RecievedSeminarsReq</div>;
 // // // const RecievedVolunteerReq = () => <div>RecievedVolunteerReq</div>;
 // // // const Seminars = () => <div>Seminars</div>;
 // // // const Statistics = () => <div>Statistics</div>;
-
-
-
 
 // // const App =() => {
 // //   let Array = [
@@ -62,11 +54,10 @@
 // //     {id: "recievedSeminarsReq"},
 // //     {id: "recievedVolunteerReq"},
 // //     {id: "seminars"}]
-    
 
 // //   return (
-// //     <SeminarNav 
-// //     NavBarArray={Array} 
+// //     <SeminarNav
+// //     NavBarArray={Array}
 // //     />
 // //   );
 // // };
@@ -97,50 +88,33 @@
 
 // // export default App;
 
-
-
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
-} from 'react-router-dom';
-import Home from './components/Home/homepage';
-import Login from './components/Login';
-import SignUp from './components/SignUP';
+} from "react-router-dom";
+import Home from "./components/Home/homepage";
+import Login from "./components/Login";
+import Next from './components/SignUP';
+import SignUp from "./components/Profiles/ProfSelect";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route 
-      index 
-      element={<Home />} 
-      />
+      <Route index element={<Home />} />
 
-      <Route
-        path="/past-events"
-        element={<div>Past Events</div>}
-      />
+      <Route path="/past-events" element={<div>Past Events</div>} />
 
-      <Route
-        path="/contact-us"
-        element={<div>Contact Us</div>}
-      />
+      <Route path="/contact-us" element={<div>Contact Us</div>} />
 
-      <Route
-        path="/about-us"
-        element={<div>About Us</div>}
-      />
+      <Route path="/about-us" element={<div>About Us</div>} />
 
-      <Route
-        path="/sign-in"
-        element={<Login />}
-      />
+      <Route path="/sign-in" element={<Login />} />
 
-      <Route
-        path="/sign-up"
-        element={ <SignUp /> }
-      />
+      <Route path="/sign-up" element={<SignUp />} />
+
+      <Route path="/next" element={<Next />} />
     </>
   )
 );
@@ -148,7 +122,6 @@ const router = createBrowserRouter(
 function App() {
   return (
     <>
-      
       <RouterProvider router={router} />
     </>
   );
