@@ -6,8 +6,9 @@ const organizationRoutes = require('./routes/organizationRoutes');
 const volunteerRoutes = require('./routes/volunteerRoutes');
 const schoolRoutes = require('./routes/schoolRoutes');
 const seminarRoutes = require('./routes/seminarRoutes');
-const registerRoutes = require('./routes/register');
-const loginRoutes = require('./routes/login');
+// const registerRoutes = require('./routes/register');
+const reviewRoutes = require('./routes/reviewRoutes');
+// const loginRoutes = require('./routes/login');
 
 require('dotenv').config();
 
@@ -28,22 +29,23 @@ app.use('/api/organizations', organizationRoutes);
 app.use('/api/volunteers', volunteerRoutes);
 app.use('/api/schools', schoolRoutes);
 app.use('/api/seminars', seminarRoutes);
-app.use("/api", registerRoutes);
-app.use("/api", loginRoutes);
+app.use('/api/reviews', reviewRoutes);
+// app.use("/api", registerRoutes);
+// app.use("/api", loginRoutes);
 
 //connect to mongodb
 mongoose.connect(process.env.MONGO_URI)
-.then(() => {
-   console.log('connected to mongodb');
+    .then(() => {
+       console.log('connected to mongodb');
 
-   //listen to port
-   app.listen( process.env.PORT,() => {
-      console.log('Listening for requests on PORT', process.env.PORT)
-   })
-})
-.catch((err) => {
-    console.log(err);
-})
+       //listen to port
+       app.listen( process.env.PORT,() => {
+          console.log('Listening for requests on PORT', process.env.PORT)
+       })
+    })
+    .catch((err) => {
+       console.log(err);
+    })
 
 
 
