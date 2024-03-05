@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link, useNavigate } from "react-router-dom"; // Import Link from React Router
+import { Progress } from "@material-tailwind/react";
 import Homepage from "../Home/homepage";
 import React, { useState, useEffect } from "react";
 
@@ -75,17 +76,17 @@ function ProfSelect() {
           <div className="flex flex-wrap justify-center mt-2 gap-4">
             <RoleButton
               roleName="Organization"
-              to="/organization"
+              to="/Organization/Create-Owner"
               imageSrc="/src/assets/person.png"
             />
             <RoleButton
               roleName="Volunteer"
-              to="/volunteer"
+              to="/Volunteer/Sign-up"
               imageSrc="/src/assets/person.png"
             />
             <RoleButton
               roleName="School"
-              to="/school"
+              to="/School/Sign-up"
               imageSrc="/src/assets/person.png"
             />
           </div>
@@ -96,10 +97,10 @@ function ProfSelect() {
           >
             Next
           </Link>
-          {/* <div>
-            <progress value={0.5} className=" mt-8 h-1 "></progress>
+          <div className="flex w-full gap-4">
+            <Progress value={50} color="purple" />
           </div>
-          <div className="mt-2 text-[#4B5563] text-sm">Step 01 of 03</div> */}
+          <div className="mt-2 text-[#4B5563] text-sm">Step 01 of 03</div>
         </div>
       </div>
     </div>

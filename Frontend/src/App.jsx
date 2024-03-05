@@ -95,9 +95,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./components/Home/homepage";
-import Login from "./components/Login";
+import Login from "./components/login";
 import Next from './components/SignUP';
 import SignUp from "./components/Profiles/ProfSelect";
+import OrgOwnerCreate from "./components/OrgOwner-Create";
+import VolSignUP from "./components/VolSignUP";
+import SclSignUP from "./components/SclSignUP";
+import OrgSignUP from "./components/OrgSignUP";
+// import Organization from "./components/Organization/organization";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -112,7 +117,17 @@ const router = createBrowserRouter(
 
       <Route path="/sign-in" element={<Login />} />
 
-      <Route path="/sign-up" element={<SignUp />} />
+
+      <Route path="/Select-Profile" element={<SignUp />} />
+      
+
+      <Route path="/School/Sign-up" element={<SclSignUP />} />
+      <Route path="/Volunteer/Sign-up" element={<VolSignUP />} />
+      <Route path="/Organization/Sign-up" element={<OrgSignUP />} />
+      <Route path="/Organization/Create-Owner" element={<OrgOwnerCreate />} />
+      {/* <Route path="Organization/:id" element={<Organization />} /> */}
+
+
 
       <Route path="/next" element={<Next />} />
     </>

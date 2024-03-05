@@ -1,14 +1,14 @@
 import React from "react";
-import PrevEvents from "./section/PrevEvents";
+import PrevSeminar from "./section/PrevSeminar"
 import Overview from "./section/overview";
-import Seminar from "./section/Seminar";
+// import Seminar from "./section/Seminar";
 //import OrgProfilePage from "../../pages/OrgProfilePage";
 
 function organization() {
   return (
     <>
       <div className=""></div>
-      <PrevEvents />
+      <PrevSeminar />
       <Overview />
     </>
   );
