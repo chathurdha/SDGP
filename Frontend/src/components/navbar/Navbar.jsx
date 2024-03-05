@@ -103,7 +103,7 @@ const Navbar = () => {
             Sign in
           </Link>
           <Link
-            to="/sign-up"
+            to="/Select-Profile"
             className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm"
             style={{ fontFamily: 'Saira' }}
           >

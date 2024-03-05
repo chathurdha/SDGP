@@ -1,14 +1,10 @@
-import React from 'react';
-import { SignIn } from '@clerk/clerk-react';
-import Navbar from './navbar/Navbar';
+import React from 'react'
+import { SignIn } from '@clerk/clerk-react'
 
 export default function Login() {
   return (
-    <div>
-      <Navbar />
-      <div className='w-full h-full'>
-        <div className='content-around'>
-          <SignIn />
-        </div>
-      </div> 
-    </div> )}
+    <div className='flex justify-center items-center h-screen'>
+      <SignIn />
+    </div>
+  )
+}
