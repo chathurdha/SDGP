@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PastEvents() {
+function PastEvent() {
   return (
     <div className='w-screen h-screen'>
       past events
@@ -8,4 +8,4 @@ function PastEvents() {
   )
 }
 
-export default PastEvents
+export default PastEvent

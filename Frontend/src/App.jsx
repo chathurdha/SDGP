@@ -94,22 +94,23 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Home from "./components/Home/homepage";
-import Login from "./components/login";
-import Next from './components/SignUP';
+
+import Home from "./components/Common/homepage";
+import Login from "./components/Login";
+import Next from "./components/SignUP";
 import SignUp from "./components/Profiles/ProfSelect";
+import PastEvents from "./components/Common/PastEvents";
 import OrgOwnerCreate from "./components/OrgOwner-Create";
 import VolSignUP from "./components/VolSignUP";
 import SclSignUP from "./components/SclSignUP";
 import OrgSignUP from "./components/OrgSignUP";
-// import Organization from "./components/Organization/organization";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route index element={<Home />} />
 
-      <Route path="/past-events" element={<div>Past Events</div>} />
+      <Route path="/past-events" element={<PastEvents />} />
 
       <Route path="/contact-us" element={<div>Contact Us</div>} />
 
