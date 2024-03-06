@@ -87,6 +87,47 @@
 // // };
 
 // // export default App;
+//
+// import {
+//   createBrowserRouter,
+//   createRoutesFromElements,
+//   Route,
+//   RouterProvider,
+// } from "react-router-dom";
+// import Home from "./components/Home/homepage";
+// import Login from "./components/Login";
+// import Next from './components/SignUP';
+// import SignUp from "./components/Profiles/ProfSelect";
+//
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <>
+//       <Route index element={<Home />} />
+//
+//       <Route path="/past-events" element={<div>Past Events</div>} />
+//
+//       <Route path="/contact-us" element={<div>Contact Us</div>} />
+//
+//       <Route path="/about-us" element={<div>About Us</div>} />
+//
+//       <Route path="/sign-in" element={<Login />} />
+//
+//       <Route path="/sign-up" element={<SignUp />} />
+//
+//       <Route path="/next" element={<Next />} />
+//     </>
+//   )
+// );
+//
+// function App() {
+//   return (
+//     <>
+//       <RouterProvider router={router} />
+//     </>
+//   );
+// }
+//
+// export default App;
 
 import {
   createBrowserRouter,
@@ -105,10 +146,11 @@ import VolSignUP from "./components/VolSignUP";
 import SclSignUP from "./components/SclSignUP";
 import OrgSignUP from "./components/OrgSignUP";
 
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route index element={<Home />} />
+        <Route path="/" element={<Home />} />
 
       <Route path="/past-events" element={<PastEvents />} />
 
@@ -120,7 +162,7 @@ const router = createBrowserRouter(
 
 
       <Route path="/Select-Profile" element={<SignUp />} />
-      
+
 
       <Route path="/School/Sign-up" element={<SclSignUP />} />
       <Route path="/Volunteer/Sign-up" element={<VolSignUP />} />

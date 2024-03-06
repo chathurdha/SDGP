@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb1d85d3-cb76-4686-aa1a-c741a2134cb3" name="Changes" comment="">
+<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/School/SchoolNav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.jsx" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/ReviewCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/ReviewCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/School/SchoolNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/School/SchoolNav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/main.jsx" afterDir="false" />
+>>>>>>> a4225ce (Add review component apis to the review car)
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/ReviewBackground.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/ReviewBackground.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +35,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -36,8 +51,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "fix-42",
+<<<<<<< HEAD
+    "git-widget-placeholder": "Rebasing fix-90",
+=======
+    "git-widget-placeholder": "fix-90",
+>>>>>>> a4225ce (Add review component apis to the review car)
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/randila/WORKSPACE/University/sdgp-new/SDGP4/Frontend/src/components",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -46,6 +66,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Frontend/src/components" />
+      <recent name="$PROJECT_DIR$/Backend/routes" />
+      <recent name="$PROJECT_DIR$/Backend/models" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="tests" factoryName="Autodetect">
       <module name="sdgp" />
@@ -95,6 +122,7 @@
       <workItem from="1706719730902" duration="125000" />
       <workItem from="1707137738594" duration="3002000" />
       <workItem from="1707196728672" duration="166000" />
+      <workItem from="1709486645109" duration="13112000" />
     </task>
     <servers />
   </component>
