@@ -1,6 +1,5 @@
-
 import { Link } from "react-router-dom"; // Import Link from React Router
-import { Progress } from "@material-tailwind/react";
+// import { Progress } from "@material-tailwind/react";
 import Homepage from "../Common/homepage";
 import React, { useState, useEffect } from "react";
 
@@ -91,7 +90,7 @@ function ProfSelect() {
               imageSrc="/src/assets/person.png"
             />
           </div>
-          <Link
+          {/* <Link
             to="/next"
             className="mt-8 flex justify-center items-center w-[80%] sm:w-[20%] bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm"
             style={{ fontFamily: "Saira" }}
@@ -101,7 +100,7 @@ function ProfSelect() {
           <div className="flex w-full gap-4">
             <Progress value={50} color="purple" />
           </div>
-          <div className="mt-2 text-[#4B5563] text-sm">Step 01 of 03</div>
+          <div className="mt-2 text-[#4B5563] text-sm">Step 01 of 03</div> */}
         </div>
       </div>
     </div>
