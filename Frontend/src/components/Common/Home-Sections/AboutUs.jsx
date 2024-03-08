@@ -47,7 +47,7 @@ function AboutUs() {
             alt=""
           />
           <h1
-            className="pt-16 text-4xl font-bold text-center"
+            className="pt-16 text-3xl font-bold text-center"
             style={{ fontFamily: "Roboto" }}
           >
             Past Events
