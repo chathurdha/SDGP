@@ -1,43 +1,11 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { SignOutButton , useUser, UserButton, SignedIn, SignedOut} from "@clerk/clerk-react";
-
-
-function SignedInContent(){
-  return(
-    <>
-      <div className="flex space-x-6 items-center">
-
-      <Link
-        to="/Sign-In"
-        className="hidden md:block text-custom-lightb hover:text-gray-300 text-sm"
-        style={{ fontFamily: 'Saira' }}
-      >
-        Sign in
-      </Link>
-      <Link
-        to="/Sign-Up"
-        className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm"
-        style={{ fontFamily: 'Saira' }}
-      >
-        Sign up
-      </Link>
-      </div>
-    </>
-  )
-}
-
-function SignedOutContent(){
-  return(
-    <div className="flex space-x-3 items-center">
-
-      <UserButton
-      signInUrl={"/Sign-In"}
-      afterSignOutUrl= {"/"}/>
-              
-    </div>
-  )
-}
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Navbar = () => {
   const location = useLocation(); // Get the current location
@@ -52,12 +20,9 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const {isSignedIn} = useUser();
-
-
   return (
-    <nav className="bg-white py-3 px-4 fixed w-screen z-10">
-      <div className="container mx-auto flex justify-between items-center">
+    <nav className="bg-white py-3 px-4 fixed w-screen z-10 shadow-md">
+      <div className="container mx-auto flex justify-between items-center ">
         <div className="flex items-center">
           <img
             src="/src/assets/fullLogo.svg"
@@ -88,14 +53,16 @@ const Navbar = () => {
         {/* Navigation links */}
         <ul
           className={`${
-            isOpen ? 'block' : 'hidden'
+            isOpen ? "block" : "hidden"
           } md:flex md:space-x-20 md:items-center`}
         >
           <li>
             <Link
               to="/"
-              className={`text-${isActive('/') ? 'custom-green' : '#0b201c'} hover:text-gray-300 text-sm`}
-              style={{ fontFamily: 'Saira' }}
+              className={`text-${
+                isActive("/") ? "custom-green" : "#0b201c"
+              } hover:text-gray-300 text-sm`}
+              style={{ fontFamily: "Saira" }}
             >
               Home
             </Link>
@@ -103,8 +70,10 @@ const Navbar = () => {
           <li>
             <Link
               to="/past-events"
-              className={`text-${isActive('/past-events') ? 'custom-green' : '#0b201c'} hover:text-gray-300 text-sm`}
-              style={{ fontFamily: 'Saira' }}
+              className={`text-${
+                isActive("/past-events") ? "custom-green" : "#0b201c"
+              } hover:text-gray-300 text-sm`}
+              style={{ fontFamily: "Saira" }}
             >
               Past Events
             </Link>
@@ -112,8 +81,10 @@ const Navbar = () => {
           <li>
             <Link
               to="/contact-us"
-              className={`text-${isActive('/contact-us') ? 'custom-green' : '#0b201c'} hover:text-gray-300 text-sm`}
-              style={{ fontFamily: 'Saira' }}
+              className={`text-${
+                isActive("/contact-us") ? "custom-green" : "#0b201c"
+              } hover:text-gray-300 text-sm`}
+              style={{ fontFamily: "Saira" }}
             >
               Contact Us
             </Link>
@@ -121,8 +92,10 @@ const Navbar = () => {
           <li>
             <Link
               to="/about-us"
-              className={`text-${isActive('/about-us') ? 'custom-green' : '#0b201c'} hover:text-gray-300 text-sm`}
-              style={{ fontFamily: 'Saira' }}
+              className={`text-${
+                isActive("/about-us") ? "custom-green" : "#0b201c"
+              } hover:text-gray-300 text-sm`}
+              style={{ fontFamily: "Saira" }}
             >
               About Us
             </Link>
@@ -130,14 +103,22 @@ const Navbar = () => {
         </ul>
 
         {/* Sign in and Sign up buttons */}
-        <SignedIn>
-          <SignedOutContent />
-        </SignedIn>
-
-        <SignedOut>
-          <SignedInContent />
-        </SignedOut>
-        
+        <div className="flex space-x-6 items-center">
+          <Link
+            to="/sign-in"
+            className="hidden md:block text-custom-lightb hover:text-gray-300 text-sm"
+            style={{ fontFamily: "Saira" }}
+          >
+            Sign in
+          </Link>
+          <Link
+            to="/Select-Profile"
+            className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm"
+            style={{ fontFamily: "Saira" }}
+          >
+            Sign up
+          </Link>
+        </div>
       </div>
     </nav>
   );
