@@ -149,12 +149,13 @@ import OrgSignUP from "./components/OrgSignUP";
 import Loading from './components/Loading';
 import SignUp from "./components/Profiles/ProfSelectSignUp";
 import UserHeader from "./components/navbar/UserHeader";
-
+import OverviewBackground from "./pages/OverviewBackground";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route index element={<Home />} />
+      {/* <Route index element={<Home />} /> */}
+      <Route index element={<OverviewBackground />} />
 
       <Route path="/past-events" element={<div>Past Events</div>} />
 
