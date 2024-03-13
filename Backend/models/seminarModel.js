@@ -14,6 +14,16 @@ const seminarSchema = new Schema({
     organization: {
         type: mongoose.SchemaTypes.ObjectId,
         required: true
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ['pending', 'approved', 'cancelled'],
+        default: 'pending',
+        required: false
     }
     // volunteer organization id should be added here
 },{

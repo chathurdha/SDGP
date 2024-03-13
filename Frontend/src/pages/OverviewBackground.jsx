@@ -1,6 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 export default function OverviewBackground() {
 
+    const [upcomingSeminars, setUpcomingSeminars] = useState([]);
+    const [pastSeminars, setPastSeminars] = useState([]);
+
+    // useEffect(() => {
+    //     const fetchReviews = async () => {
+    //         const api = 'http://localhost:4000/api/reviews/'
+    //         try {
+    //             const response = await axios.get(api);
+    //             setReviews(response.data);
+    //         } catch (error) {
+    //             console.error('Error fetching reviews:', error);
+    //         }
+    //     };
+    //     fetchReviews();
+    // }, []);
+
+    useEffect(() => {
+        axios.get('http://localhost:4000/api/seminars/upcoming')
+            .then(response => {
+                setUpcomingSeminars(response.data);
+            })
+            .catch(error => {
+                console.error('Error Upcoming Seminars', error);
+            });
+
+        axios.get('http://localhost:4000/api/seminars/past')
+            .then(response => {
+                setPastSeminars(response.data);
+            })
+            .catch(error => {
+                console.error('Error Past Seminars', error);
+            });
+    }, []);
     return (
         <div className="">
 
@@ -18,13 +53,15 @@ export default function OverviewBackground() {
                         <h2 className="text-2xl font-bold mb-4 mx-auto">Upcoming Seminars</h2>
                     </div>
                     <ul className="grid grid-cols-1 gap-4">
-                        <li className="bg-white p-4 flex justify-between items-center shadow-md">
-                            <h3 className="text-lg font-semibold">Item Title</h3>
-                            <div>
-                                <button className="mr-2 bg-blue-500 text-white px-4 py-2 rounded-md">Button 1</button>
-                                <button className="bg-green-500 text-white px-4 py-2 rounded-md">Button 2</button>
-                            </div>
-                        </li>
+                        {upcomingSeminars.map(item => (
+                            <li key={item._id} className="bg-white p-4 flex justify-between items-center shadow-md">
+                                <h3 className="text-lg font-semibold">{item.name}</h3>
+                                <div>
+                                    <button className="mr-2 bg-blue-500 text-white px-4 py-2 rounded-md">Button 1</button>
+                                    <button className="bg-green-500 text-white px-4 py-2 rounded-md">Button 2</button>
+                                </div>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </section>
@@ -35,13 +72,15 @@ export default function OverviewBackground() {
                         <h2 className="text-2xl font-bold mb-4 mx-auto">Past Seminars</h2>
                     </div>
                     <ul className="grid grid-cols-1 gap-4">
-                        <li className="bg-white p-4 flex justify-between items-center shadow-md">
-                            <h3 className="text-lg font-semibold">Item Title</h3>
-                            <div>
-                                <button className="mr-2 bg-blue-500 text-white px-4 py-2 rounded-md">Button 1</button>
-                                <button className="bg-green-500 text-white px-4 py-2 rounded-md">Button 2</button>
-                            </div>
-                        </li>
+                        {pastSeminars.map(item => (
+                            <li key={item._id} className="bg-white p-4 flex justify-between items-center shadow-md">
+                                <h3 className="text-lg font-semibold">{item.name}</h3>
+                                <div>
+                                    <button className="mr-2 bg-blue-500 text-white px-4 py-2 rounded-md">Button 1</button>
+                                    <button className="bg-green-500 text-white px-4 py-2 rounded-md">Button 2</button>
+                                </div>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </section>
