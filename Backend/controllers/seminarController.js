@@ -7,6 +7,18 @@ const getSeminars = async (req, res) => {
     res.status(200).json(seminars);
 }
 
+const getUpcomingSeminars = async (req, res) => {
+    const today = new Date();
+    const seminars = await Seminar.find({ date: { $gte: today } }).sort({ date: 'asc' });
+    res.status(200).json(seminars);
+}
+
+const getPastSeminars = async (req, res) => {
+    const today = new Date();
+    const seminars = await Seminar.find({ date: { $lt: today } }).sort({ date: 'desc' });
+    res.status(200).json(seminars);
+}
+
 //get single seminar
 const getSeminar = async (req, res) => {
     const { id } = req.params;
@@ -26,7 +38,7 @@ const getSeminar = async (req, res) => {
 
 //create a seminar
 const createSeminar = async (req, res) => {
-    const { school, description, organization} = req.body;
+    const { school, description, organization, date} = req.body;
 
     let emptyFields = [];
 
@@ -50,7 +62,8 @@ const createSeminar = async (req, res) => {
         const seminar = await Seminar.create({
             school,
             description,
-            organization
+            organization,
+            date
         });
         res.status(200).json(seminar);
     }catch (error) {
@@ -99,5 +112,7 @@ module.exports = {
     getSeminar,
     createSeminar,
     deleteSeminar,
-    updateSeminar
+    updateSeminar,
+    getUpcomingSeminars,
+    getPastSeminars
 }
