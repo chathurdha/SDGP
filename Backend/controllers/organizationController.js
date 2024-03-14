@@ -33,7 +33,13 @@ const getOrganization = async (req, res) => {
 
 //create an organization
 const createOrganization = async (req, res) => {
-    const {name, description} = req.body;
+    const {
+        name, 
+        description,
+        phone,
+        website,
+        userID
+    } = req.body;
 
     let emptyFields = [];
 
@@ -51,7 +57,13 @@ const createOrganization = async (req, res) => {
 
     //add to database
     try{
-        const organization = await Organization.create({name, description})
+        const organization = await Organization.create({
+            name, 
+            description,
+            phone,
+            website,
+            userID
+        })
         res.status(200).json(organization)
     }catch(error){
         res.status(400).json({error: error.message});
