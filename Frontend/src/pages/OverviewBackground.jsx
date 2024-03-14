@@ -42,8 +42,8 @@ export default function OverviewBackground() {
             <section className="relative h-80">
                 <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('/src/assets/postive-caring-relationships-teachers 1.png')`, opacity: 0.7 }}></div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                    <h1 className="text-4xl font-bold mb-4">Your Header</h1>
-                    <p className="text-lg">Your Tagline</p>
+                    <h1 className="text-4xl font-bold mb-4">Header</h1>
+                    <p className="text-lg">Tagline</p>
                 </div>
             </section>
 
@@ -57,8 +57,8 @@ export default function OverviewBackground() {
                             <li key={item._id} className="bg-white p-4 flex justify-between items-center shadow-md">
                                 <h3 className="text-lg font-semibold">{item.name}</h3>
                                 <div>
-                                    <button className="mr-2 bg-blue-500 text-white px-4 py-2 rounded-md">Button 1</button>
-                                    <button className="bg-green-500 text-white px-4 py-2 rounded-md">Button 2</button>
+                                    <button className="mr-2 bg-purple-500 text-white px-4 py-2 rounded-md">Cancel</button>
+                                    <button className="bg-white text-purple-500 border border-purple-500 px-4 py-2 rounded-md">Accept</button>
                                 </div>
                             </li>
                         ))}
@@ -76,8 +76,8 @@ export default function OverviewBackground() {
                             <li key={item._id} className="bg-white p-4 flex justify-between items-center shadow-md">
                                 <h3 className="text-lg font-semibold">{item.name}</h3>
                                 <div>
-                                    <button className="mr-2 bg-blue-500 text-white px-4 py-2 rounded-md">Button 1</button>
-                                    <button className="bg-green-500 text-white px-4 py-2 rounded-md">Button 2</button>
+                                    <button className="mr-2 bg-purple-500 text-white px-4 py-2 rounded-md">Delete</button>
+                                    <button className="bg-white text-purple-500 border border-purple-500 px-4 py-2 rounded-md">Accept</button>
                                 </div>
                             </li>
                         ))}
