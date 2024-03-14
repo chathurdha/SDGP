@@ -10,6 +10,14 @@ const schoolSchema = new Schema({
     address: {
         type: String,
         required: true
+    },
+    profileColor: {
+        type: String,
+        default: null
+    },
+    profileImageAvailable: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true,
