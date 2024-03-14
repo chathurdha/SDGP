@@ -26,7 +26,12 @@ const getSchool = async (req, res) => {
 
 //create a school
 const createSchool = async (req, res) => {
-    const { name, address } = req.body;
+    const { 
+        name, 
+        address, 
+        profileColor, 
+        profileImageAvailable 
+    } = req.body;
 
     let emptyFields = [];
 
@@ -44,7 +49,12 @@ const createSchool = async (req, res) => {
 
     //add to database
     try {
-        const school = await School.create({name, address});
+        const school = await School.create({
+            name,
+            address,
+            profileColor,
+            profileImageAvailable
+        });
         res.status(200).json(school);
     }catch (error) {
         res.status(400).json({ error: error.message });

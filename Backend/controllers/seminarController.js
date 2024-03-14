@@ -38,38 +38,44 @@ const getSeminar = async (req, res) => {
 
 //create a seminar
 const createSeminar = async (req, res) => {
-    const { school, description, organization, date} = req.body;
-
-    let emptyFields = [];
-
-    if(!school) {
-        emptyFields.push('school');
+    const {
+      name,
+      description,
+      rating,
+      location,
+      status,
+      subject,
+      grade,
+      expStudentCount,
+      expTeacherCount,
+      additionalRequests,
+      expDate,
+      schoolId,
+      organizationId
+    } = req.body;
+  
+    try {
+      const seminar = await Seminar.create({
+        name,
+        description,
+        rating,
+        location,
+        status,
+        subject,
+        grade,
+        expStudentCount,
+        expTeacherCount,
+        additionalRequests,
+        expDate,
+        schoolId,
+        organizationId
+      });
+  
+      res.status(200).json(seminar);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
     }
-
-    if(!description) {
-        emptyFields.push('description');
-    }
-    if(!organization) {
-        emptyFields.push('organization');
-    }
-
-    if(emptyFields.length > 0) {
-        return res.status(400).json({error:`The following fields are required'`, emptyFields});
-    }
-
-    //add to database
-    try{
-        const seminar = await Seminar.create({
-            school,
-            description,
-            organization,
-            date
-        });
-        res.status(200).json(seminar);
-    }catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-}
+};
 
 //delete a seminar
 const deleteSeminar = async (req, res) => {
@@ -91,21 +97,21 @@ const deleteSeminar = async (req, res) => {
 //update a seminar
 const updateSeminar = async (req, res) => {
     const { id } = req.params;
-    const { school, description, date, time, location, image } = req.body;
 
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).json({error: 'No seminar with that id'});
     }
 
     const seminar = await Seminar.findOneAndUpdate({ _id: id }, {
-        ...req.body});
+        ...req.body
+    });
 
     if(!seminar){
         return res.status(400).json({error: 'No seminar with that id'});
     }
 
     res.status(200).json(seminar);
-}
+};
 
 module.exports = {
     getSeminars,
