@@ -146,17 +146,16 @@ import VolSignUP from "./components/VolSignUP";
 import SclSignUP from "./components/SclSignUP";
 import OrgSignUP from "./components/OrgSignUP";
 
-import Loading from './components/Loading';
+import Loading from "./components/Loading";
 import SignUp from "./components/Profiles/ProfSelectSignUp";
 import UserHeader from "./components/navbar/UserHeader";
-
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route index element={<Home />} />
 
-      <Route path="/past-events" element={<div>Past Events</div>} />
+      <Route path="/past-events" element={<PastEvents />} />
 
       <Route path="/contact-us" element={<div>Contact Us</div>} />
 
