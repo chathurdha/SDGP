@@ -129,6 +129,7 @@
 //
 // export default App;
 
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -146,19 +147,17 @@ import VolSignUP from "./components/VolSignUP";
 import SclSignUP from "./components/SclSignUP";
 import OrgSignUP from "./components/OrgSignUP";
 
-import Loading from './components/Loading';
+import Loading from "./components/Loading";
 import SignUp from "./components/Profiles/ProfSelectSignUp";
 import UserHeader from "./components/navbar/UserHeader";
-import OverviewBackground from "./pages/OverviewBackground";
-import RequestForm from "./RequestForm";
-import Overview from "./Overview "
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      {/* <Route index element={<Home />} /> */}
-      <Route index element={<OverviewBackground />} />
- <Route index element={<Overview/>} />
-      <Route path="/past-events" element={<div>Past Events</div>} />
+      <Route index element={<Home />} />
+
+      <Route path="/past-events" element={<PastEvents />} />
+
       <Route path="/contact-us" element={<div>Contact Us</div>} />
 
       <Route path="/about-us" element={<div>About Us</div>} />
@@ -192,3 +191,4 @@ function App() {
 }
 
 export default App;
+

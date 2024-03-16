@@ -21,7 +21,7 @@ function ChooseUs() {
         <div className="flex flex-row items-center w-[60%]">
           <div className="flex flex-col items-center">
             <img
-              className="md:block h-[30%] md:h-[10%] md:mt-10 w-[8%] object-cover "
+              className="md:block md:h-[10%] md:mt-10  object-cover hidden"
               src="/src/assets/learn.svg"
               alt=""
             />
@@ -48,7 +48,7 @@ function ChooseUs() {
           </div>
           <div className="flex flex-col items-center">
             <img
-              className="md:block h-[15%] md:h-[10%] md:mt-10 w-[8%] object-cover "
+              className="md:block md:h-[10%] md:mt-10  object-cover hidden "
               src="/src/assets/Teach.svg"
               alt=""
             />
