@@ -26,11 +26,19 @@ const getVolunteer = async (req, res) => {
 
 //create a volunteer
 const createVolunteer = async (req, res) => {
-  const { name, description } = req.body;
+  const {
+    name,
+    description,
+    volunteerId,
+    status,
+    address,
+    volunteerProfileImageAvailable,
+    volunteerProfileColor,
+  } = req.body;
 
   let emptyFields = [];
 
-  if (!name) {
+  if (!name || !name.trim()) {
     emptyFields.push("name");
   }
 
@@ -48,6 +56,11 @@ const createVolunteer = async (req, res) => {
     const volunteer = await Volunteer.create({
       name,
       description,
+      volunteerId,
+      status,
+      address,
+      volunteerProfileImageAvailable,
+      volunteerProfileColor,
     });
     res.status(200).json(volunteer);
   } catch (error) {
