@@ -7,8 +7,7 @@ const RequestForm = () => {
         <div className="md:w-full px-3 mb-6 md:mb-0">
           <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="school-name">
             School Name
-          </label>
-          <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="school-name" type="text" placeholder="Enter school name" />
+          </label>          <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="school-name" type="text" placeholder="Enter school name" />
         </div>
       </div>
 
