@@ -44,7 +44,7 @@ const FilterSeminars = ({
             
                         <SeminarActionButtons
                         onReject={() => handleUpdateStatus(seminar._id, "rejected")}
-                        onAccept={() => handleUpdateStatus(seminar._id, "accepted")}
+                        onAccept={() => handleUpdateStatus(seminar._id, "accepted" , seminar.expTeacherCount-=1)}
                         seminar={seminar}
                         seminarStatuses={seminarStatuses}
                         />
