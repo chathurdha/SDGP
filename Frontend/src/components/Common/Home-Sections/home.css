@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.font-rowdies {
+  font-family: 'Rowdies', cursive;
+}

@@ -7,10 +7,12 @@ const OrgSeminar = () => {
   const organizationPreviousPageUrl = "/PrevSeminar";
 
   return (
-    <SeminarBtns
-      upcomingPageUrl={organizationUpcomingPageUrl}
-      previousPageUrl={organizationPreviousPageUrl}
-    />
+    <>
+      <SeminarBtns
+        upcomingPageUrl={organizationUpcomingPageUrl}
+        previousPageUrl={organizationPreviousPageUrl}
+      />
+    </>
   );
 };
 

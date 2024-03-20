@@ -10,7 +10,6 @@ function Homepage() {
   return (
     <>
       <Navbar />
-      <div className=""></div>
       <Hero />
       <AboutUs />
       <ChooseUs />

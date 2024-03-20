@@ -44,7 +44,7 @@ const ProfNav = () => {
           <ul className={`flex space-x-10 items-center`}>
             <li>
               <Link
-                to="/overview"
+                to="/"
                 className={`text-${
                   isActive("/overview") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
@@ -132,7 +132,7 @@ const ProfNav = () => {
               <ul className="absolute right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg">
                 <li>
                   <Link
-                    to="/overview"
+                    to="/"
                     className={`block px-4 py-2 text-${
                       isActive("/overview") ? "custom-green" : "#1B2336"
                     } hover:text-gray-300 text-sm`}
@@ -199,4 +199,3 @@ const ProfNav = () => {
 };
 
 export default ProfNav;
-
