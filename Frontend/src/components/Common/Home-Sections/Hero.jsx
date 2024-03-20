@@ -9,10 +9,7 @@ function Hero() {
         {/* Text content */}
         <div className="h-[50%] md:w-[60%] md:h-full relative">
           <div className="p-8 pt-[30%] md:p-20 flex flex-col justify-center h-full md:pb-20">
-            <p
-              className="text-white text-2xl md:text-[2.5rem] md:leading-[150%] md:pt-40"
-              style={{ fontFamily: "Roboto" }}
-            >
+            <p className="text-white text-2xl md:text-[2.5rem] md:leading-[150%] md:pt-40 font-bold font-roboto">
               Connecting rural{" "}
               <span className="text-custom-green">Sri Lankan</span> <br />
               students with volunteers, sparking brighter futures!
@@ -23,8 +20,7 @@ function Hero() {
             {/* Link button */}
             <Link
               to="/sign-up"
-              className="w-full md:w-[20%] p-1 md:p-2 border border-white text-white text-sm text-center rounded-md font-semibold focus:outline-none relative z-10"
-              style={{ fontFamily: "Saira" }}
+              className="w-full md:w-[20%] p-1 md:p-2 border border-white text-white text-sm text-center rounded-md font-semibold font-saira focus:outline-none relative z-10"
             >
               Get started
             </Link>

@@ -11,10 +11,7 @@ function PastEvent() {
           alt=""
         />
         <div className="h-[50%] md:w-[60%] md:h-[70%] bg-blue-500 bg-opacity-15 flex flex-col justify-center items-center py-6 px-7 border rounded">
-          <h1
-            className="text-2xl font-semibold text-[#1D1D45] mb-4"
-            style={{ fontFamily: "Roboto" }}
-          >
+          <h1 className="text-2xl text-[#1D1D45] mb-4 font-roboto font-bold">
             Why choose us?
           </h1>
           <ul
@@ -37,8 +34,7 @@ function PastEvent() {
           </ul>
           <Link
             to="/"
-            className="mt-3 bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm"
-            style={{ fontFamily: "Saira" }}
+            className="mt-3 bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm font-saira"
           >
             Learn more
           </Link>

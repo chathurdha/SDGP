@@ -67,10 +67,7 @@ const Organizations = () => {
   return (
     <div className="w-screen flex justify-center items-center bg-gradient-to-t from-[#D9ECFF] to-white">
       <div className="w-[80%] h-full pb-14">
-        <h1
-          className="pt-8 text-[#323232] md:pt-16 text-3xl text-center"
-          style={{ fontFamily: "Roboto" }}
-        >
+        <h1 className="pt-8 text-[#323232] md:pt-16 text-3xl text-center font-roboto font-bold">
           Top <span className="text-custom-green">Organizations</span>
         </h1>
         <div className="flex flex-wrap justify-center mt-10">

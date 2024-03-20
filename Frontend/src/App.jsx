@@ -129,7 +129,6 @@
 //
 // export default App;
 
-
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -142,10 +141,16 @@ import Home from "./components/Common/homepage";
 import Login from "./components/Login";
 import Next from "./components/SignUP";
 import PastEvents from "./components/Common/PastEvents";
+import ContactUs from "./components/Common/ContactUs";
 import OrgOwnerCreate from "./components/OrgOwner-Create";
 import VolSignUP from "./components/VolSignUP";
 import SclSignUP from "./components/SclSignUP";
 import OrgSignUP from "./components/OrgSignUP";
+import PrevSem from "./components/Organization/section/PrevSeminar";
+import PrevSeminar from "./components/Organization/section/PrevSeminar";
+import UpSeminar from "./components/Organization/section/UpSeminar";
+import OrgSeminar from "./components/Organization/section/OrgSeminar";
+import Seminar from "./components/Profiles/SeminarBtns";
 
 import Loading from "./components/Loading";
 import SignUp from "./components/Profiles/ProfSelectSignUp";
@@ -158,7 +163,7 @@ const router = createBrowserRouter(
 
       <Route path="/past-events" element={<PastEvents />} />
 
-      <Route path="/contact-us" element={<div>Contact Us</div>} />
+      <Route path="/contact-us" element={<ContactUs />} />
 
       <Route path="/about-us" element={<div>About Us</div>} />
 
@@ -178,6 +183,11 @@ const router = createBrowserRouter(
       {/* <Route path="Organization/:id" element={<Organization />} /> */}
 
       <Route path="/next" element={<Loading />} />
+
+      <Route path="/SeminarBtns" element={<Seminar />} />
+      <Route path="/OrgSeminar" element={<OrgSeminar />} />
+      <Route path="/PrevSeminar" element={<PrevSeminar />} />
+      <Route path="/UpSeminar" element={<UpSeminar />} />
     </>
   )
 );
@@ -191,4 +201,3 @@ function App() {
 }
 
 export default App;
-

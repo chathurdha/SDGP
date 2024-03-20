@@ -4,10 +4,7 @@ function ChooseUs() {
   return (
     <div className="relative w-screen pt-15 md:min-w-[945px] flex justify-center items-center ">
       <div className="h-full w-full flex flex-col align-middle md:flex-col bg-gradient-to-r from-[#084FC7] via-[#5148f4] to-[#7F56D9] opacity-[90%] text-center items-center pb-10">
-        <h1
-          className="pt-8 text-white md:pt-16 text-3xl"
-          style={{ fontFamily: "Roboto" }}
-        >
+        <h1 className="pt-8 text-white md:pt-16 text-3xl font-roboto font-bold">
           Who are <span className="text-custom-green">WE?</span>
         </h1>
         <p className="mt-6 w-[70%] md:w-[60%] text-md font-normal text-white">
@@ -31,10 +28,7 @@ function ChooseUs() {
             >
               01. Learn
             </p>
-            <p
-              className=" w-[80%] md:w-[50%] pt-3 text-white md:pt-5 text-sm font-light"
-              style={{ fontFamily: "Saira" }}
-            >
+            <p className=" w-[80%] md:w-[50%] pt-3 text-white md:pt-5 text-sm font-light font-saira">
               Our organization is dedicated to nurturing minds through
               education, fostering critical thinking and social change.
             </p>
@@ -58,10 +52,7 @@ function ChooseUs() {
             >
               02. Teach
             </p>
-            <p
-              className=" w-[80%] md:w-[50%] pt-3 text-white md:pt-5 text-sm font-light"
-              style={{ fontFamily: "Saira" }}
-            >
+            <p className=" w-[80%] md:w-[50%] pt-3 text-white md:pt-5 text-sm font-light font-saira">
               We offer diverse learning opportunities, empowering growth and
               unlocking full potential for a brighter future.
             </p>

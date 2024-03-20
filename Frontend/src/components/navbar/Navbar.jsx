@@ -61,8 +61,7 @@ const Navbar = () => {
               to="/"
               className={`text-${
                 isActive("/") ? "custom-green" : "#0b201c"
-              } hover:text-gray-300 text-sm`}
-              style={{ fontFamily: "Saira" }}
+              } hover:text-gray-300 text-sm font-saira`}
             >
               Home
             </Link>
@@ -72,8 +71,7 @@ const Navbar = () => {
               to="/past-events"
               className={`text-${
                 isActive("/past-events") ? "custom-green" : "#0b201c"
-              } hover:text-gray-300 text-sm`}
-              style={{ fontFamily: "Saira" }}
+              } hover:text-gray-300 text-sm font-saira`}
             >
               Past Events
             </Link>
@@ -84,7 +82,6 @@ const Navbar = () => {
               className={`text-${
                 isActive("/contact-us") ? "custom-green" : "#0b201c"
               } hover:text-gray-300 text-sm`}
-              style={{ fontFamily: "Saira" }}
             >
               Contact Us
             </Link>
@@ -94,8 +91,7 @@ const Navbar = () => {
               to="/about-us"
               className={`text-${
                 isActive("/about-us") ? "custom-green" : "#0b201c"
-              } hover:text-gray-300 text-sm`}
-              style={{ fontFamily: "Saira" }}
+              } hover:text-gray-300 text-sm font-saira`}
             >
               About Us
             </Link>
@@ -106,15 +102,13 @@ const Navbar = () => {
         <div className="flex space-x-6 items-center">
           <Link
             to="/sign-in"
-            className="hidden md:block text-custom-lightb hover:text-gray-300 text-sm"
-            style={{ fontFamily: "Saira" }}
+            className="hidden md:block text-custom-lightb hover:text-gray-300 text-sm font-saira"
           >
             Sign in
           </Link>
           <Link
             to="/Select-Profile"
-            className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm"
-            style={{ fontFamily: "Saira" }}
+            className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm font-saira"
           >
             Sign up
           </Link>

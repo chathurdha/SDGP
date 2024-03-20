@@ -1,14 +1,19 @@
 import React from "react";
 import SeminarBtns from "../../Profiles/SeminarBtns";
+import Navbar from "../../navbar/ProfNav";
+import OrgPrevSemFilter from "../OrgComponent/OrgPrevSemFilter";
 
 function PrevSeminar() {
   return (
     <>
+      <Navbar />
       <SeminarBtns
         upcomingPageUrl="/UpSeminar"
         previousPageUrl="/PrevSeminar"
       />
-      <div className="w-screen h-screen">preeeee</div>
+      <div>
+        <OrgPrevSemFilter />
+      </div>
     </>
   );
 }
