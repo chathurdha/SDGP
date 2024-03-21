@@ -16,12 +16,15 @@ const PastEvents = () => {
   const extractYear = (dateString) => {
     console.log(dateString);
     // Split the date string by whitespace, assuming the format is "Month Day(th), Year"
-    const parts = dateString.split(" ");
+    const datePart = dateString.split('T')[0];
+    // const parts = dateString.split(" ");
+    const parts = datePart.split("-");
     if (parts.length !== 3) {
       console.error(`Invalid date format: ${dateString}`);
       return null; // Handle invalid date format
     }
-    return parts[2]; // Return the year part
+    // return parts[2]; // Return the year part
+    return parts[0]; // Return the year part
   };
 
   const organizationOptions = organizations.map((organization) => {
@@ -195,21 +198,11 @@ const PastEvents = () => {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto px-4 py-8 md:pt-[8%] pt-[25%]">
-        <h1 className="text-3xl font-semibold text-center mb-12">
-          Past Events
-        </h1>
-
-<<<<<<< Updated upstream
-        <div className="flex flex-wrap mb-4 justify-center ">
-          {/* Organization Select */}
-          <div className="mr-2 mt-1">
-            <OrganizationSelect
-              options={organizationOptions}
-              onSelectionChange={handleOrganizationChange}
-              selectedValue={selectedOrganization}
-              //   className="w-full md:w-1/3 px-2"
-=======
+        <div className="container mx-auto px-4 py-8 md:pt-[8%] pt-[25%]">
+          <h1 className="text-3xl font-semibold text-center mb-12">
+            Past Events
+          </h1>
+          <div className="flex flex-wrap mb-4 justify-center">
             <h1 className="text-3xl font-semibold text-center mb-12">
                 Past Events
             </h1>
@@ -254,7 +247,6 @@ const PastEvents = () => {
                 buttonName="Search"
                 style="w-28 mt-1 md:ml-4 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 onClick={handleClick}
->>>>>>> Stashed changes
             />
           </div>
 
