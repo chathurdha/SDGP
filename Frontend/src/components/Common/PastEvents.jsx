@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Navbar from "../navbar/Navbar";
+import Footer from "../Footer/Footer";
 import SearchButton from "./PastE-Sections/SearchButton";
 import OrganizationSelect from "./PastE-Sections/OrganizationSelect";
 import LocationSelect from "./PastE-Sections/LocationSelect";
@@ -259,6 +260,7 @@ const PastEvents = () => {
           {/* Matching Seminars */}
           <MatchingSeminars seminars={matchingObjects} />
         </div>
+      <Footer />
     </>
   );
 };
