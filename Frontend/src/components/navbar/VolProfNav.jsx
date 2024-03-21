@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const ProfNav = () => {
+const VolProfNav = () => {
   const location = useLocation(); // Get the current location
   const [isOpen, setIsOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -44,9 +44,9 @@ const ProfNav = () => {
           <ul className={`flex space-x-10 items-center`}>
             <li>
               <Link
-                to="/OrgOverview"
+                to="/"
                 className={`text-${
-                  isActive("/OrgOverview") ? "custom-green" : "#1B2336"
+                  isActive("/") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -61,42 +61,18 @@ const ProfNav = () => {
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
-                Received Seminar Requests
+                Recieved seminar Requests
               </Link>
             </li>
             <li>
               <Link
-                to="/contact-us"
+                to="/"
                 className={`text-${
-                  isActive("/contact-us") ? "custom-green" : "#1B2336"
+                  isActive("/") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
-                Received Volunteer Requests
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/UpSeminar"
-                className={`text-${
-                  isActive("/UpSeminar") || isActive("/PrevSeminar")
-                    ? "custom-green"
-                    : "#1B2336"
-                } hover:text-gray-300 text-sm`}
-                style={{ fontFamily: "Saira" }}
-              >
-                Seminars
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about-us"
-                className={`text-${
-                  isActive("/about-us") ? "custom-green" : "#1B2336"
-                } hover:text-gray-300 text-sm`}
-                style={{ fontFamily: "Saira" }}
-              >
-                Statistics
+                Upcoming Seminars
               </Link>
             </li>
           </ul>
@@ -132,9 +108,9 @@ const ProfNav = () => {
               <ul className="absolute right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg">
                 <li>
                   <Link
-                    to="/OrgOverview"
+                    to="/"
                     className={`block px-4 py-2 text-${
-                      isActive("/OrgOverview") ? "custom-green" : "#1B2336"
+                      isActive("/") ? "custom-green" : "#1B2336"
                     } hover:text-gray-300 text-sm`}
                     onClick={() => handleLinkClick("Overview")}
                   >
@@ -149,44 +125,20 @@ const ProfNav = () => {
                     } hover:text-gray-300 text-sm`}
                     onClick={() => handleLinkClick("Received Seminar Requests")}
                   >
-                    Received Seminar Requests
+                    Recieved seminar Requests
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/contact-us"
+                    to="/"
                     className={`block px-4 py-2 text-${
-                      isActive("/contact-us") ? "custom-green" : "#1B2336"
+                      isActive("/") ? "custom-green" : "#1B2336"
                     } hover:text-gray-300 text-sm`}
                     onClick={() =>
                       handleLinkClick("Received Volunteer Requests")
                     }
                   >
-                    Received Volunteer Requests
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/UpSeminar"
-                    className={`block px-4 py-2 text-${
-                      isActive("/UpSeminar") || isActive("/PrevSeminar")
-                        ? "custom-green"
-                        : "#1B2336"
-                    } hover:text-gray-300 text-sm`}
-                    onClick={() => handleLinkClick("Seminars")}
-                  >
-                    Seminars
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/about-us"
-                    className={`block px-4 py-2 text-${
-                      isActive("/about-us") ? "custom-green" : "#1B2336"
-                    } hover:text-gray-300 text-sm`}
-                    onClick={() => handleLinkClick("Statistics")}
-                  >
-                    Statistics
+                    Upcoming Seminars
                   </Link>
                 </li>
               </ul>
@@ -198,4 +150,4 @@ const ProfNav = () => {
   );
 };
 
-export default ProfNav;
+export default VolProfNav;

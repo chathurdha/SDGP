@@ -1,8 +1,7 @@
 import React from "react";
-import PrevSeminar from "./section/PrevSeminar"
-import Overview from "./section/overview";
+import PrevSeminar from "./section/PrevSeminar";
+import Overview from "./section/OrgOverview";
 // import Seminar from "./section/Seminar";
-//import OrgProfilePage from "../../pages/OrgProfilePage";
 
 function organization() {
   return (

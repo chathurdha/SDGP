@@ -151,6 +151,7 @@ import PrevSeminar from "./components/Organization/section/PrevSeminar";
 import UpSeminar from "./components/Organization/section/UpSeminar";
 import OrgSeminar from "./components/Organization/section/OrgSeminar";
 import Seminar from "./components/Profiles/SeminarBtns";
+import OrgOverview from "./components/Organization/section/OrgOverview";
 
 import Loading from "./components/Loading";
 import SignUp from "./components/Profiles/ProfSelectSignUp";
@@ -184,10 +185,15 @@ const router = createBrowserRouter(
 
       <Route path="/next" element={<Loading />} />
 
+      {/* organization */}
       <Route path="/SeminarBtns" element={<Seminar />} />
       <Route path="/OrgSeminar" element={<OrgSeminar />} />
       <Route path="/PrevSeminar" element={<PrevSeminar />} />
       <Route path="/UpSeminar" element={<UpSeminar />} />
+      <Route path="/OrgOverview" element={<OrgOverview />} />
+
+    
+
     </>
   )
 );
