@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const VolProfNav = () => {
+const ProfNav = () => {
   const location = useLocation(); // Get the current location
   const [isOpen, setIsOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -61,7 +61,7 @@ const VolProfNav = () => {
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
-                Recieved seminar Requests
+                Send Seminar Requests
               </Link>
             </li>
             <li>
@@ -72,7 +72,20 @@ const VolProfNav = () => {
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
-                Upcoming Seminars
+                Upcoming Seminar
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className={`text-${
+                  isActive("/")
+                    ? "custom-green"
+                    : "#1B2336"
+                } hover:text-gray-300 text-sm`}
+                style={{ fontFamily: "Saira" }}
+              >
+                Send Reviews
               </Link>
             </li>
           </ul>
@@ -123,9 +136,9 @@ const VolProfNav = () => {
                     className={`block px-4 py-2 text-${
                       isActive("/") ? "custom-green" : "#1B2336"
                     } hover:text-gray-300 text-sm`}
-                    onClick={() => handleLinkClick("Received Seminar Requests")}
+                    onClick={() => handleLinkClick("Send Seminar Requests")}
                   >
-                    Recieved seminar Requests
+                    Send Seminar Requests
                   </Link>
                 </li>
                 <li>
@@ -135,10 +148,23 @@ const VolProfNav = () => {
                       isActive("/") ? "custom-green" : "#1B2336"
                     } hover:text-gray-300 text-sm`}
                     onClick={() =>
-                      handleLinkClick("Upcoming Seminars")
+                      handleLinkClick("Upcoming Seminar")
                     }
                   >
-                    Upcoming Seminars
+                    Upcoming Seminar
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/"
+                    className={`block px-4 py-2 text-${
+                      isActive("/") 
+                        ? "custom-green"
+                        : "#1B2336"
+                    } hover:text-gray-300 text-sm`}
+                    onClick={() => handleLinkClick("Send Reviews")}
+                  >
+                    Send Reviews
                   </Link>
                 </li>
               </ul>
@@ -150,4 +176,4 @@ const VolProfNav = () => {
   );
 };
 
-export default VolProfNav;
+export default ProfNav;
