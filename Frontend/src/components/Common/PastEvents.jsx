@@ -7,6 +7,7 @@ import OrganizationSelect from "./PastE-Sections/OrganizationSelect";
 import LocationSelect from "./PastE-Sections/LocationSelect";
 import YearSelect from "./PastE-Sections/YearSelect";
 import MatchingSeminars from "./PastE-Sections/MatchingSeminars";
+import Footer from "../Footer/Footer";
 
 const PastEvents = () => {
   const [organizations, setOrganizations] = useState([]);
@@ -251,6 +252,7 @@ const PastEvents = () => {
         {/* Matching Seminars */}
         <MatchingSeminars seminars={matchingObjects} />
       </div>
+      <Footer />
     </>
   );
 };
