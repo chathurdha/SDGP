@@ -151,11 +151,14 @@ import PrevSeminar from "./components/Organization/section/PrevSeminar";
 import UpSeminar from "./components/Organization/section/UpSeminar";
 import OrgSeminar from "./components/Organization/section/OrgSeminar";
 import Seminar from "./components/Profiles/SeminarBtns";
-import OrgOverview from "./components/Organization/section/OrgOverview";
+import OrgOverviewPg from "./pages/OrgOverviewPg";
+import OrgReceivedSeminarRequests from "./pages/ReceivedSeminarRequests";
+import OrgReceivedVolunteerRequests from "./pages/ReceivedVolunteerRequests";
+import Statistics from "./pages/Statistics";
 
 import Loading from "./components/Loading";
 import SignUp from "./components/Profiles/ProfSelectSignUp";
-import UserHeader from "./components/navbar/UserHeader";
+import UserHeader from "./components/Header/OrgHeader";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -190,10 +193,13 @@ const router = createBrowserRouter(
       <Route path="/OrgSeminar" element={<OrgSeminar />} />
       <Route path="/PrevSeminar" element={<PrevSeminar />} />
       <Route path="/UpSeminar" element={<UpSeminar />} />
-      <Route path="/OrgOverview" element={<OrgOverview />} />
-
-    
-
+      <Route path="/OrgOverview" element={<OrgOverviewPg />} />
+      <Route path="/OrgRecSeminar" element={<OrgReceivedSeminarRequests />} />
+      <Route
+        path="/OrgRecVolunteer"
+        element={<OrgReceivedVolunteerRequests />}
+      />
+      <Route path="/OrgStatistics" element={<Statistics />} />
     </>
   )
 );

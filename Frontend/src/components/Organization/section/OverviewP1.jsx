@@ -1,10 +1,8 @@
 import React from "react";
-import ProfNav from "../../navbar/VolProfNav";
 
 function OrgOverview() {
   return (
     <>
-      <ProfNav />
       <div className="pt-[4%] relative">
         <div className="mt-[15%] flex justify-center items-center relative">
           <img
@@ -26,6 +24,7 @@ function OrgOverview() {
           </div>
         </div>
       </div>
+
       <div className="pt-[20%] pl-[12%] relative"></div>
     </>
   );

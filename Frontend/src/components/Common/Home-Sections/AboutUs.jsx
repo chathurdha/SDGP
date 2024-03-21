@@ -84,6 +84,7 @@ import MatchingSeminars from "../PastE-Sections/MatchingSeminars";
 
 function AboutUs() {
   const [seminarsData, setSeminarsData] = useState([]);
+  const firstThreeElements = seminarsData.slice(0, 3);
 
   useEffect(() => {
     const fetchSeminars = async () => {
@@ -125,7 +126,7 @@ function AboutUs() {
           </div>
         </div>
         <div className="mt-8 container mx-auto px-4 py-8">
-          <MatchingSeminars seminars={seminarsData} />
+          <MatchingSeminars seminars={firstThreeElements} />
         </div>
         <div className="flex justify-center mb-10">
           <Link
