@@ -8,8 +8,9 @@ import {isMobile} from 'react-device-detect';
 const SeminarHeader = ({
     seminar,
     handleToggle,
-    rotatedSeminarIds
+    rotatedSeminarIds,
     }) => {
+
         return (
             <div
                 className={`m-2 grid md:grid-cols-6 lg:grid-cols-10 text-left ${
@@ -17,9 +18,10 @@ const SeminarHeader = ({
                 }`}
                 onClick={isMobile ? () => handleToggle(seminar._id) : null}
             >
-                <div className={`md:w-14 md:h-14 w-12 h-12 place-self-center rounded-full flex justify-center items-center md:mr-10 md:mb-0 mb-2 ${
-                    !seminar.schoolProfileColor ? 'bg-green-400' : `${seminar.schoolProfileColor}`
-                }`}>
+                <div 
+                    className={`md:w-14 md:h-14 w-12 h-12 place-self-center rounded-full flex justify-center items-center md:mr-10 md:mb-0 mb-2`}
+                    style={{ backgroundColor: seminar.schoolProfileColor }}
+                >
                     {seminar.schoolProfileImageAvailable ? (
                     <ProfileImage id={seminar.schoolId} />
                     ) : (
