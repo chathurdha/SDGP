@@ -4,15 +4,19 @@ const Schema = mongoose.Schema;
 
 const seminarSchema = new Schema({
     name: {
-        type: String
+        type: String,
+        required: true,
+        default: "Seminar"
     },
     description: {
         type: String,
-        required: true
+        required: true,
+        default: "This is a seminar"
     },
     rating: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
     location: {
         type: String,
@@ -20,14 +24,15 @@ const seminarSchema = new Schema({
     },
     status: {
         type: String,
-        required: true
+        required: true,
+        default: "pending"
     },
     subject: {
         type: String,
         required: true
     },
     grade: {
-        type: String,
+        type: Number,
         required: true
     },
     expStudentCount: {
@@ -40,7 +45,8 @@ const seminarSchema = new Schema({
     },
     additionalRequests: {
         type: String,
-        required: true
+        required: true,
+        default: "No additional requests"
     },
     expDate: {
         type: String,
