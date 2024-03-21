@@ -202,94 +202,63 @@ const PastEvents = () => {
           <h1 className="text-3xl font-semibold text-center mb-12">
             Past Events
           </h1>
-          <div className="flex flex-wrap mb-4 justify-center">
-            <h1 className="text-3xl font-semibold text-center mb-12">
-                Past Events
-            </h1>
 
-            <div className="flex flex-wrap mb-4 justify-center">
-                {/* Organization Select */}
-                <div className='mr-2 mt-1'>
-                    <OrganizationSelect
+          <div className="flex flex-wrap mb-4 justify-center">
+              {/* Organization Select */}
+              <div className='mr-2 mt-1'>
+                  <OrganizationSelect
                     options={organizationOptions}
                     onSelectionChange={handleOrganizationChange}
                     selectedValue={selectedOrganization}
                     normalStyles="shadow-none rounded-md w-52"
                     placeholderValue="Organization"
-                    //   className="w-full md:w-1/3 px-2"
-                    />
-                </div>
-        
-                {/* Location Select */}
-                <div className='mr-2 mt-1'>
-                    <LocationSelect
+                  />
+              </div>
+      
+              {/* Location Select */}
+              <div className='mr-2 mt-1'>
+                  <LocationSelect
                     options={locationOptions}
                     onSelectionChange={handleLocationChange}
                     selectedValue={selectedLocation}
                     normalStyles="shadow-none rounded-md w-52"
                     placeholderValue="Location"
-                    />
-                </div>
-        
-                {/* Year Select */}
-                <div className='mr-2 mt-1'>
-                    <YearSelect
+                  />
+              </div>
+      
+              {/* Year Select */}
+              <div className='mr-2 mt-1'>
+                  <YearSelect
                     options={yearOptions}
                     onSelectionChange={handleYearChange}
                     selectedValue={selectedYear}
                     normalStyles="shadow-none rounded-md w-52"
                     placeholderValue="Year"
-                    />
-                </div>
+                  />
+              </div>
 
-                {/* Search Button */}
-                <SearchButton
+              {/* Search Button */}
+              <SearchButton
                 buttonName="Search"
                 style="w-28 mt-1 md:ml-4 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 onClick={handleClick}
-            />
+              />
           </div>
 
-          {/* Location Select */}
-          <div className="mr-2 mt-1">
-            <LocationSelect
-              options={locationOptions}
-              onSelectionChange={handleLocationChange}
-              selectedValue={selectedLocation}
-            />
+          <div className="flex justify-center">
+            <div className="pt-4 pb-12 md:w-2/3 lg:w-1/2 text-center">
+              <p>
+                We believe that we can act a major role in the journey of creating
+                a better society. During the journey we had gone through so many
+                milestones. We believe this investment will impact the future of
+                this country.
+              </p>
+            </div>
           </div>
 
-          {/* Year Select */}
-          <div className="mr-2 mt-1">
-            <YearSelect
-              options={yearOptions}
-              onSelectionChange={handleYearChange}
-              selectedValue={selectedYear}
-            />
-          </div>
-
-          {/* Search Button */}
-          <SearchButton
-            buttonName="Search"
-            style="w-28 mt-1 md:ml-4 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            onClick={handleClick}
-          />
+          {/* Matching Seminars */}
+          <MatchingSeminars seminars={matchingObjects} />
         </div>
-
-        <div className="flex justify-center">
-          <div className="pt-4 pb-12 md:w-2/3 lg:w-1/2 text-center">
-            <p>
-              We believe that we can act a major role in the journey of creating
-              a better society. During the journey we had gone through so many
-              milestones. We believe this investment will impact the future of
-              this country.
-            </p>
-          </div>
-        </div>
-
-        {/* Matching Seminars */}
-        <MatchingSeminars seminars={matchingObjects} />
-      </div>
     </>
   );
 };
