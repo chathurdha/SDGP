@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Navbar from "../navbar/Navbar";
-import Footer from "../Footer/Footer";
-import SearchButton from "./PastE-Sections/SearchButton";
-import OrganizationSelect from "./PastE-Sections/OrganizationSelect";
-import LocationSelect from "./PastE-Sections/LocationSelect";
-import YearSelect from "./PastE-Sections/YearSelect";
-import MatchingSeminars from "./PastE-Sections/MatchingSeminars";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import SearchButton from "../../components/Common/PastE-Sections/SearchButton";
+import OrganizationSelect from "../../components/Common/PastE-Sections/OrganizationSelect";
+import LocationSelect from "../../components/Common/PastE-Sections/LocationSelect";
+import YearSelect from "../../components/Common/PastE-Sections/YearSelect";
+import MatchingSeminars from "../../components/Common/PastE-Sections/MatchingSeminars";
 
 const PastEvents = () => {
   const [organizations, setOrganizations] = useState([]);
@@ -17,7 +17,7 @@ const PastEvents = () => {
   const extractYear = (dateString) => {
     console.log(dateString);
     // Split the date string by whitespace, assuming the format is "Month Day(th), Year"
-    const datePart = dateString.split('T')[0];
+    const datePart = dateString.split("T")[0];
     // const parts = dateString.split(" ");
     const parts = datePart.split("-");
     if (parts.length !== 3) {
@@ -199,67 +199,67 @@ const PastEvents = () => {
   return (
     <>
       <Navbar />
-        <div className="container mx-auto px-4 py-8 md:pt-[8%] pt-[25%]">
-          <h1 className="text-3xl font-semibold text-center mb-12">
-            Past Events
-          </h1>
+      <div className="container mx-auto px-4 py-8 md:pt-[8%] pt-[25%]">
+        <h1 className="text-3xl font-semibold text-center mb-12">
+          Past Events
+        </h1>
 
-          <div className="flex flex-wrap mb-4 justify-center">
-              {/* Organization Select */}
-              <div className='mr-2 mt-1'>
-                  <OrganizationSelect
-                    options={organizationOptions}
-                    onSelectionChange={handleOrganizationChange}
-                    selectedValue={selectedOrganization}
-                    normalStyles="shadow-none rounded-md w-52"
-                    placeholderValue="Organization"
-                  />
-              </div>
-      
-              {/* Location Select */}
-              <div className='mr-2 mt-1'>
-                  <LocationSelect
-                    options={locationOptions}
-                    onSelectionChange={handleLocationChange}
-                    selectedValue={selectedLocation}
-                    normalStyles="shadow-none rounded-md w-52"
-                    placeholderValue="Location"
-                  />
-              </div>
-      
-              {/* Year Select */}
-              <div className='mr-2 mt-1'>
-                  <YearSelect
-                    options={yearOptions}
-                    onSelectionChange={handleYearChange}
-                    selectedValue={selectedYear}
-                    normalStyles="shadow-none rounded-md w-52"
-                    placeholderValue="Year"
-                  />
-              </div>
-
-              {/* Search Button */}
-              <SearchButton
-                buttonName="Search"
-                style="w-28 mt-1 md:ml-4 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                onClick={handleClick}
-              />
+        <div className="flex flex-wrap mb-4 justify-center">
+          {/* Organization Select */}
+          <div className="mr-2 mt-1">
+            <OrganizationSelect
+              options={organizationOptions}
+              onSelectionChange={handleOrganizationChange}
+              selectedValue={selectedOrganization}
+              normalStyles="shadow-none rounded-md w-52"
+              placeholderValue="Organization"
+            />
           </div>
 
-          <div className="flex justify-center">
-            <div className="pt-4 pb-12 md:w-2/3 lg:w-1/2 text-center">
-              <p>
-                We believe that we can act a major role in the journey of creating
-                a better society. During the journey we had gone through so many
-                milestones. We believe this investment will impact the future of
-                this country.
-              </p>
-            </div>
+          {/* Location Select */}
+          <div className="mr-2 mt-1">
+            <LocationSelect
+              options={locationOptions}
+              onSelectionChange={handleLocationChange}
+              selectedValue={selectedLocation}
+              normalStyles="shadow-none rounded-md w-52"
+              placeholderValue="Location"
+            />
           </div>
 
-          {/* Matching Seminars */}
-          <MatchingSeminars seminars={matchingObjects} />
+          {/* Year Select */}
+          <div className="mr-2 mt-1">
+            <YearSelect
+              options={yearOptions}
+              onSelectionChange={handleYearChange}
+              selectedValue={selectedYear}
+              normalStyles="shadow-none rounded-md w-52"
+              placeholderValue="Year"
+            />
+          </div>
+
+          {/* Search Button */}
+          <SearchButton
+            buttonName="Search"
+            style="w-28 mt-1 md:ml-4 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            onClick={handleClick}
+          />
         </div>
+
+        <div className="flex justify-center">
+          <div className="pt-4 pb-12 md:w-2/3 lg:w-1/2 text-center">
+            <p>
+              We believe that we can act a major role in the journey of creating
+              a better society. During the journey we had gone through so many
+              milestones. We believe this investment will impact the future of
+              this country.
+            </p>
+          </div>
+        </div>
+
+        {/* Matching Seminars */}
+        <MatchingSeminars seminars={matchingObjects} />
+      </div>
       <Footer />
     </>
   );

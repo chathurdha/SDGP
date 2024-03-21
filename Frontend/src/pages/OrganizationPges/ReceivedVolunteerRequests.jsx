@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import format from "date-fns/format";
 import isToday from "date-fns/isToday";
 import axios from "axios";
-import ProfNav from "../components/navbar/ProfNav";
-import OrgHeader from "../components/Header/OrgHeader";
+import ProfNav from "../../components/navbar/ProfNav";
+import OrgHeader from "../../components/Header/OrgHeader";
 
-import FilterVolunteers from "../components/ReceivedVolunteerRequests/FilterVolunteers";
-import Footer from "../components/Footer/Footer";
+import FilterVolunteers from "../../components/ReceivedVolunteerRequests/FilterVolunteers";
+import Footer from "../../components/Footer/Footer";
 
 const ReceivedSeminarRequests = () => {
   const [volunteers, setVolunteers] = useState([]);

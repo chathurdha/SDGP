@@ -1,5 +1,5 @@
 import React from "react";
-import SeminarBtns from "../../Profiles/SeminarBtns";
+import SeminarBtns from "../../components/Profiles/SeminarBtns";
 
 function UpSeminar() {
   return (
