@@ -20,7 +20,7 @@ const FilterSeminars = ({
                 filterSeminars && filterSeminars.map((seminar) => (
                     <div
                         key={seminar._id}
-                        className={`seminar rounded-lg border border-gray-200 shadow-md p-4 mb-4 justify-between sm:flex flex-col ${
+                        className={`md:min-h-36 rounded-lg border border-gray-200 shadow-md p-4 mb-4 justify-between sm:flex flex-col ${
                         !rotatedSeminarIds.includes(seminar._id) ? "md:flex-row" : ""
                         }`}
                     >
