@@ -1,9 +1,9 @@
 import React from "react";
-import SeminarBtns from "../../Profiles/SeminarBtns";
-import Navbar from "../../navbar/ProfNav";
-import OrgPrevSemFilter from "../OrgComponent/OrgPrevSemFilter";
-import OrgHeader from "../../Header/OrgHeader";
-import Footer from "../../Footer/Footer";
+import SeminarBtns from "../../components/Profiles/SeminarBtns";
+import Navbar from "../../components/navbar/ProfNav";
+import OrgPrevSemFilter from "../../components/Organization/OrgComponent/OrgPrevSemFilter";
+import OrgHeader from "../../components/Header/OrgHeader";
+import Footer from "../../components/Footer/Footer";
 
 function PrevSeminar() {
   return (

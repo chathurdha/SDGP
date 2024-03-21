@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import BarGraph from "../components/BarGraph";
-import DoughnutChart from "../components/DoughnutChart";
-import ProfNav from "../components/navbar/ProfNav";
-import OrgHeader from "../components/Header/OrgHeader";
-import Footer from "../components/Footer/Footer";
+import BarGraph from "../../components/BarGraph";
+import DoughnutChart from "../../components/DoughnutChart";
+import ProfNav from "../../components/navbar/ProfNav";
+import OrgHeader from "../../components/Header/OrgHeader";
+import Footer from "../../components/Footer/Footer";
 
 const Statistics = () => {
   const [organizations, setOrganizations] = useState([]);

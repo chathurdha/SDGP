@@ -137,24 +137,24 @@ import {
 } from "react-router-dom";
 import { ClerkProvider, SignedIn } from "@clerk/clerk-react";
 
-import Home from "./components/Common/Homepage";
+import Home from "./pages/CommanPages/Homepage";
 import Login from "./components/Login";
 import Next from "./components/SignUP";
-import PastEvents from "./components/Common/PastEvents";
-import ContactUs from "./components/Common/ContactUs";
+import PastEvents from "./pages/CommanPages/PastEvents";
+import ContactUs from "./pages/CommanPages/ContactUs";
 import OrgOwnerCreate from "./components/OrgOwner-Create";
 import VolSignUP from "./components/VolSignUP";
 import SclSignUP from "./components/SclSignUP";
 import OrgSignUP from "./components/OrgSignUP";
-import PrevSem from "./components/Organization/section/PrevSeminar";
-import PrevSeminar from "./components/Organization/section/PrevSeminar";
-import UpSeminar from "./components/Organization/section/UpSeminar";
+import PrevSem from "./pages/OrganizationPges/PrevSeminar";
+import PrevSeminar from "./pages/OrganizationPges/PrevSeminar";
+import UpSeminar from "./pages/OrganizationPges/UpSeminar";
 import OrgSeminar from "./components/Organization/section/OrgSeminar";
 import Seminar from "./components/Profiles/SeminarBtns";
-import OrgOverviewPg from "./pages/OrgOverviewPg";
-import OrgReceivedSeminarRequests from "./pages/ReceivedSeminarRequests";
-import OrgReceivedVolunteerRequests from "./pages/ReceivedVolunteerRequests";
-import Statistics from "./pages/Statistics";
+import OrgOverviewPg from "./pages/OrganizationPges/OrgOverviewPg";
+import OrgReceivedSeminarRequests from "./pages/OrganizationPges/ReceivedSeminarRequests";
+import OrgReceivedVolunteerRequests from "./pages/OrganizationPges/ReceivedVolunteerRequests";
+import Statistics from "./pages/OrganizationPges/Statistics";
 
 import Loading from "./components/Loading";
 import SignUp from "./components/Profiles/ProfSelectSignUp";

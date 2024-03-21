@@ -6,12 +6,12 @@ import axios from 'axios';
 //imp
 // import { useUser } from '@clerk/clerk-react';
 
-import OrganizationSelect from '../components/Common/PastE-Sections/OrganizationSelect';
-import CheckboxInput from '../components/RequestForm/CheckboxInput';
-import TextInput from '../components/RequestForm/TextInput';
-import TextAreaInput from '../components/RequestForm/TextAreaInput';
-import DatePickerInput from '../components/RequestForm/DatePickerInput';
-import NumberInput from '../components/RequestForm/NumberInput';
+import OrganizationSelect from '../../components/Common/PastE-Sections/OrganizationSelect';
+import CheckboxInput from '../../components/RequestForm/CheckboxInput';
+import TextInput from '../../components/RequestForm/TextInput';
+import TextAreaInput from '../../components/RequestForm/TextAreaInput';
+import DatePickerInput from '../../components/RequestForm/DatePickerInput';
+import NumberInput from '../../components/RequestForm/NumberInput';
 
 const RequestForm = () => {
 
