@@ -1,11 +1,16 @@
 import React from "react";
 import {isMobile} from 'react-device-detect';
+import ProcessDate from './ProcessDate';
 
 const SeminarDetails = ({
     seminar,
     rotated,
     handleToggle,
     }) => {
+
+        // const datePart = seminar.expDate.split('T')[0];
+        const { formattedDate } = ProcessDate(seminar);
+
         return (
             rotated && (
                 <div
@@ -17,7 +22,9 @@ const SeminarDetails = ({
                     <div className="">    
                         <div className="flex flex-col md:flex-row mb-4 md:mb-1">
                             <p className="font-bold mr-2">Expected Seminar Date:</p>
-                            <p className="md:text-left">{seminar.expDate}</p>
+                            {/* <p className="md:text-left">{seminar.expDate}</p> */}
+                            {/* <p className="md:text-left">{datePart}</p> */}
+                            <p className="md:text-left">{formattedDate}</p>
                         </div>
                         <div className="flex flex-col md:flex-row mb-4 md:mb-1">
                             <p className="font-bold mr-2">Subject:</p>
