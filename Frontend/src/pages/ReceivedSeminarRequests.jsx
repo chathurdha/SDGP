@@ -7,6 +7,7 @@ import FilterSeminars from '../components/ReceivedSeminarRequests/FilterSeminars
 
 const ReceivedSeminarRequests = () => {
 
+
     const [groupedSeminars, setGroupedSeminars] = useState({});
     const [isLoading, setIsLoading] = useState(true); // Initial loading state
     const [combinedArray, setCombinedArray] = useState([]); // Initial combined array state
@@ -60,6 +61,7 @@ const ReceivedSeminarRequests = () => {
                 switch (apiUrl) {
                 case 'http://localhost:4000/api/schools':
                     setSchools(response.data);
+                    console.log(response.data);
                     break;
                 case 'http://localhost:4000/api/seminars':
                     setSeminars(response.data);

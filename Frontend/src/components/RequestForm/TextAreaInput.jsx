@@ -10,7 +10,7 @@ const TextAreaInput = ({
     return (
         <div className='mb-2'>
         <div className='input-field md:w-full px-3'>
-            <label className="block text-grey-darker text-sm font-semibold mb-2">{label}</label>
+            {/* <label className="block text-grey-darker text-sm font-semibold mb-2">{label}</label> */}
             <textarea
             className='appearance-none block w-full bg-gray-lighter text-gray-darker border border-gray-lighter rounded py-3 px-4'
             id={name}
