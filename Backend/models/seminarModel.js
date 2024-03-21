@@ -52,6 +52,16 @@ const seminarSchema = new Schema({
         type: String,
         required: true
     },
+    volunteers: [
+        {
+            volunteerId: {
+                type: mongoose.Schema.Types.ObjectId,
+                // type: String,
+                ref: 'Volunteer', // Reference to the Volunteer model
+            }
+        }
+    ],
+
     schoolId: {
         type: mongoose.SchemaTypes.ObjectId,
         required: true
