@@ -2,15 +2,21 @@ import React, { useEffect, useState } from 'react';
 import format from 'date-fns/format';
 import isToday from 'date-fns/isToday';
 import axios from 'axios';
+//imp
+// import { useUser } from '@clerk/clerk-react';
 
 import FilterSeminars from '../components/ReceivedSeminarRequests/FilterSeminars';
 
 const AcceptSeminarRequests = () => {
 
+    //imp
+    // const user = useUser().user;
+
     const [groupedSeminars, setGroupedSeminars] = useState({});
     const [isLoading, setIsLoading] = useState(true); // Initial loading state
     const [combinedArray, setCombinedArray] = useState([]); // Initial combined array state
     const [seminars, setSeminars] = useState([]);
+    const [volunteers, setVolunteers] = useState([]);
     const [schools, setSchools] = useState([]);
     const [rotatedSeminarIds, setRotatedSeminarIds] = useState([]);
     const [seminarStatuses, setSeminarStatuses] = useState({});
@@ -25,12 +31,20 @@ const AcceptSeminarRequests = () => {
         });
 
         try {
+
+            //imp
+            // const volunteer = filter((volunteer) => volunteer.userId === user?.id);
+
             const apiUrl = `http://localhost:4000/api/seminars/${id}`;
 
             const response = await axios.patch(apiUrl, {
-                status: newStatus, // Update only the "status" property
-                expTeacherCount: newExpTeaCount
-
+                // status: newStatus, // Update only the "status" property
+                expTeacherCount: newExpTeaCount,
+                volunteers: {
+                    volunteerId: "616c81d8f6c4b5c2a0c5b4d"
+                    //imp
+                    // volunteerId: volunteers[0]._id
+                }
             });
 
             if (response.status !== 200) {
@@ -66,6 +80,9 @@ const AcceptSeminarRequests = () => {
                     case 'http://localhost:4000/api/seminars':
                         setSeminars(response.data);
                         break;
+                    case 'http://localhost:4000/api/volunteers':
+                        setVolunteers(response.data);
+                        break;
                     default:
                         console.warn('Unexpected API URL:', apiUrl);
                 }
@@ -78,6 +95,7 @@ const AcceptSeminarRequests = () => {
 
         fetchData('http://localhost:4000/api/schools');
         fetchData('http://localhost:4000/api/seminars');
+        fetchData('http://localhost:4000/api/volunteers');
 
     }, []);
 
