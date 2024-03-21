@@ -23,11 +23,11 @@ const DoughnutChart = () => {
   ];
 
   const reviewAnalysis = [
-    {positive: 60, negative: 33, neutral: 7, seminarId: 1},
-    {positive: 45, negative: 30, neutral: 25, seminarId: 2},
-    {positive: 70, negative: 20, neutral: 10, seminarId: 3},
-    {positive: 80, negative: 10, neutral: 10, seminarId: 4},
-  ];
+    {review: "this was a bad seminar", positive: 60, negative: 33, neutral: 7, seminarId: 1},
+    {review: "this was a good seminar", positive: 80, negative: 20, neutral: 0, seminarId: 2},
+    {review: "this was a bad seminar", positive: 60, negative: 33, neutral: 7, seminarId: 3},
+    {review: "this was a good seminar", positive: 80, negative: 20, neutral: 0, seminarId: 4}
+  ]
 
   // filtering the seminars
   const completedSeminars = seminars.filter((seminar) => seminar.reviewSubmission === "submitted");
