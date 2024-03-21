@@ -200,6 +200,7 @@ const PastEvents = () => {
           Past Events
         </h1>
 
+<<<<<<< Updated upstream
         <div className="flex flex-wrap mb-4 justify-center ">
           {/* Organization Select */}
           <div className="mr-2 mt-1">
@@ -208,6 +209,52 @@ const PastEvents = () => {
               onSelectionChange={handleOrganizationChange}
               selectedValue={selectedOrganization}
               //   className="w-full md:w-1/3 px-2"
+=======
+            <h1 className="text-3xl font-semibold text-center mb-12">
+                Past Events
+            </h1>
+
+            <div className="flex flex-wrap mb-4 justify-center">
+                {/* Organization Select */}
+                <div className='mr-2 mt-1'>
+                    <OrganizationSelect
+                    options={organizationOptions}
+                    onSelectionChange={handleOrganizationChange}
+                    selectedValue={selectedOrganization}
+                    normalStyles="shadow-none rounded-md w-52"
+                    placeholderValue="Organization"
+                    //   className="w-full md:w-1/3 px-2"
+                    />
+                </div>
+        
+                {/* Location Select */}
+                <div className='mr-2 mt-1'>
+                    <LocationSelect
+                    options={locationOptions}
+                    onSelectionChange={handleLocationChange}
+                    selectedValue={selectedLocation}
+                    normalStyles="shadow-none rounded-md w-52"
+                    placeholderValue="Location"
+                    />
+                </div>
+        
+                {/* Year Select */}
+                <div className='mr-2 mt-1'>
+                    <YearSelect
+                    options={yearOptions}
+                    onSelectionChange={handleYearChange}
+                    selectedValue={selectedYear}
+                    normalStyles="shadow-none rounded-md w-52"
+                    placeholderValue="Year"
+                    />
+                </div>
+
+                {/* Search Button */}
+                <SearchButton
+                buttonName="Search"
+                style="w-28 mt-1 md:ml-4 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                onClick={handleClick}
+>>>>>>> Stashed changes
             />
           </div>
 

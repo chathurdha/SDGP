@@ -2,16 +2,18 @@ import React from "react";
 import Select from "react-select";
 import { CustomFilterStyles } from "../../CustomFilterStyles";
 
-const LocationSelect = ({ options, onSelectionChange, selectedValue }) => {
+const LocationSelect = ({ options, onSelectionChange, selectedValue, normalStyles, placeholderValue }) => {
   return (
     <Select
       options={options}
-      placeholder="Location"
+      // placeholder="Location"
+      placeholder={placeholderValue}
       isSearchable
       isClearable
       noOptionsMessage={() => "Not Available"}
       styles={CustomFilterStyles}
-      className="shadow-none rounded-md w-52"
+      // className="shadow-none rounded-md w-52"
+      className={normalStyles}
       onChange={onSelectionChange}
       value={selectedValue}
     />

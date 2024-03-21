@@ -3,7 +3,7 @@ import React from "react";
 const SeminarActionButtons = ({ onReject, onAccept, seminar, seminarStatuses }) => {
     return (
         <div 
-        className={`flex justify-center items-center gap-2 md:mt-0 mt-2 ${
+        className={`flex justify-center items-center gap-2 md:mt-0 md:mr-2 mt-2 ${
         seminarStatuses[seminar._id] ? "hidden" : ""
         }`}
         >
