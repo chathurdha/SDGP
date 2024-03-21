@@ -5,6 +5,7 @@ import ChooseUs from "./Home-Sections/ChooseUs";
 import Organizations from "./Home-Sections/Organizations";
 import PastEvent from "./Home-Sections/PastEvent";
 import Hero from "./Home-Sections/Hero";
+import Footer from "../Footer/Footer";
 
 function Homepage() {
   return (
@@ -15,6 +16,7 @@ function Homepage() {
       <ChooseUs />
       <Organizations />
       <PastEvent />
+      <Footer />
     </>
   );
 }

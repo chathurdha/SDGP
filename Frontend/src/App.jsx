@@ -137,7 +137,7 @@ import {
 } from "react-router-dom";
 import { ClerkProvider, SignedIn } from "@clerk/clerk-react";
 
-import Home from "./components/Common/homepage";
+import Home from "./components/Common/Homepage";
 import Login from "./components/Login";
 import Next from "./components/SignUP";
 import PastEvents from "./components/Common/PastEvents";
