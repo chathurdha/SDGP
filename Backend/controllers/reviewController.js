@@ -34,17 +34,26 @@ const getReview = async (req, res) => {
 
 // Create a review
 const createReview = async (req, res) => {
-    const { title, description, rating } = req.body;
-
-    if (!title || !description || !rating) {
-        return res.status(400).json({ error: 'Title, description, and rating are required' });
-    }
+    const { 
+        review,
+        positive,
+        negative,
+        neutral,
+        seminarId
+    } = req.body;
 
     try {
-        const review = await Review.create({ title, description, rating });
-        res.status(201).json(review);
+        const newReview = await Review.create({
+            review,
+            positive,
+            negative,
+            neutral,
+            seminarId
+        });
+
+        res.status(201).json(newReview);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(400).json({ error: error.message });
     }
 }
 
