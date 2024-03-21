@@ -33,7 +33,7 @@ const AcceptSeminarRequests = () => {
         try {
 
             //imp
-            // const volunteer = filter((volunteer) => volunteer.userId === user?.id);
+            // const volunteer = volunteers.filter((volunteer) => volunteer.userId === user?.id);
 
             const apiUrl = `http://localhost:4000/api/seminars/${id}`;
 
@@ -43,7 +43,7 @@ const AcceptSeminarRequests = () => {
                 volunteers: {
                     volunteerId: "616c81d8f6c4b5c2a0c5b4d"
                     //imp
-                    // volunteerId: volunteers[0]._id
+                    // volunteerId: volunteer[0]._id
                 }
             });
 
