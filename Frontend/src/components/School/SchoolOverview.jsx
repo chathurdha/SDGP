@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
+import OrganizationList from './OrganizationList';
 // import { Link } from "react-router-dom";
 
 const SchoolOverview = () => {
@@ -42,8 +43,11 @@ const SchoolOverview = () => {
             )}
           </div>
         </div>
+        <div className="md:pt-[20%] pt-[8%] relative pb-[8%]">
+            <OrganizationList />
+        </div>
       </div>
-        <div className="md:pt-[20%] pt-[8%] relative">
+        <div className="pt-[8%] relative border-t">
             <h1 className="text-2xl mt-4 md:mt-0 md:mb-10 text-center font-semibold">Send Seminar Requests</h1>
             <div className="flex items-center justify-center mt-4">
                 <div className="flex flex-col items-center md:flex-row md:w-4/5 md:p-10 shadow-2xl rounded-xl">
