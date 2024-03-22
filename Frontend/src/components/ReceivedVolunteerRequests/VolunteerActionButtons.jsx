@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 
 const VolunteerActionButtons = ({ 
     onReject, 
@@ -30,3 +30,6 @@ const VolunteerActionButtons = ({
   }
 
 export default VolunteerActionButtons;
+
+
+/* eslint-enable react/prop-types */

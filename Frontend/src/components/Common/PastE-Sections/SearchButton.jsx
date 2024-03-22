@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 const SearchButton = ({ buttonName, onClick, style }) => {
 // const SearchButton = ({ buttonName, onClick }) => {
     return (
@@ -12,3 +14,5 @@ const SearchButton = ({ buttonName, onClick, style }) => {
     );
 };
 export default SearchButton;
+
+/* eslint-enable react/prop-types */

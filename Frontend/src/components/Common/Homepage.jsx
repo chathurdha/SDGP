@@ -1,6 +1,5 @@
-import React from "react";
 import Navbar from "../navbar/Navbar";
-import AboutUs from "./Home-Sections/AboutUs";
+//import AboutUs from "./Home-Sections/AboutUs";
 import ChooseUs from "./Home-Sections/ChooseUs";
 import Organizations from "./Home-Sections/Organizations";
 import PastEvent from "./Home-Sections/PastEvent";
@@ -11,7 +10,7 @@ function Homepage() {
     <>
       <Navbar />
       <Hero />
-      <AboutUs />
+      {/* <AboutUs /> */}
       <ChooseUs />
       <Organizations />
       <PastEvent />

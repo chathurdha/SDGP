@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import SearchButton from "../../Common/PastE-Sections/SearchButton";
 import LocationSelect from "../../Common/PastE-Sections/LocationSelect";
 import YearSelect from "../../Common/PastE-Sections/YearSelect";
@@ -31,7 +31,6 @@ const PrevSeminar = () => {
     // Add more seminars as needed
   ];
 
-  const [seminars, setSeminars] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
   const [matchingObjects, setMatchingObjects] = useState([]);
@@ -59,7 +58,6 @@ const PrevSeminar = () => {
 
   useEffect(() => {
     // Fetch seminars data when component mounts
-    setSeminars(seminarsData);
     setMatchingObjects(seminarsData.filter(seminar => seminar.organizationId === organizationId));
   }, []);
 

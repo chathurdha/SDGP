@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import SeminarBtns from "./Profiles/SeminarBtns";
 import TableComponent from "./VolUPCSeminarTable";
 import { useUser } from "@clerk/clerk-react";
 import axios from "axios";
-import {dataArrayFunction} from "./SeminarData"
+// import {dataArrayFunction} from "./SeminarData"
 
 function UpSeminar() {
   // Store mongoId here - initially it is null

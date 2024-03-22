@@ -1,10 +1,13 @@
-import React from 'react'
+//need to do prop validation here
+
+/* eslint-disable react/prop-types */
+
 import { useMemo } from 'react';
 import {
   MaterialReactTable,
   useMaterialReactTable,
 } from 'material-react-table';
-import {  schoolListFunction, locationListFunction, headVolunteerListFunction, dataArray } from './SeminarData.jsx';
+import {  schoolListFunction, locationListFunction, dataArray } from './SeminarData.jsx';
 
 
 
@@ -15,7 +18,6 @@ const Table = ({mongoId}) => {
   
   const schoolList = schoolListFunction(mongoId);  
   const locationList = locationListFunction(mongoId);
-  const headVolunteerList = headVolunteerListFunction(mongoId);
 
 
   const columns = useMemo(
@@ -79,3 +81,5 @@ const TableComponent = ({mongoId}) => (
 );
 
 export default TableComponent;
+
+/* eslint-enable react/prop-types */

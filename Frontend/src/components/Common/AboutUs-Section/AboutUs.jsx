@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable react/no-unescaped-entities */
+
+
 import Navbar from "../../navbar/Navbar";
 
 function AboutUs() {
@@ -77,3 +79,6 @@ function AboutUs() {
 }
 
 export default AboutUs;
+
+
+/* eslint-enable react/no-unescaped-entities */

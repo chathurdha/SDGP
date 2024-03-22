@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 
 const TextAreaInput = ({ 
     label, 
@@ -28,3 +28,6 @@ const TextAreaInput = ({
 }
 
 export default TextAreaInput;
+
+
+/* eslint-enable react/prop-types */

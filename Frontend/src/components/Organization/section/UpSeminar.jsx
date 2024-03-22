@@ -1,4 +1,3 @@
-import React from "react";
 import SeminarBtns from "../../Profiles/SeminarBtns";
 import TableComponent from "../../OrgUPCSeminarTable";
 

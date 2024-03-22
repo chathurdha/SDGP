@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable no-unused-vars */
+import  { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import BarGraph from '../components/BarGraph';
 import DoughnutChart from '../components/DoughnutChart';
 
-const Statistics = () => {
 
+
+const Statistics = () => {
     const [organizations, setOrganizations] = useState([]);
 
     //replace orgId with the userId from Clark
     const orgId = 1;
-    const specificOrganization = organizations.filter((organization) => organization._id === orgId);
+    //const specificOrganization = organizations.filter((organization) => organization._id === orgId);
 
     useEffect(() => {
         try {
@@ -60,3 +62,5 @@ const Statistics = () => {
 }
  
 export default Statistics;
+
+/* eslint-enable no-unused-vars */

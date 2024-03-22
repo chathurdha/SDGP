@@ -1,4 +1,3 @@
-import React from 'react';
 import { Footer, FooterCopyright, FooterLink, FooterLinkGroup } from 'flowbite-react';
 
 function Component() {

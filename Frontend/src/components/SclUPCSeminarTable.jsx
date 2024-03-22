@@ -1,4 +1,3 @@
-import React from 'react'
 import { useMemo } from 'react';
 import {
   MaterialReactTable,
@@ -56,7 +55,7 @@ const Table = () => {
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
-const TableComponent = (props) => (
+const TableComponent = () => (
   //App.tsx or AppProviders file
   <LocalizationProvider dateAdapter={AdapterDayjs}>
     <Table />

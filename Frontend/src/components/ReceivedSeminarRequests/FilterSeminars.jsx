@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+
 import SeminarHeader from './SeminarHeader';
 import SeminarDetails from './SeminarDetails';
 import SeminarStatusIcon from './SeminarStatusIcon';
@@ -57,3 +58,6 @@ const FilterSeminars = ({
 }
  
 export default FilterSeminars;
+
+
+/* eslint-enable react/prop-types */

@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
 import Select from "react-select";
 import { CustomFilterStyles } from "../../CustomFilterStyles";
 
@@ -21,3 +22,6 @@ const LocationSelect = ({ options, onSelectionChange, selectedValue, normalStyle
 };
 
 export default LocationSelect;
+
+/* eslint-enable react/prop-types */
+

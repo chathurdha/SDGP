@@ -1,4 +1,6 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+
+
 import ProfileImage from '../ProfileImage';
 import SchoolFirstLetter from '../SchoolFirstLetter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -43,3 +45,6 @@ const VolunteerHeader = ({
     }
 
 export default VolunteerHeader;
+
+
+/* eslint-enable react/prop-types */

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import SeminarBtns from "./Profiles/SeminarBtns";
 import TableComponent from "./VolUPCSeminarTable";
 import { useUser } from "@clerk/clerk-react";

@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import Select from "react-select";
 import { CustomFilterStyles } from "../../CustomFilterStyles";
 
@@ -21,3 +21,6 @@ const YearSelect = ({ options, onSelectionChange, selectedValue, normalStyles, p
 };
 
 export default YearSelect;
+
+/* eslint-enable react/prop-types */
+

@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 
 const NumberInput = ({ 
     label, 
@@ -33,3 +33,5 @@ const NumberInput = ({
 
 
 export default NumberInput;
+
+/* eslint-enable react/prop-types */

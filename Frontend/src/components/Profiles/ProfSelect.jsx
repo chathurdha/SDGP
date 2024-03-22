@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+
 import { Link } from "react-router-dom"; // Import Link from React Router
-import Homepage from "../Common/homepage";
-import React, { useState, useEffect } from "react";
+
+import { useState, useEffect } from "react";
 
 // Reusable button component
 function RoleButton({ roleName, to, imageSrc }) {
@@ -96,3 +98,6 @@ function ProfSelect() {
 }
 
 export default ProfSelect;
+
+/* eslint-enable react/prop-types */
+

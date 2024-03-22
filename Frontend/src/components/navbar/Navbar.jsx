@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useUser, UserButton, SignedIn, SignedOut} from "@clerk/clerk-react";
+import { UserButton, SignedIn, SignedOut} from "@clerk/clerk-react";
 
 
 function SignedInContent(){
@@ -52,7 +52,6 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const {isSignedIn} = useUser();
 
 
   return (

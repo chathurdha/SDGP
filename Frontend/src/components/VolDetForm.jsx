@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+/* eslint-disable react/jsx-key */
+import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '@clerk/clerk-react';
 import axios from 'axios';
@@ -29,7 +30,6 @@ function VolDetForm() {
     const [Description, setDescription] = useState("");
     const [VolunteerId, setVolunteerId] = useState(""); 
     const [Address, setAddress] = useState("");
-    const [OrgID, setOrgID] = useState("");
 
 
     const [data, setData] = useState([]);
@@ -186,3 +186,5 @@ function VolDetForm() {
 
 export default VolDetForm
 //name , description, volunteerId, status, address, volunteerProfileImageAvailable, volunteerProfileColor
+
+/* eslint-enable react/jsx-key */

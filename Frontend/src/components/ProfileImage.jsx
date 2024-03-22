@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 const ProfileImage = ({id}) => {
   const image = "./images/" + id + ".jpeg";
 
@@ -9,3 +11,6 @@ const ProfileImage = ({id}) => {
 };
 
 export default ProfileImage;
+
+
+/* eslint-enable react/prop-types */

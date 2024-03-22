@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -26,3 +26,5 @@ const DatePickerInput = ({
 }
 
 export default DatePickerInput;
+
+/* eslint-enable react/prop-types */
