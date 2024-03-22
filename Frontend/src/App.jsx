@@ -136,21 +136,34 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { ClerkProvider, SignedIn } from "@clerk/clerk-react";
+<<<<<<< Updated upstream
 
 import Home from "./components/Common/homepage";
 import Login from "./components/Login";
 import Next from "./components/SignUP";
 import PastEvents from "./components/Common/PastEvents";
 import ContactUs from "./components/Common/ContactUs";
+=======
+import Home from "./components/Common/homepage";
+//
+import Loading from './components/Loading';
+//
+import SignUp from "./components/Profiles/ProfSelectSignUp";
+>>>>>>> Stashed changes
 import OrgOwnerCreate from "./components/OrgOwner-Create";
 import VolSignUP from "./components/VolSignUP";
 import SclSignUP from "./components/SclSignUP";
 import OrgSignUP from "./components/OrgSignUP";
+<<<<<<< Updated upstream
 import PrevSem from "./components/Organization/section/PrevSeminar";
 import PrevSeminar from "./components/Organization/section/PrevSeminar";
 import UpSeminar from "./components/Organization/section/UpSeminar";
 import OrgSeminar from "./components/Organization/section/OrgSeminar";
 import Seminar from "./components/Profiles/SeminarBtns";
+=======
+import Login from "./components/Login";
+import UserHeader from "./components/navbar/UserHeader";
+>>>>>>> Stashed changes
 
 import Loading from "./components/Loading";
 import SignUp from "./components/Profiles/ProfSelectSignUp";
@@ -182,6 +195,12 @@ const router = createBrowserRouter(
       <Route path="/School/Sign-In" element={<Login />} />
       {/* <Route path="Organization/:id" element={<Organization />} /> */}
 
+<<<<<<< Updated upstream
+=======
+      
+
+      
+>>>>>>> Stashed changes
       <Route path="/next" element={<Loading />} />
 
       <Route path="/SeminarBtns" element={<Seminar />} />
