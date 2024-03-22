@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const volunteerSchema = new Schema({
+    userID:{
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -12,7 +16,7 @@ const volunteerSchema = new Schema({
         required: true
     },
     volunteerId: {
-        type: Number,
+        type: String,
         required: true
     },
     status: {
@@ -31,6 +35,11 @@ const volunteerSchema = new Schema({
         type: String,
         required: false
     },
+    orgID: {
+        type: Schema.Types.ObjectId,
+        ref: 'organizations',
+        required: true
+    }
 }, {
     timestamps: true,
 });

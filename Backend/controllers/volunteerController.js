@@ -27,6 +27,7 @@ const getVolunteer = async (req, res) => {
 //create a volunteer
 const createVolunteer = async (req, res) => {
   const {
+    userID,
     name,
     description,
     volunteerId,
@@ -34,6 +35,7 @@ const createVolunteer = async (req, res) => {
     address,
     volunteerProfileImageAvailable,
     volunteerProfileColor,
+    orgID
   } = req.body;
 
   let emptyFields = [];
@@ -54,6 +56,7 @@ const createVolunteer = async (req, res) => {
   //add to database
   try {
     const volunteer = await Volunteer.create({
+      userID,
       name,
       description,
       volunteerId,
@@ -61,6 +64,7 @@ const createVolunteer = async (req, res) => {
       address,
       volunteerProfileImageAvailable,
       volunteerProfileColor,
+      orgID
     });
     res.status(200).json(volunteer);
   } catch (error) {
