@@ -135,11 +135,17 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+<<<<<<< Updated upstream
 import { ClerkProvider, SignedIn } from "@clerk/clerk-react";
 
 import Home from "./pages/CommanPages/Homepage";
 import Login from "./components/Login";
 import Next from "./components/SignUP";
+=======
+import Homepage from "./pages/CommanPages/Homepage";
+import AboutUs from "./pages/CommanPages/AboutUs";
+import Login from "./components/Login";
+>>>>>>> Stashed changes
 import PastEvents from "./pages/CommanPages/PastEvents";
 import ContactUs from "./pages/CommanPages/ContactUs";
 import OrgOwnerCreate from "./components/OrgOwner-Create";
@@ -157,7 +163,20 @@ import OrgReceivedVolunteerRequests from "./pages/OrganizationPges/ReceivedVolun
 import Statistics from "./pages/OrganizationPges/Statistics";
 
 import Loading from "./components/Loading";
+<<<<<<< Updated upstream
 import SignUp from "./components/Profiles/ProfSelectSignUp";
+=======
+import SignUp from "./components/Profiles/ProfSelect";
+import VolUPCSeminar from "./components/VolUpComingSeminar";
+
+
+import UpSeminar from "./pages/OrganizationPges/UpSeminar";
+import OrgSeminar from "./components/Organization/section/OrgSeminar";
+import Seminar from "./components/Profiles/SeminarBtns";
+import OrgOverviewPg from "./pages/OrganizationPges/OrgOverviewPg";
+import OrgReceivedSeminarRequests from "./pages/OrganizationPges/ReceivedSeminarRequests";
+import OrgReceivedVolunteerRequests from "./pages/OrganizationPges/ReceivedVolunteerRequests";
+>>>>>>> Stashed changes
 import UserHeader from "./components/Header/OrgHeader";
 
 const router = createBrowserRouter(
@@ -188,18 +207,29 @@ const router = createBrowserRouter(
 
       <Route path="/next" element={<Loading />} />
 
+<<<<<<< Updated upstream
       {/* organization */}
+=======
+>>>>>>> Stashed changes
       <Route path="/SeminarBtns" element={<Seminar />} />
       <Route path="/OrgSeminar" element={<OrgSeminar />} />
       <Route path="/PrevSeminar" element={<PrevSeminar />} />
       <Route path="/UpSeminar" element={<UpSeminar />} />
       <Route path="/OrgOverview" element={<OrgOverviewPg />} />
       <Route path="/OrgRecSeminar" element={<OrgReceivedSeminarRequests />} />
+<<<<<<< Updated upstream
       <Route
         path="/OrgRecVolunteer"
         element={<OrgReceivedVolunteerRequests />}
       />
       <Route path="/OrgStatistics" element={<Statistics />} />
+=======
+      <Route path="/Sign-In" element={<UserHeader />} />
+      <Route path="/OrgRecVolunteer" element={<OrgReceivedVolunteerRequests />} />
+      <Route path="/OrgStatistics" element={<Statistics />} />
+
+      <Route path="/test" element={<Loading />} />
+>>>>>>> Stashed changes
     </>
   )
 );
