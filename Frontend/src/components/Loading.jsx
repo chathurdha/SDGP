@@ -1,6 +1,6 @@
 import React from 'react';
 import { useUser } from "@clerk/clerk-react";
-import VolunteerOverview from './VolOverview';
+import VolunteerOverview from './OrgOverview';
 import SchoolOverview from './SclOverview';
 import OrganizationOverview from './OrgOverview';
 
@@ -9,6 +9,7 @@ const LoadingScreen = () => {
   let User = user?.unsafeMetadata?.Type;
   let UserType = JSON.stringify(User);
   let nextPageComponent;
+  console.log(`${User}`);
 
   if (isSignedIn) {
 
