@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+/* eslint-disable react/prop-types */
 
 import SeminarHeader from './SeminarHeader';
 import SeminarDetails from './SeminarDetails';
@@ -101,3 +100,6 @@ const FilterSeminars = ({
 }
  
 export default FilterSeminars;
+
+
+/* eslint-enable react/prop-types */

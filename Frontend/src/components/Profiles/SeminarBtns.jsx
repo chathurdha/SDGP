@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
+
 import { Link, useLocation } from "react-router-dom";
 
 const SeminarBtns = ({ upcomingPageUrl, previousPageUrl }) => {
@@ -38,3 +40,7 @@ const SeminarBtns = ({ upcomingPageUrl, previousPageUrl }) => {
 };
 
 export default SeminarBtns;
+
+
+/* eslint-enable react/prop-types */
+

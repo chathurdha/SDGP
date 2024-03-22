@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,3 +24,6 @@ const SeminarStatusIcon = ({
   };
   
   export default SeminarStatusIcon;
+
+
+  /* eslint-enable react/prop-types */

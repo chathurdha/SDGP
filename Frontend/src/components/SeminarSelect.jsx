@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import Select from 'react-select';
 import { CustomFilterStyles } from './CustomFilterStyles';
 
@@ -19,3 +19,5 @@ const SeminarSelect = ({ options, onSelectionChange, selectedValue }) => {
 };
 
 export default SeminarSelect;
+
+/* eslint-enable react/prop-types */

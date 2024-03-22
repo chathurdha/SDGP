@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import {isMobile} from 'react-device-detect';
@@ -25,3 +26,5 @@ const VolunteerAddress = ( {
 }
 
 export default VolunteerAddress;
+
+/* eslint-enable react/prop-types */

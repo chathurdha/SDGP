@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 
 const TextInput = ({ label, name, value, onChange, error }) => { 
     return (
@@ -21,5 +21,7 @@ const TextInput = ({ label, name, value, onChange, error }) => {
         </div>
     );
 }
+/* eslint-enable react/prop-types */
+
 
 export default TextInput;

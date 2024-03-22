@@ -1,6 +1,5 @@
-import React from "react";
-import PrevSeminar from "./section/PrevSeminar";
-import Overview from "./section/OrgOverview";
+import PrevSeminar from "./section/PrevSeminar"
+import Overview from "./section/overview";
 // import Seminar from "./section/Seminar";
 
 function organization() {

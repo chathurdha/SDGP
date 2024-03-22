@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 
 const DynamicBar = ({ numConductedSeminars }) => {
@@ -33,3 +33,4 @@ const DynamicBar = ({ numConductedSeminars }) => {
 };
 
 export default DynamicBar;
+/* eslint-enable react/prop-types */
