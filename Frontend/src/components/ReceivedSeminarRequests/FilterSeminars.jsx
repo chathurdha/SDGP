@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 import SeminarHeader from './SeminarHeader';
 import SeminarDetails from './SeminarDetails';
 import SeminarStatusIcon from './SeminarStatusIcon';
