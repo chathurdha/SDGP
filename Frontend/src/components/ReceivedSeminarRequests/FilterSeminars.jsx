@@ -8,12 +8,54 @@ import SeminarActionButtons from './SeminarActionButtons';
 
 const FilterSeminars = ({
     filterSeminars,
-    rotatedSeminarIds,
-    seminarStatuses,
-    handleToggle,
-    handleUpdateStatus,
-    isLoading
+    // rotatedSeminarIds,
+    // seminarStatuses,
+    // handleToggle,
+    // handleUpdateStatus,
+    // isLoading
 }) => {
+
+    const [isLoading, setIsLoading] = useState(true); // Initial loading state
+    const [rotatedSeminarIds, setRotatedSeminarIds] = useState([]);
+    const [seminarStatuses, setSeminarStatuses] = useState({});
+
+    const handleUpdateStatus = async (id, newStatus) => {
+        console.log(id, newStatus);
+        setSeminarStatuses((prevStatus) => {
+            return {
+                ...prevStatus,//'...' spread operator to copy the previous state
+                [id]: newStatus
+            };
+        });
+
+        try {
+            const apiUrl = `http://localhost:4000/api/seminars/${id}`;
+        
+            const response = await axios.patch(apiUrl, {
+            status: newStatus, // Update only the "status" property
+            });
+        
+            if (response.status !== 200) {
+            throw new Error(`Failed to update seminar: ${response.data.error || response.statusText}`);
+            }
+        
+            console.log('Seminar updated successfully!');
+
+        } catch (error) {
+            console.error('Error updating seminar:', error);
+        }
+    };
+
+    const handleToggle = (seminarId) => {
+        setRotatedSeminarIds((prevIds) => {
+            if (prevIds.includes(seminarId)) {
+                return prevIds.filter((id) => id !== seminarId);
+            } else {
+                return [...prevIds, seminarId];
+            }
+        });
+    };
+
     return ( 
         <div>
             {!isLoading ? (
