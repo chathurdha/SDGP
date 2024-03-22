@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
 import Select from "react-select";
 import { CustomFilterStyles } from "../../CustomFilterStyles";
 
@@ -21,3 +22,6 @@ const OrganizationSelect = ({ options, onSelectionChange, selectedValue, normalS
 };
 
 export default OrganizationSelect;
+
+/* eslint-enable react/prop-types */
+

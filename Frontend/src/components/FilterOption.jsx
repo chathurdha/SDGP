@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Select from 'react-select';
 // import _ from 'lodash';
-import Card from './card';
+import Card from './components/Card';
 
 import SearchButton from './SearchButton';
 

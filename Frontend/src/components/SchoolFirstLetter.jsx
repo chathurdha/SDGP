@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const SchoolFirstLetter = ({ name }) => {
     // Split the name into words and limit to the first two
     const words = name.split(" ").slice(0, 2);
@@ -13,3 +14,5 @@ const SchoolFirstLetter = ({ name }) => {
   };
   
   export default SchoolFirstLetter;
+
+  /* eslint-enable react/prop-types */

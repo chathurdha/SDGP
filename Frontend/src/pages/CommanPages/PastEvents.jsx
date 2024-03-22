@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Navbar from "../../components/navbar/Navbar";
@@ -11,7 +11,15 @@ import MatchingSeminars from "../../components/Common/PastE-Sections/MatchingSem
 
 const PastEvents = () => {
   const [organizations, setOrganizations] = useState([]);
+  // const [seminars, setSeminars] = useState([]);
+  const [allSeminars, setAllSeminars] = useState([]);
   const [seminars, setSeminars] = useState([]);
+
+  // const seminars = allSeminars.filter((seminar) => {
+  //   return new Date(seminar.expDate) > new Date();
+  // });
+  // console.log(allSeminars);
+  console.log(seminars);
 
   // Function to extract year from a date string
   const extractYear = (dateString) => {
@@ -57,12 +65,12 @@ const PastEvents = () => {
   const [selectedLocation, setSelectedLocation] = useState([]);
   const [selectedYear, setSelectedYear] = useState([]);
 
-  const [selectedOrganizationObject, setSelectedOrganizationObject] =
-    useState(null);
+  const [selectedOrganizationObject, setSelectedOrganizationObject] = useState(null);
   const [selectedLocationObject, setSelectedLocationObject] = useState(null);
   const [selectedYearObject, setSelectedYearObject] = useState(null);
 
   const [matchingObjects, setMatchingObjects] = useState(seminars);
+  console.log(matchingObjects);
 
   const handleClick = () => {
     console.log("Button clicked!");
@@ -102,8 +110,12 @@ const PastEvents = () => {
         }
       }
     } else if (nonEmptyFilters.length === 1) {
-      for (let i = 0; i < nonEmptyFilters[0].length; i++) {
-        matchingObjects.push(nonEmptyFilters[0][i]);
+      if (nonEmptyFilters[0] === "err") {
+          setMatchingObjects([]);
+      } else {
+          for (let i = 0; i < nonEmptyFilters[0].length; i++) {
+              matchingObjects.push(nonEmptyFilters[0][i]);
+          }
       }
     } else if (nonEmptyFilters.length === 0) {
       seminars.forEach((seminar) => {
@@ -123,7 +135,12 @@ const PastEvents = () => {
       const matchingPairs = seminars.filter(
         (seminar) => seminar.organizationId === selectedObject._id
       );
-      setSelectedOrganizationObject(matchingPairs);
+      if (matchingPairs.length > 0) {
+        setSelectedOrganizationObject(matchingPairs);
+      } else{
+        const err = "err";
+        setSelectedOrganizationObject(err);
+      }
     } catch (error) {
       setSelectedOrganizationObject(null);
       console.error(
@@ -139,7 +156,12 @@ const PastEvents = () => {
       const matchingPairs = seminars.filter(
         (seminar) => seminar.location === selectedLocation.value
       );
-      setSelectedLocationObject(matchingPairs);
+      if (matchingPairs.length > 0) {
+        setSelectedLocationObject(matchingPairs);
+      } else {
+          const err = "err";
+          setSelectedLocationObject(err);
+      }
     } catch (error) {
       setSelectedLocationObject(null);
       console.error(
@@ -159,7 +181,12 @@ const PastEvents = () => {
         return extractYear(seminar.expDate) === selectedYear.value;
       });
       console.log(matchingPairs);
-      setSelectedYearObject(matchingPairs);
+      if (matchingPairs.length > 0) {
+        setSelectedYearObject(matchingPairs);
+      } else {
+          const err = "err";
+          setSelectedYearObject(err);
+      }
     } catch (error) {
       setSelectedYearObject(null);
       console.error(
@@ -167,6 +194,16 @@ const PastEvents = () => {
       );
     }
   };
+
+  useEffect(() => {
+    if (allSeminars.length > 0) {
+      const seminars = allSeminars.filter((seminar) => {
+        return new Date(seminar.expDate) < new Date();
+      });
+      setSeminars(seminars);
+      setMatchingObjects(seminars);
+    }
+  }, [allSeminars]);
 
   useEffect(() => {
     const fetchData = async (apiUrl) => {
@@ -178,8 +215,9 @@ const PastEvents = () => {
             console.log(response.data);
             break;
           case "http://localhost:4000/api/seminars":
-            setSeminars(response.data);
-            setMatchingObjects(response.data);
+            // setSeminars(response.data);
+            setAllSeminars(response.data);
+            // setMatchingObjects(response.data);
             console.log(response.data);
             break;
           default:

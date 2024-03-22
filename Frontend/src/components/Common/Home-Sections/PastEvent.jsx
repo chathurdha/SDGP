@@ -1,5 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
+
 
 function PastEvent() {
   return (
@@ -49,4 +49,4 @@ function PastEvent() {
   );
 }
 
-export default PastEvent;
+export default PastEvent

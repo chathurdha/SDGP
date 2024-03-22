@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
+
 import {isMobile} from 'react-device-detect';
 import ProcessDateAndTime from "./ProcessDateAndTime";
 
@@ -42,3 +44,6 @@ const VoluneerDetails = ({
   }
 
   export default VoluneerDetails;
+
+
+  /* eslint-enable react/prop-types */

@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
 import Card from "../../Card";
 
 const MatchingSeminars = ({ seminars }) => {
@@ -17,3 +18,6 @@ const MatchingSeminars = ({ seminars }) => {
 };
 
 export default MatchingSeminars;
+
+/* eslint-enable react/prop-types */
+

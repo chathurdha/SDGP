@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import DynamicBar from './DynamicBar';
 
 const BarGraph = () => {
