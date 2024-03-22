@@ -11,7 +11,12 @@ import MatchingSeminars from "../../components/Common/PastE-Sections/MatchingSem
 
 const PastEvents = () => {
   const [organizations, setOrganizations] = useState([]);
-  const [seminars, setSeminars] = useState([]);
+  // const [seminars, setSeminars] = useState([]);
+  const [allSeminars, setAllSeminars] = useState([]);
+
+  const seminars = allSeminars.filter((seminar) => {
+    return new Date(seminar.expDate) < new Date();
+  });
 
   // Function to extract year from a date string
   const extractYear = (dateString) => {
@@ -178,7 +183,8 @@ const PastEvents = () => {
             console.log(response.data);
             break;
           case "http://localhost:4000/api/seminars":
-            setSeminars(response.data);
+            // setSeminars(response.data);
+            setAllSeminars(response.data);
             setMatchingObjects(response.data);
             console.log(response.data);
             break;
