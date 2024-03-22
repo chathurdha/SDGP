@@ -15,6 +15,8 @@ export default {
         'custom-black': '#1B2336',
         'custom-purple': '#8260E2',
         'custom-lightb': '#4A4A4A',
+        'selectBorder' : '#D9D9D9',
+        'selectFill' : '#F7F7FA'
       },
     },
   },

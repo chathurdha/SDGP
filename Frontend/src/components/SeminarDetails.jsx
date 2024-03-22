@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 
 const SeminarDetails = ({
     seminar,
@@ -47,3 +47,5 @@ const SeminarDetails = ({
   };
   
   export default SeminarDetails;
+
+  /* eslint-enable react/prop-types */

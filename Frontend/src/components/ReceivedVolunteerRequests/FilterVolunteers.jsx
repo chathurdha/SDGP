@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+/* eslint-disable react/prop-types */
 
 import VolunteerAddress from './VolunteerAddress';
 import VolunteerDetails from './VolunteerDetails';
@@ -101,3 +100,6 @@ const FilterVolunteers = ({
 }
  
 export default FilterVolunteers;
+
+
+/* eslint-enable react/prop-types */

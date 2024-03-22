@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+
 import VolunteerStatusIcons from './VolunteerStatusIcons';
 import VolunteerActionButtons from './VolunteerActionButtons';
 
@@ -28,3 +29,5 @@ const VolunteerStatusAndSelection = ({
 }
 
 export default VolunteerStatusAndSelection;
+
+/* eslint-enable react/prop-types */

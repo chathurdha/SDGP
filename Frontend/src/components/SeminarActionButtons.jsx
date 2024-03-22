@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 
 const SeminarActionButtons = ({ onReject, onAccept, seminar, seminarStatuses }) => {
     return (
@@ -24,3 +24,7 @@ const SeminarActionButtons = ({ onReject, onAccept, seminar, seminarStatuses }) 
   };
   
   export default SeminarActionButtons;
+
+
+   
+ 

@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 
 const CheckboxInput = ({ 
     label, 
@@ -27,3 +27,5 @@ const CheckboxInput = ({
 }
 
 export default CheckboxInput;
+
+/* eslint-enable react/prop-types */

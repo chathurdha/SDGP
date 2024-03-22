@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import ProfileImage from './ProfileImage'; // Import the component
 import SchoolFirstLetter from './SchoolFirstLetter'; // Import the component
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -40,3 +40,5 @@ const SeminarHeader = ({
 }
  
 export default SeminarHeader;
+
+/* eslint-enable react/prop-types */

@@ -1,12 +1,13 @@
-import React from 'react'
-
 import { useMemo } from 'react';
 import {
   MaterialReactTable,
   useMaterialReactTable,
 } from 'material-react-table';
-import { schoolList, locationList, headVolunteerList, dataArray } from './OrgSemData.jsx';
+import { schoolListFunction, locationListFunction, headVolunteerListFunction, dataArray } from './SeminarData.jsx';
 
+const schoolList = schoolListFunction();  
+const locationList = locationListFunction();
+const headVolunteerList = headVolunteerListFunction();
 
 const Table = () => {
   const columns = useMemo(
@@ -15,15 +16,13 @@ const Table = () => {
         header: 'School Name',
         accessorKey: 'school',
         filterVariant: 'multi-select',
-        filterSelectOptions: schoolList,
-        size: 200,
+        filterSelectOptions: schoolList
       },
       {
         header: 'Location',
         accessorKey: 'location',
         filterVariant: 'multi-select',
-        filterSelectOptions: locationList, // default
-        size: 200,
+        filterSelectOptions: locationList
       },
       {
         header: 'Team Assigned To',
@@ -37,11 +36,12 @@ const Table = () => {
         id: 'date',
         filterVariant: 'date-range',
         Cell: ({ cell }) => cell.getValue().toLocaleDateString(), // convert back to string for display
+        maxSize: 180,
       },
       {
         header: 'Additional Requirements',
         accessorKey: 'addReq',
-        size: 200,
+        minSize: 200,
       },
     ],
     [],
@@ -49,8 +49,17 @@ const Table = () => {
 
   const table = useMaterialReactTable({
     columns,
-    dataArray,
-    initialState: { showColumnFilters: true },
+    data: dataArray,
+    enableDensityToggle: false,
+    enableFullScreenToggle: false,
+    enableHiding: false,
+    visibleInShowHideMenu: false,
+    enableColumnActions: false,
+
+    initialState: { 
+      showColumnFilters: true, 
+      density: 'spacious'
+     },
   });
 
   return <MaterialReactTable table={table} />;
@@ -60,7 +69,7 @@ const Table = () => {
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
-const TableComponent = (props) => (
+const TableComponent = () => (
   //App.tsx or AppProviders file
   <LocalizationProvider dateAdapter={AdapterDayjs}>
     <Table />

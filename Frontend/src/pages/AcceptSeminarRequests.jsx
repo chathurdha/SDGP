@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import format from 'date-fns/format';
 import isToday from 'date-fns/isToday';
 import axios from 'axios';
@@ -13,7 +13,6 @@ const AcceptSeminarRequests = () => {
     // const user = useUser().user;
 
     const [groupedSeminars, setGroupedSeminars] = useState({});
-    const [isLoading, setIsLoading] = useState(true); // Initial loading state
     const [combinedArray, setCombinedArray] = useState([]); // Initial combined array state
     const [seminars, setSeminars] = useState([]);
     const [volunteers, setVolunteers] = useState([]);
@@ -166,7 +165,6 @@ const AcceptSeminarRequests = () => {
                         seminarStatuses={seminarStatuses}
                         handleToggle={handleToggle}
                         handleUpdateStatus={handleUpdateStatus}
-                        isLoading={isLoading}
                     />
                 </div>
             ))}

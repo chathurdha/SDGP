@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
+
 import Rated from "../../assets/Rated.png";
 import NonRated from "../../assets/NonRated.png";
 function ProfileCard({ AccType, Name, Pic, Desc, Rate, ReviewCount, Details }) {
@@ -82,3 +84,7 @@ function ProfileCard({ AccType, Name, Pic, Desc, Rate, ReviewCount, Details }) {
 }
 
 export default ProfileCard;
+
+
+/* eslint-enable react/prop-types */
+

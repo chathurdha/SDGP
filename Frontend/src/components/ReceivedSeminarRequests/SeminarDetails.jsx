@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import {isMobile} from 'react-device-detect';
 import ProcessDate from './ProcessDate';
 
@@ -53,3 +53,5 @@ const SeminarDetails = ({
     };
   
 export default SeminarDetails;
+
+/* eslint-enable react/prop-types */

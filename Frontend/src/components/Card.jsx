@@ -1,3 +1,6 @@
+/* eslint-disable  react/prop-types */
+
+
 import Ratings from './Ratings';
 
 const Card = ({seminar}) => {
@@ -22,3 +25,6 @@ const Card = ({seminar}) => {
 }
  
 export default Card;
+
+
+/* eslint-enable  react/prop-types */

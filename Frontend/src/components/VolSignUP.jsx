@@ -1,4 +1,3 @@
-import React from 'react'
 import { SignUp } from '@clerk/clerk-react'
 import './ClerkComponents.css'
 
@@ -11,8 +10,10 @@ export default function VolSignUP() {
                     "Type" : "Volunteer"
                 }
             }
-            redirectUrl	={"/next"}
-            signInUrl={"/sign-in"}/>
+            deleteSelfEnabled = {false}
+            redirectUrl	={"/Get-Volunteer-Details"}
+            signInUrl={"/sign-in"}
+          />
     </div>
   )
 }
