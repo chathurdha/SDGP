@@ -8,40 +8,40 @@ import FilterVolunteers from '../components/ReceivedVolunteerRequests/FilterVolu
 const ReceivedSeminarRequests = () => {
     const [volunteers, setVolunteers] = useState([]);
     const [groupedVolunteers, setGroupedVolunteers] = useState({});
-    const [rotatedVolunteerIds, setRotatedVolunteerIds] = useState([]);
-    const [volunteerStatuses, setVolunteerStatuses] = useState({});
+    // const [rotatedVolunteerIds, setRotatedVolunteerIds] = useState([]);
+    // const [volunteerStatuses, setVolunteerStatuses] = useState({});
 
-    const handleUpdateStatus = async (id, newStatus) => {
-        setVolunteerStatuses((prevStatus) => ({
-            ...prevStatus,
-            [id]: newStatus,
-        }));
+    // const handleUpdateStatus = async (id, newStatus) => {
+    //     setVolunteerStatuses((prevStatus) => ({
+    //         ...prevStatus,
+    //         [id]: newStatus,
+    //     }));
 
-        try {
-            const apiUrl = `http://localhost:4000/api/volunteers/${id}`;
+    //     try {
+    //         const apiUrl = `http://localhost:4000/api/volunteers/${id}`;
 
-            const response = await axios.patch(apiUrl, {
-                status: newStatus, // Update only the "status" property
-            });
+    //         const response = await axios.patch(apiUrl, {
+    //             status: newStatus, // Update only the "status" property
+    //         });
 
-            if (response.status === 200) {
-                console.log("Status updated successfully");
-            }
+    //         if (response.status === 200) {
+    //             console.log("Status updated successfully");
+    //         }
 
-            console.log("Volunteer status updated successfully");
-        } catch (error) {
-            console.error(error);
-        }
-    };
+    //         console.log("Volunteer status updated successfully");
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // };
 
-    const handleToggle = (volunteerId) => {
-        setRotatedVolunteerIds((prevIds) => {
-            const updatedIds = prevIds.includes(volunteerId)
-                ? prevIds.filter((id) => id !== volunteerId) // Remove if already rotated
-                : [...prevIds, volunteerId]; // Add if not rotated
-            return updatedIds;
-        });
-    };
+    // const handleToggle = (volunteerId) => {
+    //     setRotatedVolunteerIds((prevIds) => {
+    //         const updatedIds = prevIds.includes(volunteerId)
+    //             ? prevIds.filter((id) => id !== volunteerId) // Remove if already rotated
+    //             : [...prevIds, volunteerId]; // Add if not rotated
+    //         return updatedIds;
+    //     });
+    // };
 
     useEffect(() => {
         try {
@@ -81,10 +81,10 @@ const ReceivedSeminarRequests = () => {
                     <h2 className='text-xl font-semibold mt-8 mb-4 text-left'>{date}</h2>
                     <FilterVolunteers
                         filterVolunteers={filterVolunteers}
-                        rotatedVolunteerIds={rotatedVolunteerIds}
-                        handleToggle={handleToggle}
-                        handleUpdateStatus={handleUpdateStatus}
-                        volunteerStatuses={volunteerStatuses}
+                        // rotatedVolunteerIds={rotatedVolunteerIds}
+                        // handleToggle={handleToggle}
+                        // handleUpdateStatus={handleUpdateStatus}
+                        // volunteerStatuses={volunteerStatuses}
                     />
                 </div>
             ))}

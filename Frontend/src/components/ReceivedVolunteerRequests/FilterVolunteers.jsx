@@ -7,11 +7,46 @@ import VolunteerStatusAndSelection from './VolunteerStatusAndSelection';
 
 const FilterVolunteers = ({
     filterVolunteers,
-    rotatedVolunteerIds,
-    handleToggle,
-    handleUpdateStatus,
-    volunteerStatuses
+    // rotatedVolunteerIds,
+    // handleToggle,
+    // handleUpdateStatus,
+    // volunteerStatuses
 }) => {
+
+    const [rotatedVolunteerIds, setRotatedVolunteerIds] = useState([]);
+    const [volunteerStatuses, setVolunteerStatuses] = useState({});
+
+    const handleUpdateStatus = async (id, newStatus) => {
+        setVolunteerStatuses((prevStatus) => ({
+            ...prevStatus,
+            [id]: newStatus,
+        }));
+
+        try {
+            const apiUrl = `http://localhost:4000/api/volunteers/${id}`;
+
+            const response = await axios.patch(apiUrl, {
+                status: newStatus, // Update only the "status" property
+            });
+
+            if (response.status === 200) {
+                console.log("Status updated successfully");
+            }
+
+            console.log("Volunteer status updated successfully");
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const handleToggle = (volunteerId) => {
+        setRotatedVolunteerIds((prevIds) => {
+            const updatedIds = prevIds.includes(volunteerId)
+                ? prevIds.filter((id) => id !== volunteerId) // Remove if already rotated
+                : [...prevIds, volunteerId]; // Add if not rotated
+            return updatedIds;
+        });
+    };
 
     return ( 
         <div>

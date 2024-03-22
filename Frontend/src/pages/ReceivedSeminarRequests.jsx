@@ -7,49 +7,50 @@ import FilterSeminars from '../components/ReceivedSeminarRequests/FilterSeminars
 
 const ReceivedSeminarRequests = () => {
 
+
     const [groupedSeminars, setGroupedSeminars] = useState({});
     const [combinedArray, setCombinedArray] = useState([]); // Initial combined array state
     const [seminars, setSeminars] = useState([]);
     const [schools, setSchools] = useState([]);
-    const [rotatedSeminarIds, setRotatedSeminarIds] = useState([]);
-    const [seminarStatuses, setSeminarStatuses] = useState({});
+    // const [rotatedSeminarIds, setRotatedSeminarIds] = useState([]);
+    // const [seminarStatuses, setSeminarStatuses] = useState({});
 
-    const handleUpdateStatus = async (id, newStatus) => {
-        console.log(id, newStatus);
-        setSeminarStatuses((prevStatus) => {
-            return {
-                ...prevStatus,//'...' spread operator to copy the previous state
-                [id]: newStatus
-            };
-        });
+    // const handleUpdateStatus = async (id, newStatus) => {
+    //     console.log(id, newStatus);
+    //     setSeminarStatuses((prevStatus) => {
+    //         return {
+    //             ...prevStatus,//'...' spread operator to copy the previous state
+    //             [id]: newStatus
+    //         };
+    //     });
 
-        try {
-            const apiUrl = `http://localhost:4000/api/seminars/${id}`;
+    //     try {
+    //         const apiUrl = `http://localhost:4000/api/seminars/${id}`;
         
-            const response = await axios.patch(apiUrl, {
-            status: newStatus, // Update only the "status" property
-            });
+    //         const response = await axios.patch(apiUrl, {
+    //         status: newStatus, // Update only the "status" property
+    //         });
         
-            if (response.status !== 200) {
-            throw new Error(`Failed to update seminar: ${response.data.error || response.statusText}`);
-            }
+    //         if (response.status !== 200) {
+    //         throw new Error(`Failed to update seminar: ${response.data.error || response.statusText}`);
+    //         }
         
-            console.log('Seminar updated successfully!');
+    //         console.log('Seminar updated successfully!');
 
-        } catch (error) {
-            console.error('Error updating seminar:', error);
-        }
-    };
+    //     } catch (error) {
+    //         console.error('Error updating seminar:', error);
+    //     }
+    // };
 
-    const handleToggle = (seminarId) => {
-        setRotatedSeminarIds((prevIds) => {
-            if (prevIds.includes(seminarId)) {
-                return prevIds.filter((id) => id !== seminarId);
-            } else {
-                return [...prevIds, seminarId];
-            }
-        });
-    };
+    // const handleToggle = (seminarId) => {
+    //     setRotatedSeminarIds((prevIds) => {
+    //         if (prevIds.includes(seminarId)) {
+    //             return prevIds.filter((id) => id !== seminarId);
+    //         } else {
+    //             return [...prevIds, seminarId];
+    //         }
+    //     });
+    // };
   
     useEffect(() => {
         const fetchData = async (apiUrl) => {
@@ -59,6 +60,7 @@ const ReceivedSeminarRequests = () => {
                 switch (apiUrl) {
                 case 'http://localhost:4000/api/schools':
                     setSchools(response.data);
+                    console.log(response.data);
                     break;
                 case 'http://localhost:4000/api/seminars':
                     setSeminars(response.data);
@@ -129,6 +131,7 @@ const ReceivedSeminarRequests = () => {
         newGroupedSeminars[formatedDate].push(seminar);
         });
         setGroupedSeminars(newGroupedSeminars);
+        console.log(newGroupedSeminars);
     }, [combinedArray]);
 
     console.log(combinedArray);
@@ -145,6 +148,7 @@ const ReceivedSeminarRequests = () => {
                     seminarStatuses={seminarStatuses}
                     handleToggle={handleToggle}
                     handleUpdateStatus={handleUpdateStatus}
+                    isLoading={isLoading}
                 />
             </div>
         ))}

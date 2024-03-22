@@ -41,6 +41,22 @@ const Organizations = () => {
 
   // Get the top 6 organizations
   const topOrganizations = sortedOrganizations.slice(0, 6);
+  const [organizationData, setOrganizationData] = useState([]);
+  useEffect(() => {
+    const fetchOrganizations = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:4000/api/organizations"
+        );
+        setOrganizationData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching seminar data:", error);
+      }
+    };
+
+    fetchOrganizations();
+  }, []);
 
   // Render Organization Cards
   const renderOrganizationCards = () => {

@@ -44,9 +44,9 @@ const ProfNav = () => {
           <ul className={`flex space-x-10 items-center`}>
             <li>
               <Link
-                to="/"
+                to="/OrgOverview"
                 className={`text-${
-                  isActive("/overview") ? "custom-green" : "#1B2336"
+                  isActive("/OrgOverview") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -55,9 +55,9 @@ const ProfNav = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to="/OrgRecSeminar"
                 className={`text-${
-                  isActive("/") ? "custom-green" : "#1B2336"
+                  isActive("/OrgRecSeminar") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -66,9 +66,9 @@ const ProfNav = () => {
             </li>
             <li>
               <Link
-                to="/contact-us"
+                to="/OrgRecVolunteer"
                 className={`text-${
-                  isActive("/contact-us") ? "custom-green" : "#1B2336"
+                  isActive("/OrgRecVolunteer") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -90,9 +90,9 @@ const ProfNav = () => {
             </li>
             <li>
               <Link
-                to="/about-us"
+                to="/OrgStatistics"
                 className={`text-${
-                  isActive("/about-us") ? "custom-green" : "#1B2336"
+                  isActive("/OrgStatistics") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -132,9 +132,9 @@ const ProfNav = () => {
               <ul className="absolute right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg">
                 <li>
                   <Link
-                    to="/"
+                    to="/OrgOverview"
                     className={`block px-4 py-2 text-${
-                      isActive("/overview") ? "custom-green" : "#1B2336"
+                      isActive("/OrgOverview") ? "custom-green" : "#1B2336"
                     } hover:text-gray-300 text-sm`}
                     onClick={() => handleLinkClick("Overview")}
                   >
