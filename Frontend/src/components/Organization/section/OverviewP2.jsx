@@ -86,7 +86,7 @@ const OverviewP2 = () => {
     return (
     <>
         <div className="flex justify-center items-center h-auto my-[4%]">
-            <div className="w-[70%]">
+            <div className="w-[80%] lg:w-[70%]">
                 <div className="relative">
                 <h1 className="text-2xl py-8 text-center font-medium">
                 Received Seminar Requests
