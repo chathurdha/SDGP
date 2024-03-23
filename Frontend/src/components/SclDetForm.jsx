@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-key */
+ 
 import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '@clerk/clerk-react';
@@ -145,4 +145,4 @@ console.log(Name + "                "+ ProfileColour+ "                "+Address
 export default SclDetForm
 //name , description, volunteerId, status, address, volunteerProfileImageAvailable, volunteerProfileColor
 
-/* eslint-enable react/jsx-key */
+ 

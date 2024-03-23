@@ -1,4 +1,4 @@
-/* eslint-disable no-irregular-whitespace */
+ 
 
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -51,4 +51,4 @@ export default OverviewP1;
 
 
 
-/* eslint-enable no-irregular-whitespace */
+ 

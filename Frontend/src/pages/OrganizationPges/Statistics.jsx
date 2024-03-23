@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+ 
 const Statistics = () => {
 
     return (
@@ -8,4 +8,4 @@ const Statistics = () => {
  
 export default Statistics;
 
-/* eslint-enable no-unused-vars */
+ 
