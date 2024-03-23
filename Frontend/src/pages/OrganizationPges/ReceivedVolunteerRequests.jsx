@@ -7,6 +7,8 @@ import FilterVolunteers from '../../components/ReceivedVolunteerRequests/FilterV
 
 const ReceivedSeminarRequests = () => {
     const [volunteers, setVolunteers] = useState([]);
+    const [filteredVolunteers, setFilteredVolunteers] = useState([]);
+    const [updatedVolunteers, setUpdatedVolunteers] = useState([]);
     const [groupedVolunteers, setGroupedVolunteers] = useState({});
     // const [rotatedVolunteerIds, setRotatedVolunteerIds] = useState([]);
     // const [volunteerStatuses, setVolunteerStatuses] = useState({});
@@ -61,9 +63,21 @@ const ReceivedSeminarRequests = () => {
     useEffect(() => {
         if (!volunteers) return;
         const filterVolunteers = volunteers.filter((volunteer) => volunteer.status === "pending");
-    
+        setFilteredVolunteers(filterVolunteers);
+        console.log(filterVolunteers);
+    }, [volunteers]);
+
+    useEffect(() => {
+        const updatedVolunteers = filteredVolunteers.filter((volunteer) => volunteer.orgID === "65f0b4ea09f477d188a48fab");//important
+        setUpdatedVolunteers(updatedVolunteers);
+        console.log(updatedVolunteers);
+    }, [filteredVolunteers]);
+
+    useEffect(() => {
         const newGroupedVolunteers = {};
-        filterVolunteers.forEach((volunteer) => {
+        console.log(updatedVolunteers);
+        updatedVolunteers.forEach((volunteer) => {
+        // filterVolunteers.forEach((volunteer) => {
             const formattedDate = isToday(new Date(volunteer.createdAt)) ? 'Today' : format(new Date(volunteer.createdAt), 'yyyy-MM-dd');
             if (!newGroupedVolunteers[formattedDate]) {
                 newGroupedVolunteers[formattedDate] = [];
@@ -71,7 +85,7 @@ const ReceivedSeminarRequests = () => {
             newGroupedVolunteers[formattedDate].push(volunteer);
         });
         setGroupedVolunteers(newGroupedVolunteers);
-    }, [volunteers]);
+    }, [updatedVolunteers]);
     
 
     return (

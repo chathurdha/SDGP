@@ -141,7 +141,10 @@ const AcceptSeminarRequests = () => {
         if (!combinedArray.length) return; // Exit early if combinedArray is not available
 
         const newGroupedSeminars = {};
-        combinedArray.forEach((seminar) => {
+        const filterSeminars = combinedArray.filter((seminar) => seminar.organizationId === "65f0b4ea09f477d188a48fab");//important
+
+        filterSeminars.forEach((seminar) => {
+        // combinedArray.forEach((seminar) => {
             const formatedDate = isToday(new Date(seminar.createdAt)) ? 'Today' : format(new Date(seminar.createdAt), 'yyyy-MM-dd');
             if (!newGroupedSeminars[formatedDate]) {
                 newGroupedSeminars[formatedDate] = [];
