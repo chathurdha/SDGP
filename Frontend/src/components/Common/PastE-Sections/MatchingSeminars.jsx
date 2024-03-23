@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import Card from "../../Card";
+import Card from "./Card";
 
 const MatchingSeminars = ({ seminars }) => {
   return (
