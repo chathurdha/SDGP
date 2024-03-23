@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Navbar from "../../navbar/ProfNav";
-import Footer from "../../Footer/Footer";
-import SearchButton from "../../Common/PastE-Sections/SearchButton";
-import OrganizationSelect from "../../Common/PastE-Sections/OrganizationSelect";
-import LocationSelect from "../../Common/PastE-Sections/LocationSelect";
-import YearSelect from "../../Common/PastE-Sections/YearSelect";
-import MatchingSeminars from "../../Common/PastE-Sections/MatchingSeminars";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import SearchButton from "../../components/Common/PastE-Sections/SearchButton";
+import OrganizationSelect from "../../components/Common/PastE-Sections/OrganizationSelect";
+import LocationSelect from "../../components/Common/PastE-Sections/LocationSelect";
+import YearSelect from "../../components/Common/PastE-Sections/YearSelect";
+import MatchingSeminars from "../../components/Common/PastE-Sections/MatchingSeminars";
 
-const PrevSeminar = () => {
+const PastEvents = () => {
   const [organizations, setOrganizations] = useState([]);
   // const [seminars, setSeminars] = useState([]);
   const [allSeminars, setAllSeminars] = useState([]);
@@ -237,6 +237,7 @@ const PrevSeminar = () => {
 
   return (
     <>
+      <Navbar />
       <div className="container mx-auto px-4 py-8 md:pt-[8%] pt-[25%]">
         <div className="flex flex-wrap mb-4 justify-center">
           {/* Organization Select */}
@@ -294,8 +295,9 @@ const PrevSeminar = () => {
         {/* Matching Seminars */}
         <MatchingSeminars seminars={matchingObjects} />
       </div>
+      <Footer />
     </>
   );
 };
 
-export default PrevSeminar;
+export default PastEvents;
