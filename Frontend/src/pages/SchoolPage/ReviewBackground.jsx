@@ -31,7 +31,7 @@
 //
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import ReviewCard from "../components/ReviewCard.jsx";
+import ReviewCard from "../../components/ReviewCard.jsx";
 
 export default function ReviewBackground() {
     const [reviews, setReviews] = useState([]);

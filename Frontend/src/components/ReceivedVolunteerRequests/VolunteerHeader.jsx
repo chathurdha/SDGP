@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 
 
-import ProfileImage from '../ProfileImage';
-import SchoolFirstLetter from '../SchoolFirstLetter';
+import ProfileImage from '../ReceivedSeminarRequests/ProfileImage';
+import SchoolFirstLetter from '../ReceivedSeminarRequests/SchoolFirstLetter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import {isMobile} from 'react-device-detect';
