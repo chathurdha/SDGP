@@ -5,7 +5,7 @@ import axios from "axios";
 //imp
 // import { useUser } from '@clerk/clerk-react';
 
-import FilterSeminars from "../ReceivedSeminarRequests/FilterSeminars";
+import FilterSeminars from "../../components/ReceivedSeminarRequests/FilterSeminars";
 
 const VolunteerOverview = () => {
 

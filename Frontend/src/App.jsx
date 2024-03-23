@@ -10,6 +10,7 @@ import Home from "./pages/CommanPages/Homepage";
 import Login from "./components/Login";
 import AboutUs from "./components/Common/AboutUs-Section/AboutUs";
 // import Next from "./components/SignUP";
+// import Next from "./components/SignUP";
 import PastEvents from "./pages/CommanPages/PastEvents";
 import ContactUs from "./pages/CommanPages/ContactUs";
 import OrgOwnerCreate from "./components/OrgOwner-Create";
@@ -26,6 +27,7 @@ import OrgReceivedSeminarRequests from "./pages/OrganizationPges/ReceivedSeminar
 import OrgReceivedVolunteerRequests from "./pages/OrganizationPges/ReceivedVolunteerRequests";
 import UserHeader from "./components/Header/OrgHeader";
 //import Statistics from "./pages/OrganizationPges/Statistics";
+>>>>>>> upstream/main
 
 import Loading from "./components/Loading";
 import SignUp from "./components/Profiles/ProfSelectSignUp";
@@ -68,6 +70,7 @@ const router = createBrowserRouter(
       <Route path="/OrgOverview" element={<OrgOverviewPg />} />
       <Route path="/OrgRecSeminar" element={<OrgReceivedSeminarRequests />} />
       <Route path="/Sign-In" element={<UserHeader />} />
+      <Route path="/Sign-In" element={<UserHeader />} />
       <Route
         path="/OrgRecVolunteer"
         element={<OrgReceivedVolunteerRequests />}
@@ -92,3 +95,42 @@ function App() {
 }
 
 export default App;
+
+// App.js
+
+// import React from "react";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { ClerkProvider } from "@clerk/clerk-react";
+// import RootLayout from "./RootLayout";
+// import { useNavigate } from "react-router-dom";
+
+// //common pages
+// import Home from "./pages/CommanPages/Homepage";
+// import PastEvents from "./pages/CommanPages/PastEvents";
+// import ContactUs from "./pages/CommanPages/ContactUs";
+
+// const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+// if (!PUBLISHABLE_KEY) {
+//   throw new Error("Missing Publishable Key");
+// }
+
+// function App() {
+//   const navigate = useNavigate();
+//   return (
+//     <ClerkProvider navigate={navigate} publishableKey={PUBLISHABLE_KEY}>
+//       <Router>
+//         <RootLayout>
+//           <Routes>
+//             <Route index element={<Home />} />
+//             <Route path="/past-events" element={<PastEvents />} />
+//             <Route path="/contact-us" element={<ContactUs />} />
+//             <Route path="/about-us" element={<div>About Us</div>} />
+//           </Routes>
+//         </RootLayout>
+//       </Router>
+//     </ClerkProvider>
+//   );
+// }
+
+// export default App;
