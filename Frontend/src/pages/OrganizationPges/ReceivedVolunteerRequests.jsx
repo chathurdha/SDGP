@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import format from "date-fns/format";
 import isToday from "date-fns/isToday";
 import axios from "axios";

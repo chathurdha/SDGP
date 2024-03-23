@@ -144,11 +144,11 @@ const ReceivedSeminarRequests = () => {
                 <h2 className='text-xl font-semibold mt-8 mb-4 text-left'>{date}</h2>
                 <FilterSeminars
                     filterSeminars={filterSeminars}
-                    rotatedSeminarIds={rotatedSeminarIds}
-                    seminarStatuses={seminarStatuses}
-                    handleToggle={handleToggle}
-                    handleUpdateStatus={handleUpdateStatus}
-                    isLoading={isLoading}
+                    // rotatedSeminarIds={rotatedSeminarIds}
+                    // seminarStatuses={seminarStatuses}
+                    // handleToggle={handleToggle}
+                    // handleUpdateStatus={handleUpdateStatus}
+                    // isLoading={isLoading}
                 />
             </div>
         ))}

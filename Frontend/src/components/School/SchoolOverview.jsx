@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react/no-unescaped-entities */
+
+
 import { isMobile } from "react-device-detect";
 import OrganizationList from './OrganizationList';
 // import { Link } from "react-router-dom";
@@ -108,3 +110,7 @@ const SchoolOverview = () => {
 }
  
 export default SchoolOverview;
+
+
+
+/* eslint-enable react/no-unescaped-entities */

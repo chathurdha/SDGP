@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/prop-types */
+
+import { useEffect, useState } from 'react';
 // import axios from 'axios';
 import Logo from '../../assets/react.svg';
 
@@ -148,3 +150,7 @@ export default function OrgProfileCard({ organization, allSeminars, allVolunteer
     // </div>
     );
 }
+
+
+
+/* eslint-enable react/prop-types */
