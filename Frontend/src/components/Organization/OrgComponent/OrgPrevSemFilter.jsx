@@ -1,91 +1,272 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
+
 import SearchButton from "../../Common/PastE-Sections/SearchButton";
+import OrganizationSelect from "../../Common/PastE-Sections/OrganizationSelect";
 import LocationSelect from "../../Common/PastE-Sections/LocationSelect";
 import YearSelect from "../../Common/PastE-Sections/YearSelect";
 import MatchingSeminars from "../../Common/PastE-Sections/MatchingSeminars";
 
 const PrevSeminar = () => {
-  // Sample organization data
-  const organizationId = 1; // User's organization ID
+  const [organizations, setOrganizations] = useState([]);
+  // const [seminars, setSeminars] = useState([]);
+  const [allSeminars, setAllSeminars] = useState([]);
+  const [seminars, setSeminars] = useState([]);
 
-  // Sample seminar data in JSON format
-  const seminarsData = [
-    {
-      _id: 1,
-      name: "Seminar 1",
-      description: "This is the first seminar",
-      rating: 4.0,
-      organizationId: 1,
-      year: 2021,
-      location: "Location 1",
-    },
-    {
-      _id: 2,
-      name: "Seminar 2",
-      description: "This is the second seminar",
-      rating: 3.5,
-      organizationId: 1,
-      year: 2022,
-      location: "Location 2",
-    },
-    // Add more seminars as needed
-  ];
+  // const seminars = allSeminars.filter((seminar) => {
+  //   return new Date(seminar.expDate) > new Date();
+  // });
+  // console.log(allSeminars);
+  console.log(seminars);
 
-  const [selectedLocation, setSelectedLocation] = useState("");
-  const [selectedYear, setSelectedYear] = useState("");
-  const [matchingObjects, setMatchingObjects] = useState([]);
+  // Function to extract year from a date string
+  const extractYear = (dateString) => {
+    console.log(dateString);
+    // Split the date string by whitespace, assuming the format is "Month Day(th), Year"
+    const datePart = dateString.split("T")[0];
+    // const parts = dateString.split(" ");
+    const parts = datePart.split("-");
+    if (parts.length !== 3) {
+      console.error(`Invalid date format: ${dateString}`);
+      return null; // Handle invalid date format
+    }
+    // return parts[2]; // Return the year part
+    return parts[0]; // Return the year part
+  };
+
+  const organizationOptions = organizations.map((organization) => {
+    return {
+      value: organization?.name,
+      label: organization?.name,
+    };
+  });
+  console.log(organizationOptions);
+
+  const uniqueLocations = new Set(seminars.map((seminar) => seminar?.location));
+  const locationOptions = Array.from(uniqueLocations).map((location) => ({
+    value: location,
+    label: location,
+  }));
+  console.log(locationOptions);
+
+  // const uniqueYears = new Set(seminars.map((seminar) => seminar?.year));
+  const uniqueYears = new Set(
+    seminars.map((seminar) => extractYear(seminar.expDate))
+  );
+  const yearOptions = Array.from(uniqueYears).map((year) => ({
+    value: year,
+    label: year,
+  }));
+  console.log(yearOptions);
+
+  const [selectedOrganization, setSelectedOrganization] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState([]);
+  const [selectedYear, setSelectedYear] = useState([]);
+
+  const [selectedOrganizationObject, setSelectedOrganizationObject] =
+    useState(null);
+  const [selectedLocationObject, setSelectedLocationObject] = useState(null);
+  const [selectedYearObject, setSelectedYearObject] = useState(null);
+
+  const [matchingObjects, setMatchingObjects] = useState(seminars);
+  console.log(matchingObjects);
+
+  const handleClick = () => {
+    console.log("Button clicked!");
+    const matchingObjects = [];
+    const filters = [
+      selectedOrganizationObject,
+      selectedLocationObject,
+      selectedYearObject,
+    ];
+    console.log(filters);
+    const nonEmptyFilters = filters.filter((filter) => {
+      if (filter !== null && filter.length > 0) {
+        return filter;
+      }
+    });
+
+    if (nonEmptyFilters.length === 3) {
+      console.log("3 filters");
+      for (let i = 0; i < nonEmptyFilters[0].length; i++) {
+        for (let j = 0; j < nonEmptyFilters[1].length; j++) {
+          for (let k = 0; k < nonEmptyFilters[2].length; k++) {
+            if (
+              nonEmptyFilters[0][i]._id === nonEmptyFilters[1][j]._id &&
+              nonEmptyFilters[1][j]._id === nonEmptyFilters[2][k]._id
+            ) {
+              matchingObjects.push(nonEmptyFilters[0][i]);
+            }
+          }
+        }
+      }
+    } else if (nonEmptyFilters.length === 2) {
+      for (let i = 0; i < nonEmptyFilters[0].length; i++) {
+        for (let j = 0; j < nonEmptyFilters[1].length; j++) {
+          if (nonEmptyFilters[0][i]._id === nonEmptyFilters[1][j]._id) {
+            matchingObjects.push(nonEmptyFilters[0][i]);
+          }
+        }
+      }
+    } else if (nonEmptyFilters.length === 1) {
+      if (nonEmptyFilters[0] === "err") {
+        setMatchingObjects([]);
+      } else {
+        for (let i = 0; i < nonEmptyFilters[0].length; i++) {
+          matchingObjects.push(nonEmptyFilters[0][i]);
+        }
+      }
+    } else if (nonEmptyFilters.length === 0) {
+      seminars.forEach((seminar) => {
+        matchingObjects.push(seminar);
+      });
+    }
+    setMatchingObjects(matchingObjects);
+  };
+
+  const handleOrganizationChange = (selectedOrganization) => {
+    setSelectedOrganization(selectedOrganization);
+
+    try {
+      const selectedObject = organizations.find(
+        (organization) => organization.name === selectedOrganization.value
+      );
+      const matchingPairs = seminars.filter(
+        (seminar) => seminar.organizationId === selectedObject._id
+      );
+      if (matchingPairs.length > 0) {
+        setSelectedOrganizationObject(matchingPairs);
+      } else {
+        const err = "err";
+        setSelectedOrganizationObject(err);
+      }
+    } catch (error) {
+      setSelectedOrganizationObject(null);
+      console.error(
+        "Error occurred while fetching organization data. Please try again."
+      );
+    }
+  };
 
   const handleLocationChange = (selectedLocation) => {
     setSelectedLocation(selectedLocation);
+
+    try {
+      const matchingPairs = seminars.filter(
+        (seminar) => seminar.location === selectedLocation.value
+      );
+      if (matchingPairs.length > 0) {
+        setSelectedLocationObject(matchingPairs);
+      } else {
+        const err = "err";
+        setSelectedLocationObject(err);
+      }
+    } catch (error) {
+      setSelectedLocationObject(null);
+      console.error(
+        "Error occurred while fetching organization data. Please try again."
+      );
+    }
   };
 
   const handleYearChange = (selectedYear) => {
     setSelectedYear(selectedYear);
-  };
 
-  const handleSearch = () => {
-    // Filter seminars based on selected location, year, and organization ID
-    let filteredSeminars = seminarsData.filter(function (seminar) {
-      return (
-        seminar.organizationId === organizationId &&
-        (!selectedLocation || seminar.location === selectedLocation.value) &&
-        (!selectedYear || seminar.year === parseInt(selectedYear.value))
+    try {
+      const matchingPairs = seminars.filter((seminar) => {
+        console.log(selectedYear.value);
+        const integerYear = parseInt(selectedYear.value, 10);
+        console.log(integerYear);
+        return extractYear(seminar.expDate) === selectedYear.value;
+      });
+      console.log(matchingPairs);
+      if (matchingPairs.length > 0) {
+        setSelectedYearObject(matchingPairs);
+      } else {
+        const err = "err";
+        setSelectedYearObject(err);
+      }
+    } catch (error) {
+      setSelectedYearObject(null);
+      console.error(
+        "Error occurred while fetching organization data. Please try again."
       );
-    });
-
-    setMatchingObjects(filteredSeminars);
+    }
   };
 
   useEffect(() => {
-    // Fetch seminars data when component mounts
-    setMatchingObjects(seminarsData.filter(seminar => seminar.organizationId === organizationId));
-  }, []);
+    if (allSeminars.length > 0) {
+      const seminars = allSeminars.filter((seminar) => {
+        return new Date(seminar.expDate) < new Date();
+      });
+      setSeminars(seminars);
+      setMatchingObjects(seminars);
+    }
+  }, [allSeminars]);
+
+  useEffect(() => {
+    const fetchData = async (apiUrl) => {
+      try {
+        const response = await axios.get(apiUrl);
+        switch (apiUrl) {
+          case "http://localhost:4000/api/organizations":
+            setOrganizations(response.data);
+            console.log(response.data);
+            break;
+          case "http://localhost:4000/api/seminars":
+            // setSeminars(response.data);
+            setAllSeminars(response.data);
+            // setMatchingObjects(response.data);
+            console.log(response.data);
+            break;
+          default:
+            console.warn("Unexpected API URL:", apiUrl);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        // setLoading(false);
+      }
+    };
+
+    fetchData("http://localhost:4000/api/organizations");
+    fetchData("http://localhost:4000/api/seminars");
+  }, [selectedOrganizationObject, selectedLocationObject, selectedYearObject]);
 
   return (
     <>
-      <div className="container mx-auto px-4 py-8 md:pt-[5%] pt-[25%]">
+      <div className="container mx-auto px-4 py-8 md:pt-[8%] pt-[25%]">
         <div className="flex flex-wrap mb-4 justify-center">
+          {/* Organization Select */}
+          <div className="mr-2 mt-1">
+            <OrganizationSelect
+              options={organizationOptions}
+              onSelectionChange={handleOrganizationChange}
+              selectedValue={selectedOrganization}
+              normalStyles="shadow-none rounded-md w-52"
+              placeholderValue="Organization"
+            />
+          </div>
+
           {/* Location Select */}
           <div className="mr-2 mt-1">
             <LocationSelect
-              options={[
-                { value: "Location 1", label: "Location 1" },
-                { value: "Location 2", label: "Location 2" },
-              ]}
+              options={locationOptions}
               onSelectionChange={handleLocationChange}
               selectedValue={selectedLocation}
+              normalStyles="shadow-none rounded-md w-52"
+              placeholderValue="Location"
             />
           </div>
 
           {/* Year Select */}
           <div className="mr-2 mt-1">
             <YearSelect
-              options={[
-                { value: "2021", label: "2021" },
-                { value: "2022", label: "2022" },
-              ]}
+              options={yearOptions}
               onSelectionChange={handleYearChange}
               selectedValue={selectedYear}
+              normalStyles="shadow-none rounded-md w-52"
+              placeholderValue="Year"
             />
           </div>
 
@@ -93,8 +274,19 @@ const PrevSeminar = () => {
           <SearchButton
             buttonName="Search"
             style="w-28 mt-1 md:ml-4 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            onClick={handleSearch}
+            onClick={handleClick}
           />
+        </div>
+
+        <div className="flex justify-center">
+          <div className="pt-4 pb-12 md:w-2/3 lg:w-1/2 text-center">
+            <p>
+              We believe that we can act a major role in the journey of creating
+              a better society. During the journey we had gone through so many
+              milestones. We believe this investment will impact the future of
+              this country.
+            </p>
+          </div>
         </div>
 
         {/* Matching Seminars */}
