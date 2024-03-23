@@ -2,7 +2,7 @@
 
 
 import { isMobile } from "react-device-detect";
-import OrganizationList from './OrganizationList';
+import OrganizationList from '../../components/School/OrganizationSearch/OrganizationList';
 // import { Link } from "react-router-dom";
 
 const SchoolOverview = () => {

@@ -6,7 +6,7 @@ export default function OrgSignUP() {
   return (
     <div  className='flex justify-center items-center h-screen'>
         <CreateOrganization
-        afterCreateOrganizationUrl={"/next"} />
+        afterCreateOrganizationUrl={"/Organization/Details-Form"} />
     </div>
   )
 }
