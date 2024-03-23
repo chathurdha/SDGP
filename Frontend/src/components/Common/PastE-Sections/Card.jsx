@@ -1,10 +1,11 @@
 /* eslint-disable  react/prop-types */
 
-
 import Ratings from './Ratings';
+import ProcessDate from './ProcessDate';
 
 const Card = ({seminar}) => {
 
+    const { formattedDate } = ProcessDate(seminar);
     const imagePath = './images/' + seminar._id +'.jpeg';
 
     return ( 
@@ -16,8 +17,9 @@ const Card = ({seminar}) => {
                 <h1 className='text-[1rem] pt-4'>{seminar.description}</h1>
                 <div className='text-[0.8rem] pt-4 pb-2 pr-2 flex flex-row justify-between'>
                     <Ratings rating={seminar.rating} />
-                    <p className='text-right'>2 days ago</p>
-                    {/* <p>{seminar.createdAt}</p> */}{/* when the issue of backend is solved add this instead of '2 days ago' */}
+                    {/* <p className='text-right'>2 days ago</p> */}
+                    {/* <p>{seminar.createdAt}</p>when the issue of backend is solved add this instead of '2 days ago' */}
+                    <p>{formattedDate}</p>
                 </div>
             </div>
         </div>
