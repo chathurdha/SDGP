@@ -8,17 +8,15 @@ function PrevSeminar() {
   return (
     <>
       <OrgHeader />
-      <div className="pt-[7%]">
-        <Navbar />
-        <SeminarBtns
-          upcomingPageUrl="/UpSeminar"
-          previousPageUrl="/PrevSeminar"
-        />
-        <div>
-          <OrgPrevSemFilter />
-        </div>
-        <Footer />
+      <Navbar />
+      <SeminarBtns
+        upcomingPageUrl="/Organization/Upcoming-Seminar"
+        previousPageUrl="/Organization/Previous-Seminar"
+      />
+      <div>
+        <OrgPrevSemFilter />
       </div>
+      <Footer />
     </>
   );
 }

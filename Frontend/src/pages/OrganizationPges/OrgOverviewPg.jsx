@@ -10,13 +10,12 @@ function OrgOverviewPg() {
   return (
     <>
       <OrgHeader />
-      <div className="pt-[7%]">
-        <ProfNav />
-        <OrgOverview />
-        <OverviewP2 />
-        <OverviewP3 />
-        <OverviewP4 />
-      </div>
+      <ProfNav />
+      <OrgOverview />
+      <OverviewP2 />
+      <OverviewP3 />
+      <OverviewP4 />
+
       <Footer />
     </>
   );

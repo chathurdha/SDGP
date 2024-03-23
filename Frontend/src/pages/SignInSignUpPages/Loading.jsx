@@ -1,7 +1,7 @@
 import { useUser } from "@clerk/clerk-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Loading from '../assets/Loading.svg'
+import Loading from "../../assets/Loading.svg";
 
 const LoadingScreen = () => {
   const Navigate = useNavigate();
@@ -13,34 +13,28 @@ const LoadingScreen = () => {
   console.log(`${User}`);
 
   if (isSignedIn) {
-
     if (UserType === '"Volunteer"') {
       console.log(`UserType: ${UserType}`);
-      setNextPageComponent ("/Volunteer/");
+      setNextPageComponent("/Volunteer/Overview/");
     } else if (UserType === '"School"') {
-      setNextPageComponent  ("/School/Details-Form");
+      setNextPageComponent("/School/Overview");
     } else if (UserType === '"Organization"') {
-      setNextPageComponent  ("/Organization/Details-Form");
+      setNextPageComponent("/Organization/Overview");
     } else {
       console.error(`Unhandled UserType: ${UserType}`);
     }
   }
 
-
-
   return (
     <div>
       {isSignedIn ? (
-        <>
-{        Navigate(nextPageComponent)
-}        </>
-        
+        <>{Navigate(nextPageComponent)} </>
       ) : (
-        <div className='flex flex-col justify-center items-center h-screen w-screen'>
+        <div className="flex flex-col justify-center items-center h-screen w-screen">
           {/* <h1 className='font-bold text-8xl subpixel-antialiased text-sky-500'>Loading...</h1>
           <br />
           <h4 className='font-normal text-3xl'>Welcome to SisuSaviya</h4> */}
-          <img src={Loading} alt="Loading.svg" className="w-2/6 h-2/6"/>
+          <img src={Loading} alt="Loading.svg" className="w-2/6 h-2/6" />
         </div>
       )}
     </div>
@@ -48,8 +42,6 @@ const LoadingScreen = () => {
 };
 
 export default LoadingScreen;
-
-
 
 // function Loading() {
 //   return (

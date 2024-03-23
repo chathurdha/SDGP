@@ -1,136 +1,118 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
-//import { ClerkProvider, SignedIn } from "@clerk/clerk-react";
-import VolOverView from "./components/Volunteer/VolunteerOverview"
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RootLayout from "./RootLayout";
+import DashboardLayout from "./DashBoardLayout";
+import Loading from "./pages/SignInSignUpPages/Loading";
+import Login from "./pages/SignInSignUpPages/login";
+import SignUp from "./components/SignInSignUpComponents/ProfSelect";
+import VolSignUP from "./pages/SignInSignUpPages/VolSignUP";
+import SclSignUP from "./pages/SignInSignUpPages/SclSignUP";
+import OrgSignUP from "./pages/SignInSignUpPages/OrgSignUP";
+
+//common pages
 import Home from "./pages/CommanPages/Homepage";
-import Login from "./components/Login";
-import AboutUs from "./components/Common/AboutUs-Section/AboutUs";
-// import Next from "./components/SignUP";
-// import Next from "./components/SignUP";
 import PastEvents from "./pages/CommanPages/PastEvents";
 import ContactUs from "./pages/CommanPages/ContactUs";
-import OrgOwnerCreate from "./components/OrgOwner-Create";
-import VolSignUP from "./components/VolSignUP";
-import SclSignUP from "./components/SclSignUP";
-import OrgSignUP from "./components/OrgSignUP";
-//import PrevSem from "./pages/OrganizationPges/PrevSeminar";
+import AboutUs from "./pages/CommanPages/AboutUs";
+
+//Volunteer Pages
+import VolOverView from "./pages/VolunteerPages/VolunteerOverview";
+import AcceptSeminarRequests from "./pages/VolunteerPages/AcceptSeminarRequests";
+import VolDetForm from "./components/SignInSignUpComponents/VolDetForm";
+
+//Organization Pages
+import OrgOwnerCreate from "./components/SignInSignUpComponents/OrgOwner-Create";
 import PrevSeminar from "./pages/OrganizationPges/PrevSeminar";
 import UpSeminar from "./pages/OrganizationPges/UpSeminar";
 import OrgSeminar from "./components/Organization/section/OrgSeminar";
-import Seminar from "./components/Profiles/SeminarBtns";
+// import Seminar from "./components/Profiles/SeminarBtns";
 import OrgOverviewPg from "./pages/OrganizationPges/OrgOverviewPg";
 import OrgReceivedSeminarRequests from "./pages/OrganizationPges/ReceivedSeminarRequests";
 import OrgReceivedVolunteerRequests from "./pages/OrganizationPges/ReceivedVolunteerRequests";
-import UserHeader from "./components/Header/OrgHeader";
-//import Statistics from "./pages/OrganizationPges/Statistics";
->>>>>>> upstream/main
+import OrgDetForm from "./components/SignInSignUpComponents/OrgDetForm";
+import OrgOwinerCreate from "./components/SignInSignUpComponents/OrgOwner-Create";
 
-import Loading from "./components/Loading";
-import SignUp from "./components/Profiles/ProfSelectSignUp";
+//School pages
+import SchlOverview from "./pages/SchoolPage/SchoolOverview";
+import RequestForm from "./pages/SchoolPage/RequestForm";
+// import SendReview from "./pages/SchoolPage/AddReview"
+import SclDetForm from "./components/SignInSignUpComponents/SclDetForm"
 
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <>
-      <Route index element={<Home />} />
-
-      <Route path="/past-events" element={<PastEvents />} />
-
-      <Route path="/contact-us" element={<ContactUs />} />
-
-      <Route path="/about-us" element={<AboutUs />} />
-
-      {/* <Route path="/Sign-In" element={<Login />} /> */}
-      
-
-      <Route path="/Sign-Up" element={<SignUp />} />
-
-      <Route path="/School/Sign-up" element={<SclSignUP />} />
-      <Route path="/Volunteer/Sign-up" element={<VolSignUP />} />
-      <Route path="/Organization/Sign-up" element={<OrgSignUP />} />
-      <Route path="/Organization/Create-Owner" element={<OrgOwnerCreate />} />
-
-      <Route path="/Volunteer/Sign-In" element={<Login />} />
-      <Route path="/Organization/Sign-In" element={<Login />} />
-      <Route path="/School/Sign-In" element={<Login />} />
-      {/* <Route path="Organization/:id" element={<Organization />} /> */}
-
-      <Route path="/next" element={<Loading />} />
-
-      {/* organization */}
-      
-      <Route path="/SeminarBtns" element={<Seminar />} />
-      <Route path="/OrgSeminar" element={<OrgSeminar />} />
-      <Route path="/PrevSeminar" element={<PrevSeminar />} />
-      <Route path="/UpSeminar" element={<UpSeminar />} />
-      <Route path="/OrgOverview" element={<OrgOverviewPg />} />
-      <Route path="/OrgRecSeminar" element={<OrgReceivedSeminarRequests />} />
-      <Route path="/Sign-In" element={<UserHeader />} />
-      <Route path="/Sign-In" element={<UserHeader />} />
-      <Route
-        path="/OrgRecVolunteer"
-        element={<OrgReceivedVolunteerRequests />}
-      />
-
-
-
-
-      <Route path="/Volunteer/Overview" element={<VolOverView />} />
-
-      {/* <Route path="/OrgStatistics" element={<Statistics />} /> */}
-    </>
-  )
-);
-
-function App() {
+const App = () => {
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+    <Router>
+      <RootLayout>
+        <Routes>
+          <Route path="/Sign-In" element={<Login />} />
+          <Route path="/Sign-Up" element={<SignUp />} />
+          <Route path="/School/Sign-up" element={<SclSignUP />} />
+          <Route path="/Organization/Sign-up" element={<OrgSignUP />} />
+          <Route path="/Volunteer/Sign-up" element={<VolSignUP />} />
+          <Route path="/Volunteer/Sign-In" element={<Login />} />
+          <Route path="/Organization/Sign-In" element={<Login />} />
+          <Route path="/School/Sign-In" element={<Login />} />
+          <Route path="/next" element={<Loading />} />
+
+          <Route index element={<Home />} />
+
+          <Route path="/past-events" element={<PastEvents />} />
+
+          <Route path="/contact-us" element={<ContactUs />} />
+
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route
+            path="/Organization/Create-Owner"
+            element={<OrgOwnerCreate />}
+          />
+          <Route element={<DashboardLayout />}>
+            <Route path="/Orgnization/Seminar" element={<OrgSeminar />} />
+            <Route
+              path="/Organization/Previous-Seminar"
+              element={<PrevSeminar />}
+            />
+            <Route
+              path="/Organization/Upcoming-Seminar"
+              element={<UpSeminar />}
+            />
+            <Route path="/Organization/Overview" element={<OrgOverviewPg />} />
+            <Route
+              path="/Orgnization/Received-Seminar-Requests"
+              element={<OrgReceivedSeminarRequests />}
+            />
+            <Route path="/Organization/Details" element={<OrgDetForm />} />
+            <Route
+              path="/Organization/Owner-Create"
+              element={<OrgOwinerCreate />}
+            />
+
+            <Route
+              path="/Orgnization/Received-Volunteer-Requests"
+              element={<OrgReceivedVolunteerRequests />}
+            />
+            <Route path="/Volunteer/Overview" element={<VolOverView />} />
+            <Route path="/Volunteer/Details" element={<VolDetForm />} />
+            <Route
+              path="/Volunteer/Seminar-Request"
+              element={<AcceptSeminarRequests />}
+            />
+            <Route
+              path="/Volunteer/Upcoming-Seminar"
+              element={<div>vol up sem</div>}
+            />
+
+            <Route path="/School/Overview" element={<SchlOverview />} />
+            <Route path="/School/Seminar-Request" element={<RequestForm />} />
+            <Route
+              path="/School/Upcoming-Seminar"
+              element={<div>vol up sem</div>}
+            />
+            <Route path="/School/Add-Review" element={<div>vol up sem</div>} />
+            <Route path="/School/Details" element={<SclDetForm />} />
+          </Route>
+        </Routes>
+      </RootLayout>
+    </Router>
   );
-}
+};
 
 export default App;
-
-// App.js
-
-// import React from "react";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { ClerkProvider } from "@clerk/clerk-react";
-// import RootLayout from "./RootLayout";
-// import { useNavigate } from "react-router-dom";
-
-// //common pages
-// import Home from "./pages/CommanPages/Homepage";
-// import PastEvents from "./pages/CommanPages/PastEvents";
-// import ContactUs from "./pages/CommanPages/ContactUs";
-
-// const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
-
-// if (!PUBLISHABLE_KEY) {
-//   throw new Error("Missing Publishable Key");
-// }
-
-// function App() {
-//   const navigate = useNavigate();
-//   return (
-//     <ClerkProvider navigate={navigate} publishableKey={PUBLISHABLE_KEY}>
-//       <Router>
-//         <RootLayout>
-//           <Routes>
-//             <Route index element={<Home />} />
-//             <Route path="/past-events" element={<PastEvents />} />
-//             <Route path="/contact-us" element={<ContactUs />} />
-//             <Route path="/about-us" element={<div>About Us</div>} />
-//           </Routes>
-//         </RootLayout>
-//       </Router>
-//     </ClerkProvider>
-//   );
-// }
-
-// export default App;

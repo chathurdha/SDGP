@@ -12,6 +12,9 @@ import TextInput from "../../components/RequestForm/TextInput";
 import TextAreaInput from "../../components/RequestForm/TextAreaInput";
 import DatePickerInput from "../../components/RequestForm/DatePickerInput";
 import NumberInput from "../../components/RequestForm/NumberInput";
+import SchlNavBar from "../../components/navbar/SchlNavBar";
+import SchlHeader from "../../components/Header/SchlHeader";
+import Footer from "../../components/Footer/Footer";
 
 const RequestForm = () => {
   //imp
@@ -226,30 +229,33 @@ const RequestForm = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 shadow rounded px-8 pt-6 pb-8 mb-4">
-      <h1 className="text-3xl font-semibold text-center mb-8 mt-4">
-        Request Form
-      </h1>
-      <div className="flex items-center justify-center">
-        <div className="lg:w-2/3 w-full">
-          <div className="mb-2">
-            <div className="input-field md:w-full px-3">
-              <OrganizationSelect
-                options={organizationOptions}
-                onSelectionChange={handleOrganizationChange}
-                selectedValue={selectedOrganization}
-                normalStyles="shadow-none rounded-md w-full md:w-1/3"
-                placeholderValue="Select Organization"
-              />
-              {formData.errors.organizationName && (
-                <span className="text-red-500 px-4 pt-1 text-sm flex items-center justify-start">
-                  {formData.errors.organizationName}
-                </span>
-              )}
+    <>
+      <SchlHeader />
+      <SchlNavBar />
+      <div className="bg-gray-100 shadow rounded px-8 pt-6 pb-8 ">
+        <h1 className="text-3xl font-semibold text-center mb-8 mt-4">
+          Request Form
+        </h1>
+        <div className="flex items-center justify-center">
+          <div className="lg:w-2/3 w-full">
+            <div className="mb-2">
+              <div className="input-field md:w-full px-3">
+                <OrganizationSelect
+                  options={organizationOptions}
+                  onSelectionChange={handleOrganizationChange}
+                  selectedValue={selectedOrganization}
+                  normalStyles="shadow-none rounded-md w-full md:w-1/3"
+                  placeholderValue="Select Organization"
+                />
+                {formData.errors.organizationName && (
+                  <span className="text-red-500 px-4 pt-1 text-sm flex items-center justify-start">
+                    {formData.errors.organizationName}
+                  </span>
+                )}
+              </div>
             </div>
-          </div>
 
-          {/* <div className="mb-2">
+            {/* <div className="mb-2">
             <div className="input-field md:w-full px-3 flex flex-col justify-start">
               <DatePicker
                 selected={formData.selectedDate}
@@ -262,14 +268,14 @@ const RequestForm = () => {
               )}
             </div>
           </div> */}
-          <DatePickerInput
-            selected={formData.selectedDate}
-            onChange={handleDateChange}
-            placeholderText="Select expected date for the Seminar"
-            error={formData.errors.selectedDate}
-          />
+            <DatePickerInput
+              selected={formData.selectedDate}
+              onChange={handleDateChange}
+              placeholderText="Select expected date for the Seminar"
+              error={formData.errors.selectedDate}
+            />
 
-          {/* <div className="mb-2">
+            {/* <div className="mb-2">
             <div className="input-field md:w-full px-3">
               <input
                 className="appearance-none block w-full bg-gray-lighter text-gray-darker border border-gray-lighter rounded py-3 px-4"
@@ -285,15 +291,15 @@ const RequestForm = () => {
               )}
             </div>
           </div> */}
-          <TextInput
-            label="Location"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            error={formData.errors.location}
-          />
+            <TextInput
+              label="Location"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              error={formData.errors.location}
+            />
 
-          {/* <div className="mb-2">
+            {/* <div className="mb-2">
             <div className="input-field md:w-full px-3">
               <input
                 className="appearance-none block w-full bg-gray-lighter text-gray-darker border border-gray-lighter rounded py-3 px-4"
@@ -310,15 +316,15 @@ const RequestForm = () => {
             </div>
           </div> */}
 
-          <TextInput
-            label="Subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            error={formData.errors.subject}
-          />
+            <TextInput
+              label="Subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              error={formData.errors.subject}
+            />
 
-          {/* <div className='mb-2'>
+            {/* <div className='mb-2'>
             <div className='input-field md:w-full px-3'>
               <input
                 className='appearance-none block w-full bg-gray-lighter text-gray-darker border border-gray-lighter rounded py-3 px-4'
@@ -337,15 +343,15 @@ const RequestForm = () => {
             </div>
           </div> */}
 
-          <TextInput
-            label="Grade"
-            name="grade"
-            value={formData.grade}
-            onChange={handleChange}
-            error={formData.errors.grade}
-          />
+            <TextInput
+              label="Grade"
+              name="grade"
+              value={formData.grade}
+              onChange={handleChange}
+              error={formData.errors.grade}
+            />
 
-          {/* <div className='mb-2'>
+            {/* <div className='mb-2'>
             <div className='input-field md:w-full px-3'>
               <input
                 className='appearance-none block w-full bg-gray-lighter text-gray-darker border border-gray-lighter rounded py-3 px-4'
@@ -363,16 +369,16 @@ const RequestForm = () => {
             </div>
           </div> */}
 
-          <NumberInput
-            label="Expected Student Count"
-            name="expStudentCount"
-            value={formData.expStudentCount}
-            min={10}
-            error={formData.errors.expStudentCount}
-            onChange={handleChange}
-          />
+            <NumberInput
+              label="Expected Student Count"
+              name="expStudentCount"
+              value={formData.expStudentCount}
+              min={10}
+              error={formData.errors.expStudentCount}
+              onChange={handleChange}
+            />
 
-          {/* <div className='mb-2'>
+            {/* <div className='mb-2'>
             <div className='input-field md:w-full px-3'>
               <input
                 className='appearance-none block w-full bg-gray-lighter text-gray-darker border border-gray-lighter rounded py-3 px-4'
@@ -391,17 +397,17 @@ const RequestForm = () => {
             </div>
           </div> */}
 
-          <NumberInput
-            label="Expected Teacher Count"
-            name="expTeacherCount"
-            value={formData.expTeacherCount}
-            min={1}
-            max={10}
-            error={formData.errors.expTeacherCount}
-            onChange={handleChange}
-          />
+            <NumberInput
+              label="Expected Teacher Count"
+              name="expTeacherCount"
+              value={formData.expTeacherCount}
+              min={1}
+              max={10}
+              error={formData.errors.expTeacherCount}
+              onChange={handleChange}
+            />
 
-          {/* <div className='mb-2'>
+            {/* <div className='mb-2'>
             <div className='input-field md:w-full px-3'>
               <input
                 className='appearance-none block w-full bg-gray-lighter text-gray-darker border border-gray-lighter rounded py-3 px-4'
@@ -418,19 +424,19 @@ const RequestForm = () => {
             </div>
           </div> */}
 
-          <TextAreaInput
-            label="Additional Requests"
-            name="additionalRequests"
-            value={formData.additionalRequests}
-            onChange={handleChange}
-            error={formData.errors.additionalRequests}
-          />
+            <TextAreaInput
+              label="Additional Requests"
+              name="additionalRequests"
+              value={formData.additionalRequests}
+              onChange={handleChange}
+              error={formData.errors.additionalRequests}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="flex items-center justify-center">
-        <div className="mt-4 text-left">
-          {/* <label className="block text-grey-darker text-sm font-semibold mb-2">
+        <div className="flex items-center justify-center">
+          <div className="mt-4 text-left">
+            {/* <label className="block text-grey-darker text-sm font-semibold mb-2">
             <input 
               className="mr-2 leading-tight" 
               type="checkbox" 
@@ -442,14 +448,14 @@ const RequestForm = () => {
               Send me helpful emails
             </span>
           </label> */}
-          <CheckboxInput
-            label="Send me helpful emails"
-            name="sendHelpfulEmails"
-            value={formData.sendHelpfulEmails}
-            onChange={handleHelpfulEmailsChange}
-            error={formData.errors.sendHelpfulEmails}
-          />
-          {/* <label className="block text-grey-darker text-sm font-semibold mb-2">
+            <CheckboxInput
+              label="Send me helpful emails"
+              name="sendHelpfulEmails"
+              value={formData.sendHelpfulEmails}
+              onChange={handleHelpfulEmailsChange}
+              error={formData.errors.sendHelpfulEmails}
+            />
+            {/* <label className="block text-grey-darker text-sm font-semibold mb-2">
             <input 
               className="mr-2 leading-tight" 
               type="checkbox" 
@@ -464,31 +470,33 @@ const RequestForm = () => {
               <span className="text-red-500 px-4 pt-1 text-sm flex items-center justify-start">{formData.errors.aggreementAccepted}</span>
             )}
           </label> */}
-          <CheckboxInput
-            label="Yes, I understand and agree to the Sisu Saviya Terms of Service, including the User Agreement and Privacy Policy."
-            name="aggreementAccepted"
-            value={formData.aggreementAccepted}
-            onChange={aggreementAcceptenceChange}
-            error={formData.errors.aggreementAccepted}
-          />
+            <CheckboxInput
+              label="Yes, I understand and agree to the Sisu Saviya Terms of Service, including the User Agreement and Privacy Policy."
+              name="aggreementAccepted"
+              value={formData.aggreementAccepted}
+              onChange={aggreementAcceptenceChange}
+              error={formData.errors.aggreementAccepted}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className={`md:flex ${isMobile ? "" : "mx-3"} mt-2`}>
-        <div className="md:w-full px-3">
-          <button
-            className="w-36 mt-4 md:ml-4 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            type="button"
-            onClick={handleSubmit}
-          >
-            Send Request
-          </button>
-          {successMessage && (
-            <p className="my-3 text-custom-purple">{successMessage}</p> // Render success message
-          )}
+        <div className={`md:flex ${isMobile ? "" : "mx-3"} mt-2`}>
+          <div className="md:w-full px-3">
+            <button
+              className="w-36 mt-4 md:ml-4 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              type="button"
+              onClick={handleSubmit}
+            >
+              Send Request
+            </button>
+            {successMessage && (
+              <p className="my-3 text-custom-purple">{successMessage}</p> // Render success message
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

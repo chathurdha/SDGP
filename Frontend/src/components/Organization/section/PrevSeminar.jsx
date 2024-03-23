@@ -7,8 +7,8 @@ function PrevSeminar() {
     <>
       <Navbar />
       <SeminarBtns
-        upcomingPageUrl="/UpSeminar"
-        previousPageUrl="/PrevSeminar"
+        upcomingPageUrl="/Organization/Upcoming-Seminar"
+        previousPageUrl="/Organization/Previous-Seminar"
       />
       <div>
         <OrgPrevSemFilter />
