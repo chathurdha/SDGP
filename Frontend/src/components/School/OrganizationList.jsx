@@ -39,7 +39,7 @@ export default function OrganizationList() {
           } catch (error) {
             console.error("Error fetching data:", error);
           } finally {
-
+            console.log("Data fetched successfully");
           }
         };
     

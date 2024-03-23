@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-
+import { useState } from 'react';
+import axios from 'axios';
 import SeminarHeader from './SeminarHeader';
 import SeminarDetails from './SeminarDetails';
 import SeminarStatusIcon from './SeminarStatusIcon';
@@ -35,6 +36,7 @@ const FilterSeminars = ({
             });
         
             if (response.status !== 200) {
+                setIsLoading(false);
             throw new Error(`Failed to update seminar: ${response.data.error || response.statusText}`);
             }
         

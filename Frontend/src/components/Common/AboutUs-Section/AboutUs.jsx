@@ -2,6 +2,7 @@
 
 
 import Navbar from "../../navbar/Navbar";
+import Footer from "../../Footer/Footer";
 
 function AboutUs() {
   return (
@@ -74,6 +75,7 @@ function AboutUs() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

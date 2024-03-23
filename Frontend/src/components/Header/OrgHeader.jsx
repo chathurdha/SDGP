@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/clerk-react";
+import { useState, useEffect } from "react";
+//import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import {
+//   ClerkProvider,
+//   SignedIn,
+//   SignedOut,
+//   UserButton,
+// } from "@clerk/clerk-react";
 
 const OrgHeader = () => {
-  const location = useLocation(); // Get the current location
+//  const location = useLocation(); // Get the current location
   const [profilePic, setProfilePic] = useState(""); // State for organization profile picture
 
   // Sample organization data (replace with your actual data)

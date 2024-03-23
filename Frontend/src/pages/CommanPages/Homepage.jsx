@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../../components/navbar/Navbar";
 import AboutUs from "../../components/Common/Home-Sections/AboutUs";
 import ChooseUs from "../../components/Common/Home-Sections/ChooseUs";

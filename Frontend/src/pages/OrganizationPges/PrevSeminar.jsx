@@ -1,4 +1,3 @@
-import React from "react";
 import SeminarBtns from "../../components/Profiles/SeminarBtns";
 import Navbar from "../../components/navbar/ProfNav";
 import OrgPrevSemFilter from "../../components/Organization/OrgComponent/OrgPrevSemFilter";
