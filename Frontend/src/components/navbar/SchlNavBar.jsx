@@ -33,7 +33,7 @@ const ProfNav = () => {
   };
 
   return (
-    <nav className="bg-white py-3 px-4">
+    <nav className="bg-white pt-[7%] py-3 px-4">
       <div
         className={`container mx-auto ${
           isSmallScreen ? "justify-start" : "justify-center"
@@ -44,9 +44,9 @@ const ProfNav = () => {
           <ul className={`flex space-x-10 items-center`}>
             <li>
               <Link
-                to="/"
+                to="/School/Overview"
                 className={`text-${
-                  isActive("/") ? "custom-green" : "#1B2336"
+                  isActive("/School/Overview") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -55,9 +55,11 @@ const ProfNav = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to="/School/Seminar-Request"
                 className={`text-${
-                  isActive("/") ? "custom-green" : "#1B2336"
+                  isActive("/School/Seminar-Request")
+                    ? "custom-green"
+                    : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -66,9 +68,11 @@ const ProfNav = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to="/School/Upcoming-Seminar"
                 className={`text-${
-                  isActive("/") ? "custom-green" : "#1B2336"
+                  isActive("/School/Upcoming-Seminar")
+                    ? "custom-green"
+                    : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -77,11 +81,9 @@ const ProfNav = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to="/School/Add-Review"
                 className={`text-${
-                  isActive("/")
-                    ? "custom-green"
-                    : "#1B2336"
+                  isActive("/School/Add-Review") ? "custom-green" : "#1B2336"
                 } hover:text-gray-300 text-sm`}
                 style={{ fontFamily: "Saira" }}
               >
@@ -121,9 +123,9 @@ const ProfNav = () => {
               <ul className="absolute right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg">
                 <li>
                   <Link
-                    to="/"
+                    to="/School/Overview"
                     className={`block px-4 py-2 text-${
-                      isActive("/") ? "custom-green" : "#1B2336"
+                      isActive("/School/Overview") ? "custom-green" : "#1B2336"
                     } hover:text-gray-300 text-sm`}
                     onClick={() => handleLinkClick("Overview")}
                   >
@@ -132,9 +134,11 @@ const ProfNav = () => {
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="/School/Seminar-Request"
                     className={`block px-4 py-2 text-${
-                      isActive("/") ? "custom-green" : "#1B2336"
+                      isActive("/School/Seminar-Request")
+                        ? "custom-green"
+                        : "#1B2336"
                     } hover:text-gray-300 text-sm`}
                     onClick={() => handleLinkClick("Send Seminar Requests")}
                   >
@@ -143,22 +147,22 @@ const ProfNav = () => {
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="/School/Upcoming-Seminar"
                     className={`block px-4 py-2 text-${
-                      isActive("/") ? "custom-green" : "#1B2336"
+                      isActive("/School/Upcoming-Seminar")
+                        ? "custom-green"
+                        : "#1B2336"
                     } hover:text-gray-300 text-sm`}
-                    onClick={() =>
-                      handleLinkClick("Upcoming Seminar")
-                    }
+                    onClick={() => handleLinkClick("Upcoming Seminar")}
                   >
                     Upcoming Seminar
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="/School/Add-Review"
                     className={`block px-4 py-2 text-${
-                      isActive("/") 
+                      isActive("/School/Add-Review")
                         ? "custom-green"
                         : "#1B2336"
                     } hover:text-gray-300 text-sm`}

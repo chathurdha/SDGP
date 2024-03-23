@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
-
 import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 function AboutUs() {
   return (
@@ -74,11 +74,11 @@ function AboutUs() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
 
 export default AboutUs;
-
 
 /* eslint-enable react/no-unescaped-entities */

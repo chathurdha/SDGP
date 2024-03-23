@@ -1,5 +1,5 @@
 import { SignIn } from '@clerk/clerk-react'
-import './ClerkComponents.css'
+import "../../components/SignInSignUpComponents/ClerkComponents.css";
 
 export default function Login() {
 

@@ -37,24 +37,28 @@ const SchoolHeader = () => {
             alt="Logo"
             className="h-10 w-17 mr-4"
           />
-          <h2 className="flex-grow text-xl font-semibold text-center">
-            Dashboard
-          </h2>{" "}
-          {/* Dashboard text in the middle */}
         </div>
 
-        {/* School profile picture */}
-        <img
-          src={profilePic}
-          alt="Profile"
-          className="h-10 w-10 rounded-full"
-        />
-        <Link
-          to="/"
-          className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm font-saira"
-        >
-          Sign out
-        </Link>
+        {/* Dashboard text in the middle */}
+        <h2 className="flex-grow text-xl font-semibold text-center">
+          Dashboard
+        </h2>
+
+        {/* Organization profile picture and sign-out button */}
+        <div className="flex items-center space-x-4">
+          <img
+            src={profilePic}
+            alt="Profile"
+            className="h-10 w-10 rounded-full"
+          />{" "}
+          {/* Organization profile picture */}
+          <Link
+            to="/"
+            className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm font-saira"
+          >
+            Sign out
+          </Link>
+        </div>
       </div>
     </header>
   );

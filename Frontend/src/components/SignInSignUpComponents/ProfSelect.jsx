@@ -77,7 +77,7 @@ function ProfSelect() {
           <div className="flex flex-wrap justify-center mt-2 gap-4">
             <RoleButton
               roleName="Organization"
-              to="/Organization/Create-Owner"
+              to="/Organization/Owner-Create"
               imageSrc="/src/assets/person.png"
             />
             <RoleButton
@@ -100,4 +100,3 @@ function ProfSelect() {
 export default ProfSelect;
 
 /* eslint-enable react/prop-types */
-

@@ -6,104 +6,111 @@ import axios from "axios";
 // import { useUser } from '@clerk/clerk-react';
 
 import FilterSeminars from "../../components/ReceivedSeminarRequests/FilterSeminars";
+import VolNavBar from "../../components/navbar/VolNavBar";
+import VolHeader from "../../components/Header/VolHeader";
+import Footer from "../../components/Footer/Footer";
 
 const VolunteerOverview = () => {
+  const [combinedArray, setCombinedArray] = useState([]);
+  const [seminars, setSeminars] = useState([]);
+  const [schools, setSchools] = useState([]);
+  console.log(combinedArray);
 
-    const [combinedArray, setCombinedArray] = useState([]);
-    const [seminars, setSeminars] = useState([]);
-    const [schools, setSchools] = useState([]);
-    console.log(combinedArray);
+  //imp
+  // const user = useUser().user;
 
-    //imp
-    // const user = useUser().user;
+  //imp
+  // const volunteer = volunteers.filter((volunteer) => volunteer.userId === user?.id);
 
-    //imp
-    // const volunteer = volunteers.filter((volunteer) => volunteer.userId === user?.id);
+  const filterSeminars = combinedArray.filter((seminar) =>
+    seminar.volunteers.find(
+      (volunteer) => volunteer.volunteerId === "65fc59d319242601dccb22a4"
+    )
+  );
+  const firstThreeElements = filterSeminars.slice(0, 3);
+  // const filterSeminars = combinedArray.filter((seminar) => seminar.volunteers.find((volunteer) => volunteer.volunteerId === volunteer[0]._id));
 
-    const filterSeminars = combinedArray.filter((seminar) => seminar.volunteers.find((volunteer) => volunteer.volunteerId === "65fc59d319242601dccb22a4"));
-    const firstThreeElements = filterSeminars.slice(0, 3);
-    // const filterSeminars = combinedArray.filter((seminar) => seminar.volunteers.find((volunteer) => volunteer.volunteerId === volunteer[0]._id));
+  useEffect(() => {
+    const fetchData = async (apiUrl) => {
+      // setIsLoading(true); // Set loading to true before fetching
+      try {
+        const response = await axios.get(apiUrl);
+        switch (apiUrl) {
+          case "http://localhost:4000/api/schools":
+            setSchools(response.data);
+            console.log(response.data);
+            break;
+          case "http://localhost:4000/api/seminars":
+            setSeminars(response.data);
+            console.log(response.data);
+            break;
+          default:
+            console.warn("Unexpected API URL:", apiUrl);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        // setIsLoading(false); // Set loading to false after fetching
+      }
+    };
 
-    useEffect(() => {
-
-        const fetchData = async (apiUrl) => {
-            // setIsLoading(true); // Set loading to true before fetching
-            try {
-                const response = await axios.get(apiUrl);
-                switch (apiUrl) {
-                case 'http://localhost:4000/api/schools':
-                    setSchools(response.data);
-                    console.log(response.data);
-                    break;
-                case 'http://localhost:4000/api/seminars':
-                    setSeminars(response.data);
-                    console.log(response.data);
-                    break;
-                default:
-                    console.warn('Unexpected API URL:', apiUrl);
-                }
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            } finally {
-                // setIsLoading(false); // Set loading to false after fetching
-            }
-        };
-  
-        fetchData('http://localhost:4000/api/schools');
-        fetchData('http://localhost:4000/api/seminars');
-
-    }, []);
+    fetchData("http://localhost:4000/api/schools");
+    fetchData("http://localhost:4000/api/seminars");
+  }, []);
 
   // New useEffect for fetchCombinedArray
-    useEffect(() => {
-        const fetchCombinedArray = async () => {
-        try {
-            if (!schools.length || !seminars.length) {
-            // Handle the case where schools or seminars haven't been fetched yet
-            return; // Exit early if data is not available
-            }
-
-            const findSchoolForSeminar = (seminarId) => {
-            return schools.find((school) => school._id === seminarId);
-            };
-            const filteredSeminars = seminars.filter((seminar) => seminar.status === "pending");
-
-            const combinedArray = filteredSeminars.map((seminar) => {
-                const school = findSchoolForSeminar(seminar.schoolId);
-                return {
-                    ...seminar,
-                    schoolId: school?._id,
-                    schoolName: school?.name,
-                    schoolAddress: school?.address,
-                    schoolProfileColor: school?.profileColor,
-                    schoolProfileImageAvailable: school?.profileImageAvailable,
-                };
-            });
-
-            setCombinedArray(combinedArray);
-        } catch (error) {
-            console.error('Error combining seminars and schools:', error);
+  useEffect(() => {
+    const fetchCombinedArray = async () => {
+      try {
+        if (!schools.length || !seminars.length) {
+          // Handle the case where schools or seminars haven't been fetched yet
+          return; // Exit early if data is not available
         }
+
+        const findSchoolForSeminar = (seminarId) => {
+          return schools.find((school) => school._id === seminarId);
         };
+        const filteredSeminars = seminars.filter(
+          (seminar) => seminar.status === "pending"
+        );
 
-        if (schools.length && seminars.length) {
-        // Call fetchCombinedArray only after schools and seminars are available
-        fetchCombinedArray();
-        }
-    }, [schools, seminars]);
+        const combinedArray = filteredSeminars.map((seminar) => {
+          const school = findSchoolForSeminar(seminar.schoolId);
+          return {
+            ...seminar,
+            schoolId: school?._id,
+            schoolName: school?.name,
+            schoolAddress: school?.address,
+            schoolProfileColor: school?.profileColor,
+            schoolProfileImageAvailable: school?.profileImageAvailable,
+          };
+        });
+
+        setCombinedArray(combinedArray);
+      } catch (error) {
+        console.error("Error combining seminars and schools:", error);
+      }
+    };
+
+    if (schools.length && seminars.length) {
+      // Call fetchCombinedArray only after schools and seminars are available
+      fetchCombinedArray();
+    }
+  }, [schools, seminars]);
 
   return (
     <>
-      {/* <Navbar /> */}
+      <VolHeader />
+      <VolNavBar />
       <div className="pt-[4%] relative">
-      <div className="mt-[15%] flex justify-center items-center relative">
-            {!isMobile && (
-                <img
-                className="w-full lg:w-[80%] h-auto absolute"
-                src="/src/assets/aboutUs pic.svg"
-                alt=""
-                />
-            )}
+        <div className="mt-[15%] flex justify-center items-center relative">
+          {!isMobile && (
+            <img
+              className="w-full lg:w-[80%] h-auto absolute"
+              src="/src/assets/aboutUs pic.svg"
+              alt=""
+            />
+          )}
           {/* <img
             className="w-full lg:w-[80%] h-auto absolute"
             src="/src/assets/aboutUs pic.svg"
@@ -123,11 +130,11 @@ const VolunteerOverview = () => {
               alt=""
             />
             {!isMobile && (
-                <p className="md:w-[80%] lg:w-[60%] text-sm text-center text-[#FFFFFF]">
+              <p className="md:w-[80%] lg:w-[60%] text-sm text-center text-[#FFFFFF]">
                 From preschool to pre-tertiary, our students enjoy fun,
                 interactive, and relevant lessons and are empowered to think
                 beyond the confines of the classroom.
-                </p>
+              </p>
             )}
           </div>
         </div>
@@ -175,31 +182,31 @@ const VolunteerOverview = () => {
           </div>
         </div>
       </div> */}
-        <div className="md:pt-[20%] pt-[8%]relative">
-            <h1 className="text-2xl py-8 text-center font-medium">Received Seminar Requests</h1>
+      <div className="md:pt-[20%] pt-[8%]relative">
+        <h1 className="text-2xl py-8 text-center font-medium">
+          Received Seminar Requests
+        </h1>
 
-            {/* <Link
+        {/* <Link
             to="/"
             className="underline text-right pr-4 pb-2 md:block text-custom-lightb hover:text-gray-300 text-sm font-saira"
             style={{ fontFamily: "Saira" }}
             >
                 See more
             </Link> */}
-            <p
-            to="/"
-            className="underline text-right pr-4 pb-2 md:block text-custom-lightb hover:text-gray-300 text-sm font-saira"
-            style={{ fontFamily: "Saira" }}
-            >
-                See more
-            </p>
+        <p
+          to="/"
+          className="underline text-right pr-4 pb-2 md:block text-custom-lightb hover:text-gray-300 text-sm font-saira"
+          style={{ fontFamily: "Saira" }}
+        >
+          See more
+        </p>
 
-            <FilterSeminars 
-                filterSeminars={firstThreeElements}
-            />
-
-        </div>
+        <FilterSeminars filterSeminars={firstThreeElements} />
+      </div>
+      <Footer />
     </>
   );
-}
+};
 
 export default VolunteerOverview;
