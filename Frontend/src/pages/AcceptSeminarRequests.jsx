@@ -15,7 +15,7 @@ const AcceptSeminarRequests = () => {
     const [groupedSeminars, setGroupedSeminars] = useState({});
     const [combinedArray, setCombinedArray] = useState([]); // Initial combined array state
     const [seminars, setSeminars] = useState([]);
-    const [volunteers, setVolunteers] = useState([]);
+    // const [volunteers, setVolunteers] = useState([]);
     const [schools, setSchools] = useState([]);
     const [rotatedSeminarIds, setRotatedSeminarIds] = useState([]);
     const [seminarStatuses, setSeminarStatuses] = useState({});
@@ -79,9 +79,9 @@ const AcceptSeminarRequests = () => {
                     case 'http://localhost:4000/api/seminars':
                         setSeminars(response.data);
                         break;
-                    case 'http://localhost:4000/api/volunteers':
-                        setVolunteers(response.data);
-                        break;
+                    // case 'http://localhost:4000/api/volunteers':
+                    //     setVolunteers(response.data);
+                    //     break;
                     default:
                         console.warn('Unexpected API URL:', apiUrl);
                 }

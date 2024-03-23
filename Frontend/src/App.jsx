@@ -5,9 +5,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 //import { ClerkProvider, SignedIn } from "@clerk/clerk-react";
-
+import VolOverView from "./components/Volunteer/VolunteerOverview"
 import Home from "./pages/CommanPages/Homepage";
 import Login from "./components/Login";
+import AboutUs from "./components/Common/AboutUs-Section/AboutUs";
 // import Next from "./components/SignUP";
 import PastEvents from "./pages/CommanPages/PastEvents";
 import ContactUs from "./pages/CommanPages/ContactUs";
@@ -24,7 +25,7 @@ import OrgOverviewPg from "./pages/OrganizationPges/OrgOverviewPg";
 import OrgReceivedSeminarRequests from "./pages/OrganizationPges/ReceivedSeminarRequests";
 import OrgReceivedVolunteerRequests from "./pages/OrganizationPges/ReceivedVolunteerRequests";
 import UserHeader from "./components/Header/OrgHeader";
-import Statistics from "./pages/OrganizationPges/Statistics";
+//import Statistics from "./pages/OrganizationPges/Statistics";
 
 import Loading from "./components/Loading";
 import SignUp from "./components/Profiles/ProfSelectSignUp";
@@ -39,7 +40,7 @@ const router = createBrowserRouter(
 
       <Route path="/contact-us" element={<ContactUs />} />
 
-      <Route path="/about-us" element={<div>About Us</div>} />
+      <Route path="/about-us" element={<AboutUs />} />
 
       {/* <Route path="/Sign-In" element={<Login />} /> */}
       
@@ -59,6 +60,7 @@ const router = createBrowserRouter(
       <Route path="/next" element={<Loading />} />
 
       {/* organization */}
+      
       <Route path="/SeminarBtns" element={<Seminar />} />
       <Route path="/OrgSeminar" element={<OrgSeminar />} />
       <Route path="/PrevSeminar" element={<PrevSeminar />} />
@@ -70,7 +72,13 @@ const router = createBrowserRouter(
         path="/OrgRecVolunteer"
         element={<OrgReceivedVolunteerRequests />}
       />
-      <Route path="/OrgStatistics" element={<Statistics />} />
+
+
+
+
+      <Route path="/Volunteer/Overview" element={<VolOverView />} />
+
+      {/* <Route path="/OrgStatistics" element={<Statistics />} /> */}
     </>
   )
 );

@@ -1,7 +1,10 @@
-import { Link, useNavigate } from "react-router-dom"; // Import Link from React Router
+/* eslint-disable react/prop-types */
+
+
+import { Link } from "react-router-dom"; // Import Link from React Router
 // import { Progress } from "@material-tailwind/react";
-import Homepage from "../../pages/CommanPages/Homepage";
-import React, { useState, useEffect } from "react";
+// import Homepage from "../../pages/CommanPages/Homepage";
+import { useState, useEffect } from "react";
 
 // Reusable button component
 function RoleButton({ roleName, to, imageSrc }) {
@@ -98,7 +101,7 @@ function ProfSelect() {
             Next
           </Link>
           <div className="flex w-full gap-4">
-            <Progress value={50} color="purple" />
+            {/* <Progress value={50} color="purple" /> */}
           </div>
           <div className="mt-2 text-[#4B5563] text-sm">Step 01 of 03</div>
         </div>
@@ -108,3 +111,7 @@ function ProfSelect() {
 }
 
 export default ProfSelect;
+
+
+/* eslint-enable react/prop-types */
+
