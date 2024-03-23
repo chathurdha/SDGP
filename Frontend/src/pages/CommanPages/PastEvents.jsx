@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Navbar from "../../navbar/ProfNav";
-import Footer from "../../Footer/Footer";
-import SearchButton from "../../Common/PastE-Sections/SearchButton";
-import OrganizationSelect from "../../Common/PastE-Sections/OrganizationSelect";
-import LocationSelect from "../../Common/PastE-Sections/LocationSelect";
-import YearSelect from "../../Common/PastE-Sections/YearSelect";
-import MatchingSeminars from "../../Common/PastE-Sections/MatchingSeminars";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import SearchButton from "../../components/Common/PastE-Sections/SearchButton";
+import OrganizationSelect from "../../components/Common/PastE-Sections/OrganizationSelect";
+import LocationSelect from "../../components/Common/PastE-Sections/LocationSelect";
+import YearSelect from "../../components/Common/PastE-Sections/YearSelect";
+import MatchingSeminars from "../../components/Common/PastE-Sections/MatchingSeminars";
 
-const PrevSeminar = () => {
+const PastEvents = () => {
   const [organizations, setOrganizations] = useState([]);
   // const [seminars, setSeminars] = useState([]);
   const [allSeminars, setAllSeminars] = useState([]);
@@ -65,8 +65,7 @@ const PrevSeminar = () => {
   const [selectedLocation, setSelectedLocation] = useState([]);
   const [selectedYear, setSelectedYear] = useState([]);
 
-  const [selectedOrganizationObject, setSelectedOrganizationObject] =
-    useState(null);
+  const [selectedOrganizationObject, setSelectedOrganizationObject] = useState(null);
   const [selectedLocationObject, setSelectedLocationObject] = useState(null);
   const [selectedYearObject, setSelectedYearObject] = useState(null);
 
@@ -112,11 +111,11 @@ const PrevSeminar = () => {
       }
     } else if (nonEmptyFilters.length === 1) {
       if (nonEmptyFilters[0] === "err") {
-        setMatchingObjects([]);
+          setMatchingObjects([]);
       } else {
-        for (let i = 0; i < nonEmptyFilters[0].length; i++) {
-          matchingObjects.push(nonEmptyFilters[0][i]);
-        }
+          for (let i = 0; i < nonEmptyFilters[0].length; i++) {
+              matchingObjects.push(nonEmptyFilters[0][i]);
+          }
       }
     } else if (nonEmptyFilters.length === 0) {
       seminars.forEach((seminar) => {
@@ -138,7 +137,7 @@ const PrevSeminar = () => {
       );
       if (matchingPairs.length > 0) {
         setSelectedOrganizationObject(matchingPairs);
-      } else {
+      } else{
         const err = "err";
         setSelectedOrganizationObject(err);
       }
@@ -160,8 +159,8 @@ const PrevSeminar = () => {
       if (matchingPairs.length > 0) {
         setSelectedLocationObject(matchingPairs);
       } else {
-        const err = "err";
-        setSelectedLocationObject(err);
+          const err = "err";
+          setSelectedLocationObject(err);
       }
     } catch (error) {
       setSelectedLocationObject(null);
@@ -185,8 +184,8 @@ const PrevSeminar = () => {
       if (matchingPairs.length > 0) {
         setSelectedYearObject(matchingPairs);
       } else {
-        const err = "err";
-        setSelectedYearObject(err);
+          const err = "err";
+          setSelectedYearObject(err);
       }
     } catch (error) {
       setSelectedYearObject(null);
@@ -237,7 +236,12 @@ const PrevSeminar = () => {
 
   return (
     <>
+      <Navbar />
       <div className="container mx-auto px-4 py-8 md:pt-[8%] pt-[25%]">
+        <h1 className="text-3xl font-semibold text-center mb-12">
+          Past Events
+        </h1>
+
         <div className="flex flex-wrap mb-4 justify-center">
           {/* Organization Select */}
           <div className="mr-2 mt-1">
@@ -294,8 +298,9 @@ const PrevSeminar = () => {
         {/* Matching Seminars */}
         <MatchingSeminars seminars={matchingObjects} />
       </div>
+      <Footer />
     </>
   );
 };
 
-export default PrevSeminar;
+export default PastEvents;
