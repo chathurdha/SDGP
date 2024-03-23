@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { UserButton, SignedIn, SignedOut} from "@clerk/clerk-react";
+import { useUser, UserButton, SignedIn, SignedOut} from "@clerk/clerk-react";
 
 
 function SignedInContent(){
@@ -28,8 +28,25 @@ function SignedInContent(){
 }
 
 function SignedOutContent(){
+  const UserType = useUser().user?.unsafeMetadata.Type;
+  let UserLink;
+  if (UserType == "Volunteer"){
+    UserLink = "/Volunteer/Overview"
+  }else if (UserType == "Organization"){
+    UserLink = "/Organization/Overview"
+  }else if (UserType == "School"){
+    UserLink = "/School/Overview"
+  }
   return(
     <div className="flex space-x-3 items-center">
+
+    <Link
+      to={UserLink}
+      className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm mr-5"
+      style={{ fontFamily: "Saira" }}
+    >
+      Go To Page
+    </Link>
 
       <UserButton
       signInUrl={"/Sign-In"}

@@ -4,7 +4,7 @@ import OrgOverview from "../../components/Organization/section/OverviewP1";
 import Footer from "../../components/Footer/Footer";
 import OverviewP2 from "../../components/Organization/section/OverviewP2.jsx";
 import OverviewP3 from "../../components/Organization/section/OverviewP3.jsx";
-import OverviewP4 from "../../components/Organization/section/Overview4.jsx";
+import OverviewP4 from "../../components/Organization/section/OverviewP4.jsx";
 
 function OrgOverviewPg() {
   return (
