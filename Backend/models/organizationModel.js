@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
  const organizationSchema = new Schema({
-    userID:{
+    OrgID:{
         type: String,
         required: true
     },

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 // import axios from 'axios';
-import Logo from '../../assets/react.svg';
+import Logo from '../../../assets/fullLogo.svg';
 
 export default function OrgProfileCard({ organization, allSeminars, allVolunteers }) {
 

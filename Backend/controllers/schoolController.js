@@ -27,6 +27,7 @@ const getSchool = async (req, res) => {
 //create a school
 const createSchool = async (req, res) => {
     const { 
+        userID,
         name, 
         address, 
         profileColor, 
@@ -50,6 +51,7 @@ const createSchool = async (req, res) => {
     //add to database
     try {
         const school = await School.create({
+            userID,
             name,
             address,
             profileColor,

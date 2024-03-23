@@ -1,41 +1,24 @@
 /* eslint-disable react/jsx-key */
 import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '@clerk/clerk-react';
+import { useUser, useOrganization } from '@clerk/clerk-react';
 import axios from 'axios';
 
 
 
-function VolDetForm() {
+function OrgDetForm() {
    
     const Navigate = useNavigate();
     const { user } = useUser();
-    const Name = user?.firstName;
+    const {organization} = useOrganization();
 
+    const Name = organization?.name;
+    const OrgID = organization?.id;
     const UserID = user?.id;
-    const Status = "pending";
-    const VolunteerProfileImageAvailable = user?.hasImage;
-    let VolunteerProfileColor = "null";
-    if (! VolunteerProfileImageAvailable) { 
-      const colours = ["slate", "green", "yellow", "blue", "red", "pink", "orange", "amber", "lime", "emerald", "teal", "cyan", "sky", "indigo", "violet", "purple", "fuchsia"];
-      const shade = [200, 300, 400, 500]
-
-      const RandomColour = Math.floor(Math.random() * colours.length)
-      const RandomShade = Math.floor(Math.random() * shade.length)
-
-      const randColour = `bg-${colours[RandomColour]}-${shade[RandomShade]}`
-      VolunteerProfileColor = randColour.replace(/\s+/g, '');
-    }
     
     const [Description, setDescription] = useState("");
-    const [VolunteerId, setVolunteerId] = useState(""); 
-    const [Address, setAddress] = useState("");
-
-
-    const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [selectedOrg, setSelectedOrg] = useState(null);
+    const [phnNbr, setPhnNbr] = useState("");
+    const [WebSite, setWebSite] = useState("");
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const showShadow = windowWidth >= 640; // Adjust the breakpoint as needed
@@ -52,59 +35,27 @@ function VolDetForm() {
       setSelectedOrg(e.target.value)
     }
 
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get('http://localhost:4000/api/Organizations/');
-          setData(response.data);
-          setIsLoading(false);
-        } catch (error) {
-          setError(error);
-          setIsLoading(false);
-        }
-      };
-      
-      fetchData();
-      
-      
-      return () => {
-      };
-    }, []);
-
-    if (isLoading) {
-      return <div>Loading...</div>;
-    }
-
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    }
-
-    if (!data || data.length === 0) {
-      return <div>No data available</div>;
-    }
-
-    const organizations = data.map(item => ({ _id: item._id, name: item.name }));
-
-
-
-
     function submitForm(){
         console.log("submit");
+        console.log(
+            
+                "   OrgID   " + OrgID  + 
+                "   name    "+Name +
+                "   description "+Description+
+                "   phone   "+phnNbr+
+                "   website    "+WebSite+
+                "   userID  "+UserID
+              )
 
-
-        
               //update this
-              Navigate("/");
-        axios.post("http://localhost:4000/api/Volunteers/", {
-            "userID": UserID,
-            "name":Name,
+        Navigate("/");
+        axios.post("http://localhost:4000/api/Organizations/", {
+            "OrgID":OrgID,
+            "name":Name, 
             "description":Description,
-            "volunteerId":VolunteerId,
-            "status":Status,
-            "address":Address,
-            "volunteerProfileImageAvailable":VolunteerProfileImageAvailable,
-            "volunteerProfileColor":VolunteerProfileColor,
-            "orgID": selectedOrg,
+            "phone":phnNbr,
+            "website":WebSite,
+            "userID":UserID
           })
 
     }
@@ -145,16 +96,10 @@ function VolDetForm() {
 
           <div className="flex flex-col justify-center items-center md:w-[60%] w-[90%]">
             <h1 className="text-xl flex justify-center items-center font-bold text-center my-2 font-roboto">
-              Sign Up as a volunteer
+              Sign Up as {Name}
             </h1>
 
-          <input
-            className="w-[80%] bg-[#F7F7FA] mb-4 text-[#4B5563] mt-4 text-sm px-2 py-2 border-b border-[#F7F7FA] rounded-t rounded-b"
-            placeholder="Volunteer ID"
-            type="text" 
-            value={VolunteerId}
-            onChange={(e) => setVolunteerId(e.target.value)}
-          />
+          
           <input
             className="w-[80%] bg-[#F7F7FA] mb-4 text-[#4B5563] text-sm px-2 py-2 border-b border-[#F7F7FA]"
             type="text" 
@@ -163,16 +108,19 @@ function VolDetForm() {
             onChange={(e) => setDescription(e.target.value)}
           />
           <input
+            className="w-[80%] bg-[#F7F7FA] mb-4 text-[#4B5563] text-sm px-2 py-2 border-b border-[#F7F7FA]"
+            type="text" 
+            placeholder="Phone Number"
+            value={phnNbr}
+            onChange={(e) => setPhnNbr(e.target.value)}
+          />
+          <input
             className= "w-[80%] bg-[#F7F7FA] mb-4 text-[#4B5563] text-sm px-2 py-2 border-b border-[#F7F7FA] "
             type="text" 
-            placeholder="Address"
-            value={Address}
-            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Website"
+            value={WebSite}
+            onChange={(e) => setWebSite(e.target.value)}
           />
-          <select onChange={handleSelectedOrgChange} className="w-[80%] border-selectBorder border bg-selectFill mb-3 text-[#4B5563] text-sm px-2 py-2 rounded"> 
-            <option value='null'> -- Select an Organization -- </option>
-            {organizations.map((selectedOrg) => <option value={selectedOrg._id}>{selectedOrg.name}</option>)}
-          </select>
 
         
           <button 
@@ -187,7 +135,7 @@ function VolDetForm() {
   )
 }
 
-export default VolDetForm
+export default OrgDetForm
 //name , description, volunteerId, status, address, volunteerProfileImageAvailable, volunteerProfileColor
 
 /* eslint-enable react/jsx-key */

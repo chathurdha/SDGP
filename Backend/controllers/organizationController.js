@@ -34,6 +34,7 @@ const getOrganization = async (req, res) => {
 //create an organization
 const createOrganization = async (req, res) => {
     const {
+        OrgID,
         name, 
         description,
         phone,
@@ -58,6 +59,7 @@ const createOrganization = async (req, res) => {
     //add to database
     try{
         const organization = await Organization.create({
+            OrgID,
             name, 
             description,
             phone,

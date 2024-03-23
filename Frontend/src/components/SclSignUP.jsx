@@ -17,7 +17,7 @@ export default function SclSignUP() {
         unsafeMetadata={
             {"Type":"School"}
         }
-        afterSignUpUrl={'/next'}
+        afterSignUpUrl={'/School/Details-Form'}
         signInUrl={"/sign-in"}/>
     </div>
   )
