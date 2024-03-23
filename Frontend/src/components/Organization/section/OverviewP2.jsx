@@ -1,4 +1,4 @@
-/* eslint-disable no-irregular-whitespace */
+ 
 
 
 import { useState, useEffect } from "react";
@@ -109,4 +109,4 @@ const OverviewP2 = () => {
 export default OverviewP2;
 
 
-/* eslint-enable no-irregular-whitespace */
+ 

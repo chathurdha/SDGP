@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-key */
+ 
 import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useUser, useOrganization } from '@clerk/clerk-react';
@@ -31,9 +31,6 @@ function OrgDetForm() {
       return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    let handleSelectedOrgChange = (e) => {
-      setSelectedOrg(e.target.value)
-    }
 
     function submitForm(){
         console.log("submit");
@@ -138,4 +135,4 @@ function OrgDetForm() {
 export default OrgDetForm
 //name , description, volunteerId, status, address, volunteerProfileImageAvailable, volunteerProfileColor
 
-/* eslint-enable react/jsx-key */
+ 
