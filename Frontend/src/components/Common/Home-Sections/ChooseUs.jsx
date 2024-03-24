@@ -1,3 +1,9 @@
+import learn from "/src/assets/learn.svg"
+import line15 from "/src/assets/Line 15.png"
+import teach from "/src/assets/Teach.svg"
+import AboutBg from "/src/assets/aboutBg.svg"
+import BgRound from "/src/assets/bg-round.svg"
+
 
 function ChooseUs() {
   return (
@@ -18,7 +24,7 @@ function ChooseUs() {
           <div className="flex flex-col items-center">
             <img
               className="md:block md:h-[10%] md:mt-10  object-cover hidden"
-              src="/src/assets/learn.svg"
+              src={learn}
               alt=""
             />
             <p
@@ -35,14 +41,14 @@ function ChooseUs() {
           <div className="hidden md:flex flex-col items-center">
             <img
               className="md:block h-[80%] md:h-[100%] mt-4 object-cover "
-              src="/src/assets/Line 15.png"
+              src={line15}
               alt=""
             />
           </div>
           <div className="flex flex-col items-center">
             <img
               className="md:block md:h-[10%] md:mt-10  object-cover hidden "
-              src="/src/assets/Teach.svg"
+              src={teach}
               alt=""
             />
             <p
@@ -60,12 +66,12 @@ function ChooseUs() {
       </div>
       <img
         className="md:block h-[25%] md:h-[35%] mt-14  md:mt-13 object-cover absolute top-0 left-0 right-0 pointer-events-none"
-        src="/src/assets/aboutBg.svg"
+        src={AboutBg}
         alt=""
       />
       <img
         className="md:block h-full object-cover absolute bottom-0 left-0 right-0 pointer-events-none"
-        src="/src/assets/bg-round.svg"
+        src={BgRound}
         alt=""
       />
     </div>

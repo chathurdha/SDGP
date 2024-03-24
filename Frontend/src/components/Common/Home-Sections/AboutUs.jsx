@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import MatchingSeminars from "../PastE-Sections/MatchingSeminars";
+import circle from "/src/assets/cirlce.svg"
 
 function AboutUs() {
   const [seminarsData, setSeminarsData] = useState([]);
@@ -29,7 +30,7 @@ function AboutUs() {
 
           <img
             className="h-[14%] mt-10 md:block md:h-[25%] md:mt-20 md:ml-40 object-cover absolute top-0 left-5 right-0 "
-            src="/src/assets/cirlce.svg"
+            src={circle}
             alt=""
           />
 

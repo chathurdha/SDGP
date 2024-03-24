@@ -39,7 +39,8 @@ const createOrganization = async (req, res) => {
         description,
         phone,
         website,
-        userID
+        userID,
+        ProfPic
     } = req.body;
 
     let emptyFields = [];
@@ -64,7 +65,8 @@ const createOrganization = async (req, res) => {
             description,
             phone,
             website,
-            userID
+            userID,
+            ProfPic
         })
         res.status(200).json(organization)
     }catch(error){
