@@ -22,11 +22,11 @@ const UpcomingVolunteer = () => {
             try {
                 const response = await axios.get(apiUrl);
                 switch (apiUrl) {
-                case 'http://localhost:4000/api/volunteers':
+                case 'https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers':
                     setVolunteers(response.data);
                     console.log(response.data);
                     break;
-                case 'http://localhost:4000/api/seminars':
+                case 'https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars':
                     setSeminars(response.data);
                     console.log(response.data);
                     break;
@@ -40,8 +40,8 @@ const UpcomingVolunteer = () => {
             }
         };
   
-        fetchData('http://localhost:4000/api/volunteers');
-        fetchData('http://localhost:4000/api/seminars');
+        fetchData('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers');
+        fetchData('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars');
         // setIsLoading(false);
 
     }, []);

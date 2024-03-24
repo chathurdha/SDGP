@@ -167,7 +167,7 @@ const RequestForm = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:4000/api/seminars",
+          "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars",
           {
             // name: 'Seminar',
             // description: 'Seminar',
@@ -217,7 +217,7 @@ const RequestForm = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/organizations"
+          "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations"
         );
         console.log("Organizations:", response.data);
         setOrganizations(response.data);

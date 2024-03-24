@@ -13,7 +13,7 @@ import { useUser } from "@clerk/clerk-react";
   // useEffect(() => {
   //   const fetchData = async () => {
   //     try {
-  //       const response = await axios.get('http://localhost:4000/api/Seminars/');
+  //       const response = await axios.get('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/Seminars/');
   //       setSeminars(response.data);
   //       setLoading(false);
   //     } catch (error) {

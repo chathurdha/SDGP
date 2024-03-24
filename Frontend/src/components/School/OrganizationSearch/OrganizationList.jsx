@@ -14,7 +14,7 @@ export default function OrganizationList() {
 
     // useEffect(() => {
     //     const fetchOrganizations = async () => {
-    //         const response = await axios.get('http://localhost:4000/api/organizations');
+    //         const response = await axios.get('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations');
     //         setOrganizations(response.data);
     //     };
     //     fetchOrganizations();
@@ -24,13 +24,13 @@ export default function OrganizationList() {
           try {
             const response = await axios.get(apiUrl);
             switch (apiUrl) {
-                case "http://localhost:4000/api/organizations":
+                case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations":
                     setOrganizations(response.data);
                     break;
-                case "http://localhost:4000/api/volunteers":
+                case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers":
                     setAllVolunteers(response.data);
                     break;
-                case "http://localhost:4000/api/seminars":
+                case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars":
                     setAllSeminars(response.data);
                     break;
                 default:
@@ -43,9 +43,9 @@ export default function OrganizationList() {
           }
         };
     
-        fetchData("http://localhost:4000/api/organizations");
-        fetchData("http://localhost:4000/api/volunteers");
-        fetchData("http://localhost:4000/api/seminars");
+        fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations");
+        fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers");
+        fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars");
     }, []);
 
     const handleSearchChange = (event) => {

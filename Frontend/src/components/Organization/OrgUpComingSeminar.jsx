@@ -65,7 +65,7 @@ async function SeminarDataFunction(UserID, UserType) {
 
   if (userType === "Organization") {
     const response = await axios.get(
-      "http://localhost:4000/api/organizations/"
+      "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations/"
     );
     const orgs = response.data;
     User = orgs.find((org) => org.userID === userID);

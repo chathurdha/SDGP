@@ -12,7 +12,7 @@ const OverviewP4 = () => {
     useEffect(() => {
         const fetchPastEvents = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/seminars`);
+                const response = await axios.get(`https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars`);
                 setPastEvents(response.data);
                 console.log(response.data);
             } catch (error) {

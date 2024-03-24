@@ -211,11 +211,11 @@ const PastEvents = () => {
       try {
         const response = await axios.get(apiUrl);
         switch (apiUrl) {
-          case "http://localhost:4000/api/organizations":
+          case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations":
             setOrganizations(response.data);
             console.log(response.data);
             break;
-          case "http://localhost:4000/api/seminars":
+          case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars":
             // setSeminars(response.data);
             setAllSeminars(response.data);
             // setMatchingObjects(response.data);
@@ -231,8 +231,8 @@ const PastEvents = () => {
       }
     };
 
-    fetchData("http://localhost:4000/api/organizations");
-    fetchData("http://localhost:4000/api/seminars");
+    fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations");
+    fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars");
   }, [selectedOrganizationObject, selectedLocationObject, selectedYearObject]);
 
   return (

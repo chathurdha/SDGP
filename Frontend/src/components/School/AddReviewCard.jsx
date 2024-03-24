@@ -12,7 +12,7 @@ export default function AddReviewCard() {
 
         const review = {rating, title, description};
 
-        const response = await fetch('http://localhost:4000/api/reviews', {
+        const response = await fetch('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/reviews', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

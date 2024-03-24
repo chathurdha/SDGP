@@ -7,7 +7,7 @@
 //
 //     useEffect(() => {
 //         const fetchReviews = async () => {
-//             const response = await fetch('http://localhost:4000/api/reviews/')
+//             const response = await fetch('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/reviews/')
 //
 //
 //             if(response.ok){
@@ -38,7 +38,7 @@ export default function ReviewBackground() {
 
     useEffect(() => {
         const fetchReviews = async () => {
-            const api = 'http://localhost:4000/api/reviews/'
+            const api = 'https://sisu-saviya-6510ee9f562c.herokuapp.com/api/reviews/'
             try {
                 const response = await axios.get(api);
                 setReviews(response.data);

@@ -38,10 +38,10 @@ export default function OrgProfileCard({ organization, allSeminars, allVolunteer
     //       try {
     //         const response = await axios.get(apiUrl);
     //         switch (apiUrl) {
-    //             case "http://localhost:4000/api/volunteers":
+    //             case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers":
     //                 setAllVolunteers(response.data);
     //                 break;
-    //             case "http://localhost:4000/api/seminars":
+    //             case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars":
     //                 setAllSeminars(response.data);
     //                 break;
     //             default:
@@ -54,8 +54,8 @@ export default function OrgProfileCard({ organization, allSeminars, allVolunteer
     //       }
     //     };
     
-    //     fetchData("http://localhost:4000/api/volunteers");
-    //     fetchData("http://localhost:4000/api/seminars");
+    //     fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers");
+    //     fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars");
     // }, []);
 
     const toggleDropdown = () => {

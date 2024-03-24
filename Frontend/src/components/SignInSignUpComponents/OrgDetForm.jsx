@@ -46,7 +46,7 @@ function OrgDetForm() {
 
               //update this
         Navigate("/");
-        axios.post("http://localhost:4000/api/Organizations/", {
+        axios.post("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/Organizations/", {
             "OrgID":OrgID,
             "name":Name, 
             "description":Description,

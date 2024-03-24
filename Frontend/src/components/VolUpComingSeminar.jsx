@@ -65,19 +65,19 @@ async function SeminarDataFunction(UserID, UserType) {
   let User;
 
   if (userType === "Volunteer") {
-    const response = await axios.get("http://localhost:4000/api/volunteers/");
+    const response = await axios.get("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers/");
     const vols = response.data;
     User = vols.find((vol) => vol.userID === userID);
     
 
 
   } else if (userType === "School") {
-    const response = await axios.get("http://localhost:4000/api/schools/");
+    const response = await axios.get("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/schools/");
     const scls = response.data;
     User = scls.find((scl) => scl.userID === userID);
   } else if (userType === "Organization") {
     const response = await axios.get(
-      "http://localhost:4000/api/organizations/"
+      "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations/"
     );
     const orgs = response.data;
     User = orgs.find((org) => org.userID === userID);
