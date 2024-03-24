@@ -37,7 +37,7 @@ function AboutUs() {
             className="pt-16 text-3xl font-bold text-center"
             style={{ fontFamily: "Roboto" }}
           >
-            ast Events
+            Past Events
           </h1>
 
           <div className="flex justify-center">
