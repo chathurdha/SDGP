@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import AboutUs from "/src/assets/aboutUs pic.svg";
 
 function OverviewP1() {
     const [orgName, setOrgName] = useState("");
@@ -29,7 +30,7 @@ function OverviewP1() {
                 <div className="mt-[15%] flex justify-center items-center relative">
                     <img
                         className="w-full lg:w-[80%] h-auto absolute"
-                        src="/src/assets/aboutUs pic.svg"
+                        src={AboutUs}
                         alt=""
                     />
                     <div className="absolute flex flex-col justify-center items-center w-full lg:w-[60%]">

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { SignOutButton, UserButton } from "@clerk/clerk-react";
+import logo from "/src/assets/fullLogo.svg";
+
 
 const SchoolHeader = () => {
   
@@ -10,7 +12,7 @@ const SchoolHeader = () => {
         {/* Logo on the left */}
         <div className="flex items-center">
           <img
-            src="/src/assets/fullLogo.svg"
+            src={logo}
             alt="Logo"
             className="h-10 w-17 mr-4"
           />

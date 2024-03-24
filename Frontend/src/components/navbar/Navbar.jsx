@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useUser, UserButton, SignedIn, SignedOut} from "@clerk/clerk-react";
+import logo from "/src/assets/fullLogo.svg"
+
 
 
 function SignedInContent(){
@@ -76,7 +78,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <img
-            src="/src/assets/fullLogo.svg"
+            src={logo}
             alt="Logo"
             className="h-10 w-17 mr-4"
           />

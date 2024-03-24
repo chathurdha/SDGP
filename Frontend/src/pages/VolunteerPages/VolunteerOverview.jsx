@@ -9,6 +9,7 @@ import VolHeader from "../../components/Header/VolHeader";
 import Footer from "../../components/Footer/Footer";
 import fade_stagger_circles from "../../assets/fade_stagger_circles.svg";
 import LoadingSVG from "../../assets/Loading.svg";
+import aboutUs from "/src/assets/aboutUs pic.svg";
 
 const VolunteerOverview = () => {
 
@@ -97,7 +98,7 @@ const VolunteerOverview = () => {
                     {!isMobile && (
                       <img
                         className="w-full lg:w-[80%] h-auto absolute"
-                        src="/src/assets/aboutUs pic.svg"
+                        src={aboutUs}
                         alt=""
                       />
                     )}

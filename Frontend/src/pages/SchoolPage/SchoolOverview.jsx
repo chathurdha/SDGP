@@ -6,6 +6,10 @@ import OrganizationList from "../../components/School/OrganizationSearch/Organiz
 import SchlNavBar from "../../components/navbar/SchlNavBar";
 import SchlHeader from "../../components/Header/SchlHeader";
 import Footer from "../../components/Footer/Footer";
+import aboutUs from "/src/assets/aboutUs pic.svg";
+import logo from "/src/assets/Logo.png";
+import reqForm from "/src/assets/requestform.svg";
+import sendRev from "/src/assets/sendReview.svg";
 
 const SchoolOverview = () => {
   return (
@@ -17,7 +21,7 @@ const SchoolOverview = () => {
           {!isMobile && (
             <img
               className="w-full lg:w-[80%] h-auto absolute"
-              src="/src/assets/aboutUs pic.svg"
+              src={aboutUs}
               alt=""
             />
           )}
@@ -36,7 +40,7 @@ const SchoolOverview = () => {
           <div className="absolute flex flex-col justify-center items-center w-full lg:w-[60%]">
             <img
               className="w-[60%] md:w-[30%] lg:w-[40%] h-auto mb-4"
-              src="/src/assets/Logo.png"
+              src={logo}
               alt=""
             />
             {!isMobile && (
@@ -59,7 +63,7 @@ const SchoolOverview = () => {
         <div className="flex items-center justify-center mt-4">
           <div className="flex flex-col items-center md:flex-row md:w-4/5 md:p-10 shadow-2xl rounded-xl">
             <img
-              src="/src/assets/requestform.svg"
+              src={reqForm}
               alt=""
               className="md:w-2/6 w-[90%] object-cover mb-2 rounded-lg mt-4 md:ml-8"
             />
@@ -100,7 +104,7 @@ const SchoolOverview = () => {
         <div className="flex items-center justify-center mt-4">
           <div className="flex flex-col items-center md:flex-row md:w-4/5 md:p-10 shadow-2xl rounded-xl">
             <img
-              src="/src/assets/sendReview.svg"
+              src={sendRev}
               alt=""
               className="md:w-2/6 w-[90%] object-cover mb-2 rounded-lg mt-4 md:ml-8"
             />
