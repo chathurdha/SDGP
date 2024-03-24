@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import format from "date-fns/format";
 import isToday from "date-fns/isToday";
 import axios from "axios";
+import { useUser } from '@clerk/clerk-react';
 
 import FilterSeminars from "../../components/ReceivedSeminarRequests/FilterSeminars";
 import Footer from "../../components/Footer/Footer";
@@ -9,10 +10,19 @@ import ProfNav from "../../components/navbar/ProfNav";
 import OrgHeader from "../../components/Header/OrgHeader";
 
 const ReceivedSeminarRequests = () => {
+  const [organizations, setOrganizations] = useState([]);
   const [groupedSeminars, setGroupedSeminars] = useState({});
   const [combinedArray, setCombinedArray] = useState([]); // Initial combined array state
   const [seminars, setSeminars] = useState([]);
   const [schools, setSchools] = useState([]);
+  const [filterSeminars, setFilterSeminars] = useState([]);
+
+  const user = useUser().user;
+  console.log(user?.id)
+
+  const clarkId = organizations.find((org) => org.userID === user?.id);
+  console.log(clarkId);
+
   // const [rotatedSeminarIds, setRotatedSeminarIds] = useState([]);
   // const [seminarStatuses, setSeminarStatuses] = useState({});
 
@@ -52,6 +62,20 @@ const ReceivedSeminarRequests = () => {
   //         }
   //     });
   // };
+
+  useEffect(() => {
+    try {
+      const fetchData = async () => {
+        const apiUrl = "http://localhost:4000/api/organizations";
+        const response = await axios.get(apiUrl);
+        setOrganizations(response.data);
+      };
+
+      fetchData();
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async (apiUrl) => {
@@ -121,12 +145,22 @@ const ReceivedSeminarRequests = () => {
   }, [schools, seminars]);
 
   useEffect(() => {
+    const filterSeminars = combinedArray.filter(
+      // (seminar) => seminar.organizationId === "65f0b4ea09f477d188a48fab"
+      (seminar) => seminar.organizationId === clarkId?._id
+    ); //important
+    console.log(filterSeminars);
+    setFilterSeminars(filterSeminars);
+  }, [clarkId, combinedArray]);
+
+  useEffect(() => {
     if (!combinedArray.length) return; // Exit early if combinedArray is not available
 
     const newGroupedSeminars = {};
-    const filterSeminars = combinedArray.filter(
-      (seminar) => seminar.organizationId === "65f0b4ea09f477d188a48fab"
-    ); //important
+    // const filterSeminars = combinedArray.filter(
+    //   (seminar) => seminar.organizationId === "65f0b4ea09f477d188a48fab"
+    //   // (seminar) => seminar.organizationId === clarkId?._id
+    // ); //important
     // combinedArray.forEach((seminar) => {
     filterSeminars.forEach((seminar) => {
       const formatedDate = isToday(new Date(seminar.createdAt))
@@ -139,7 +173,7 @@ const ReceivedSeminarRequests = () => {
     });
     setGroupedSeminars(newGroupedSeminars);
     console.log(newGroupedSeminars);
-  }, [combinedArray]);
+  }, [filterSeminars]);
 
   console.log(combinedArray);
 
