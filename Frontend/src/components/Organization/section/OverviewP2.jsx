@@ -22,11 +22,11 @@ const OverviewP2 = () => {
             try {
                 const response = await axios.get(apiUrl);
                 switch (apiUrl) {
-                case 'http://localhost:4000/api/schools':
+                case 'https://sisu-saviya-6510ee9f562c.herokuapp.com/api/schools':
                     setSchools(response.data);
                     console.log(response.data);
                     break;
-                case 'http://localhost:4000/api/seminars':
+                case 'https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars':
                     setSeminars(response.data);
                     console.log(response.data);
                     break;
@@ -40,8 +40,8 @@ const OverviewP2 = () => {
             }
         };
   
-        fetchData('http://localhost:4000/api/schools');
-        fetchData('http://localhost:4000/api/seminars');
+        fetchData('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/schools');
+        fetchData('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars');
 
     }, []);
 

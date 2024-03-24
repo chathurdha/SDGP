@@ -11,7 +11,7 @@ function OverviewP1() {
         const fetchOrgData = async () => {
             try {
                 const id = "65f0b4ea09f477d188a48fab";
-                const response = await axios.get(`http://localhost:4000/api/organizations/${id}`);
+                const response = await axios.get(`https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations/${id}`);
                 const { name, description } = response.data; // Assuming API response contains name and description fields
                 setOrgName(name);
                 setOrgDescription(description);

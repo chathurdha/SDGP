@@ -55,7 +55,7 @@ function VolDetForm() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:4000/api/Organizations/');
+          const response = await axios.get('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/Organizations/');
           setData(response.data);
           setIsLoading(false);
         } catch (error) {
@@ -95,7 +95,7 @@ function VolDetForm() {
         
               //update this
               Navigate("/");
-        axios.post("http://localhost:4000/api/Volunteers/", {
+        axios.post("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/Volunteers/", {
             "userID": UserID,
             "name":Name,
             "description":Description,

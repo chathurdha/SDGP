@@ -60,7 +60,7 @@ function SclDetForm() {
     );
     //update this
     Navigate("/School/Overview");
-    axios.post("http://localhost:4000/api/Schools/", {
+    axios.post("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/Schools/", {
       userID: UserID,
       name: Name,
       address: Address,

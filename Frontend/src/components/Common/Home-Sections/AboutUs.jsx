@@ -1,4 +1,4 @@
- 
+touch  
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -12,7 +12,7 @@ function AboutUs() {
   useEffect(() => {
     const fetchSeminars = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/seminars");
+        const response = await axios.get("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars");
         setSeminarsData(response.data);
         console.log(response.data);
       } catch (error) {

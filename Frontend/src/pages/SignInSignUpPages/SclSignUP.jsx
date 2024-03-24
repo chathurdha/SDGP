@@ -6,7 +6,7 @@ export default function SclSignUP() {
   // const [message, setMessage] = useState("");
 
   // useEffect(() => {
-  //   fetch("http://localhost:4000/message")
+  //   fetch("https://sisu-saviya-6510ee9f562c.herokuapp.com/message")
   //     .then((res) => res.json())
   //     .then((data) => setMessage(data.message));
   // }, []);
