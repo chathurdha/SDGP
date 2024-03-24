@@ -2,25 +2,30 @@ import { useEffect, useState } from "react";
 import format from "date-fns/format";
 import isToday from "date-fns/isToday";
 import axios from "axios";
-//imp
-// import { useUser } from '@clerk/clerk-react';
+import { useUser } from '@clerk/clerk-react';
 
-import FilterSeminars from "../../components/ReceivedSeminarRequests/FilterSeminars";
+import VolunteerSeminarFilter from './VolunteerSeminarFilter';
 import VolNavBar from "../../components/navbar/VolNavBar";
 import VolHeader from "../../components/Header/VolHeader";
 import Footer from "../../components/Footer/Footer";
 
 const AcceptSeminarRequests = () => {
-  //imp
-  // const user = useUser().user;
 
   const [groupedSeminars, setGroupedSeminars] = useState({});
   const [combinedArray, setCombinedArray] = useState([]); // Initial combined array state
   const [seminars, setSeminars] = useState([]);
-  // const [volunteers, setVolunteers] = useState([]);
+  const [volunteers, setVolunteers] = useState([]);
   const [schools, setSchools] = useState([]);
   const [rotatedSeminarIds, setRotatedSeminarIds] = useState([]);
   const [seminarStatuses, setSeminarStatuses] = useState({});
+  const [filterSeminars, setFilterSeminars] = useState([]);
+  const [seminarRequests, setSeminarRequests] = useState([]);
+
+  const user = useUser().user;
+  console.log(user?.id)
+
+  const clarkId = volunteers.find((vol) => vol.userID === user?.id);
+  console.log(clarkId);
 
   const handleUpdateStatus = async (id, newStatus, newExpTeaCount) => {
     console.log(id, newStatus);
@@ -40,11 +45,18 @@ const AcceptSeminarRequests = () => {
       const response = await axios.patch(apiUrl, {
         // status: newStatus, // Update only the "status" property
         expTeacherCount: newExpTeaCount,
-        volunteers: {
-          volunteerId: "616c81d8f6c4b5c2a0c5b4d",
-          //imp
-          // volunteerId: volunteer[0]._id
-        },
+        // volunteers: {
+        //   // volunteerId: "616c81d8f6c4b5c2a0c5b4d",
+        //   volunteerId: clarkId?._id,
+        //   //imp
+        //   // volunteerId: volunteer[0]._id
+        // },
+        volunteers: [
+          {
+            volunteerId: clarkId?._id,
+            // volunteerId: volunteer[0]._id
+          },
+        ],
       });
 
       if (response.status !== 200) {
@@ -83,9 +95,9 @@ const AcceptSeminarRequests = () => {
           case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars":
             setSeminars(response.data);
             break;
-          // case 'https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers':
-          //     setVolunteers(response.data);
-          //     break;
+          case 'https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers':
+              setVolunteers(response.data);
+              break;
           default:
             console.warn("Unexpected API URL:", apiUrl);
         }
@@ -117,6 +129,7 @@ const AcceptSeminarRequests = () => {
           (seminar) =>
             seminar.status === "pending" && seminar.expTeacherCount > 0
         );
+        console.log(filteredSeminars);
 
         const combinedArray = filteredSeminars.map((seminar) => {
           const school = findSchoolForSeminar(seminar.schoolId);
@@ -143,12 +156,83 @@ const AcceptSeminarRequests = () => {
   }, [schools, seminars]);
 
   useEffect(() => {
+    // for (let i = 0; i < combinedArray.length; i++) {
+    //   for (let j = 0; j < combinedArray[i].volunteers.length; j++) {
+    //     if (combinedArray[i].volunteers[j].volunteerId !== clarkId?._id) {
+
+    //     }
+    //   }
+    // }
+
+    const seminarRequests = [];
+    for (let i = 0; i < combinedArray.length; i++) {
+      let aviailable = false;
+      if (combinedArray[i].volunteers.length === 0) {
+        console.log("No volunteers");
+        seminarRequests.push(combinedArray[i]);
+      } else {
+        for (let j = 0; j < combinedArray[i].volunteers.length; j++) {
+          if (combinedArray[i].volunteers[j].volunteerId !== clarkId?._id) {
+            console.log("Not a volunteer");
+          } else {
+            console.log("Volunteer");
+            aviailable = true;
+          }
+        }
+        if (!aviailable) {
+          seminarRequests.push(combinedArray[i]);
+        }
+      }
+    }
+    console.log(combinedArray);
+    console.log(seminarRequests);
+    setSeminarRequests(seminarRequests);
+
+    // const existingVolunteers = combinedArray[2]?.volunteers || []; // Get existing volunteers from fetched data (replace seminarData with your data source)
+    // console.log(existingVolunteers);
+
+    // // Check if ID already exists (optional)
+    // const isDuplicate = existingVolunteers.some(volunteer => volunteer.volunteerId === clarkId?._id);
+    // console.log(isDuplicate);
+
+    // if (!isDuplicate) {
+    //   console.log("Not a duplicate ID");
+    // } else {
+    //   console.log("Duplicate ID");
+    // }
+
+
+    // const filterSeminars = combinedArray.filter(
+    // const filterSeminars = seminarRequests.filter(
+    //   // (seminar) => seminar.organizationId === "65f0b51909f477d188a48fad"
+    //   (seminar) => seminar.organizationId === clarkId?._id
+    // ); //important
+    // console.log(filterSeminars);
+    // setFilterSeminars(filterSeminars);
+  }, [combinedArray]);
+// }, []);
+
+  useEffect(() => {
+    console.log(clarkId?._id);
+    console.log(seminarRequests);
+    const filterSeminars = seminarRequests.filter(
+      // (seminar) => seminar.organizationId === "65f0b51909f477d188a48fad"
+      (seminar) => seminar.organizationId === clarkId?._id
+    ); //important
+    console.log(filterSeminars);
+    setFilterSeminars(filterSeminars);
+  }, [seminarRequests]);
+
+  console.log(seminarRequests);
+
+  useEffect(() => {
     if (!combinedArray.length) return; // Exit early if combinedArray is not available
 
     const newGroupedSeminars = {};
-    const filterSeminars = combinedArray.filter(
-      (seminar) => seminar.organizationId === "65f0b4ea09f477d188a48fab"
-    ); //important
+    // const filterSeminars = combinedArray.filter(
+    //   (seminar) => seminar.organizationId === "65f0b51909f477d188a48fad"
+    // ); //important
+    // console.log(filterSeminars);
 
     filterSeminars.forEach((seminar) => {
       // combinedArray.forEach((seminar) => {
@@ -161,7 +245,7 @@ const AcceptSeminarRequests = () => {
       newGroupedSeminars[formatedDate].push(seminar);
     });
     setGroupedSeminars(newGroupedSeminars);
-  }, [combinedArray]);
+  }, [filterSeminars]);
 
   console.log(combinedArray);
 
@@ -175,7 +259,7 @@ const AcceptSeminarRequests = () => {
             <h2 className="text-xl font-semibold mt-8 mb-4 text-left">
               {date}
             </h2>
-            <FilterSeminars
+            <VolunteerSeminarFilter
               filterSeminars={filterSeminars}
               rotatedSeminarIds={rotatedSeminarIds}
               seminarStatuses={seminarStatuses}
