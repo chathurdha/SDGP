@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import heroGirl from "/src/assets/hero_girl.svg"
+import BgRound from "/src/assets/bg-round.svg"
 
 function Hero() {
   return (
@@ -38,7 +39,7 @@ function Hero() {
       {/* Background round image */}
       <img
         className="md:block h-full object-cover absolute bottom-0 left-0 right-0 pointer-events-none"
-        src="/src/assets/bg-round.svg"
+        src={BgRound}
         alt=""
       />
     </div>

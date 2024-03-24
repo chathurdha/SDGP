@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import image4 from "/src/assets/image 4.png"
 
 
 function PastEvent() {
@@ -7,7 +8,7 @@ function PastEvent() {
       <div className="h-[50%] relative md:w-[70%] flex flex-col md:flex-row justify-center items-center my-[5%] mx-10 md:mx-0">
         <img
           className="md:block object-contain max-w-[30%] hidden"
-          src="/src/assets/image 4.png"
+          src={image4}
           alt=""
         />
         <div className="h-[50%] md:w-[60%] md:h-[70%] bg-blue-500 bg-opacity-15 flex flex-col justify-center items-center py-6 px-7 border rounded">
