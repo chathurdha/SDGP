@@ -23,11 +23,7 @@ const VolunteerHeader = () => {
 
         {/* Organization profile picture and sign-out button */}
         <div className="flex items-center space-x-4">
-          <img
-            src={profilePic}
-            alt="Profile"
-            className="h-10 w-10 rounded-full"
-          />{" "}
+          <UserButton />
           {/* Organization profile picture */}
           <SignOutButton >
             <Link

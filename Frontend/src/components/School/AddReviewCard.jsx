@@ -1,5 +1,9 @@
 import {useState} from "react";
 
+import SchlNavBar from "../../components/navbar/SchlNavBar";
+import SchlHeader from "../../components/Header/SchlHeader";
+import Footer from "../../components/Footer/Footer";
+
 export default function AddReviewCard() {
     const [rating, setRating] = useState('');
     const [title, setTitle] = useState('');
@@ -48,6 +52,9 @@ export default function AddReviewCard() {
     };
 
     return (
+        <>
+        <SchlHeader />
+        <SchlNavBar />
         <div className='w-1/2 h-4/5 shadow-2xl rounded-2xl mx-auto py-9'>
             <button type="button"
                     className="flex items-center justify-center ml-4 mt-5 text-sm text-gray-700  rounded-lg gap-1">
@@ -95,5 +102,7 @@ export default function AddReviewCard() {
                 </form>
             </div>
         </div>
+        <Footer />
+        </>
     )
 }

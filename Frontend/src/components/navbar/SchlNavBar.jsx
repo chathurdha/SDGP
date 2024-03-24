@@ -33,7 +33,7 @@ const ProfNav = () => {
   };
 
   return (
-    <nav className="bg-white pt-[7%] py-3 px-4">
+    <nav className="bg-white md:pt-[7%] pt-[25%] md:pb-[0%] pb-[10%] py-3 px-4">
       <div
         className={`container mx-auto ${
           isSmallScreen ? "justify-start" : "justify-center"
