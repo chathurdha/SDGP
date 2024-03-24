@@ -54,8 +54,6 @@ export default function AddReviewCard() {
 
     return (
         <>
-        <SchlHeader />
-        <SchlNavBar />
         <div className='w-1/2 h-4/5 shadow-2xl rounded-2xl mx-auto py-9'>
             <button type="button"
                     className="flex items-center justify-center ml-4 mt-5 text-sm text-gray-700  rounded-lg gap-1">

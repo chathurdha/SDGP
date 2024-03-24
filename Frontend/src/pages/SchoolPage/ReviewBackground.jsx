@@ -1,60 +1,44 @@
-// // import AddReview from "../components/AddReview.jsx";
-// // import ReviewCard from "../ReviewCard.jsx";
-// import {useEffect, useState} from "react";
-//
-// export default function ReviewBackground() {
-//     const [reviews, setReviews] = useState(null)
-//
-//     useEffect(() => {
-//         const fetchReviews = async () => {
-//             const response = await fetch('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/reviews/')
-//
-//
-//             if(response.ok){
-//                 const json = response.json()
-//                 console.log(json)
-//                 setReviews(json)
-//             }
-//         }
-//         fetchReviews()
-//     }, []);
-//     return(
-//         <div className='w-screen h-screen '>
-//     <div>
-//         {reviews && reviews.map((review) => (
-//             <p key={review._id}>{review.title}</p>
-//             ))}
-//     </div>
-//         </div>
-//     )
-// }
-//
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import ReviewCard from "../../components/ReviewCard.jsx";
+import SchlHeader from "../../components/Header/SchlHeader.jsx";
+import SchlNavBar from "../../components/navbar/SchlNavBar.jsx";
+import Card from "../../components/Common/PastE-Sections/Card.jsx";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 export default function ReviewBackground() {
-    const [reviews, setReviews] = useState([]);
+ const [seminars, setSeminars] = useState(null);
 
     useEffect(() => {
-        const fetchReviews = async () => {
-            const api = 'https://sisu-saviya-6510ee9f562c.herokuapp.com/api/reviews/'
+        const fetchSeminars = async () => {
             try {
-                const response = await axios.get(api);
-                setReviews(response.data);
-            } catch (error) {
-                console.error('Error fetching reviews:', error);
+                const response = await axios.get("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars");
+                setSeminars(response.data);
+            } catch (err) {
+                console.error(err);
             }
         };
-        fetchReviews();
+
+        fetchSeminars();
     }, []);
 
+    const completedSeminars = seminars && seminars.filter((seminar) => seminar.status === 'completed');
+
     return (
-        <div className='w-screen'>
-            {reviews.length > 0 && reviews.map((review) => (
-                <ReviewCard key={review._id} title={review.title} description={review.description} rating={review.rating} />
-            ))}
-        </div>
+        <>
+            <SchlHeader/>
+            <SchlNavBar/>
+
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 mt-24 px-9">
+                {completedSeminars &&
+                    completedSeminars.map((seminar) => (
+                        <Card
+                            key={seminar._id}
+                            seminar={seminar}
+                            className="w-full" // Added w-full and border class
+                        />
+                    ))}
+            </div>
+
+        </>
     );
 }
 
