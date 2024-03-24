@@ -7,6 +7,8 @@ import { useUser } from '@clerk/clerk-react';
 import VolNavBar from "../../components/navbar/VolNavBar";
 import VolHeader from "../../components/Header/VolHeader";
 import Footer from "../../components/Footer/Footer";
+import fade_stagger_circles from "../../assets/fade_stagger_circles.svg";
+import LoadingSVG from "../../assets/Loading.svg";
 
 const VolunteerOverview = () => {
 
@@ -45,6 +47,7 @@ const VolunteerOverview = () => {
       console.log("Your volunteer request is pending approval");
       setPendingVolunteer(true);
     }
+    setIsLoading(false);
   }, [clarkId]);
 
   useEffect(() => {
@@ -68,14 +71,14 @@ const VolunteerOverview = () => {
     };
 
     fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers");
-    setIsLoading(false);
+    // setIsLoading(false);
   }, []);
 
   return (
     <>
     {isLoading ? (
-      <div className="flex justify-center items-center h-screen">
-        <h1 className="text-4xl text-center">Loading...</h1>
+        <div className="flex justify-center items-center h-screen">
+          <img src={LoadingSVG} alt="Loading" className="w-2/6 h-2/6" />
         </div>
         ) : (rejectedVolunteer ? (
           <div className="flex justify-center items-center h-screen"> 
@@ -115,10 +118,11 @@ const VolunteerOverview = () => {
                 </div>
             </div>
           ) : (
-            <div className="flex justify-center items-center h-screen">
-              <h1 className="text-4xl text-center">
-                Your volunteer request is pending approval
-              </h1>
+            <div className="flex flex-col justify-center items-center h-screen">
+                <img src={fade_stagger_circles} alt="Loading" className="w-1/12" />
+                <h1 className="text-xl text-center">
+                  Your volunteer request is pending approval
+                </h1>
             </div>
           )))}
     </>
