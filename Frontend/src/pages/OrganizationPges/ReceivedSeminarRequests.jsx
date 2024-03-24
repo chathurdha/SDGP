@@ -5,7 +5,6 @@ import axios from "axios";
 import { useUser } from '@clerk/clerk-react';
 
 import FilterSeminars from "../../components/ReceivedSeminarRequests/FilterSeminars";
-import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import ProfNav from "../../components/navbar/ProfNav";
 import OrgHeader from "../../components/Header/OrgHeader";

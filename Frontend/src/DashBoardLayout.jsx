@@ -1,8 +1,7 @@
 // DashboardLayout.jsx
 
-import React from "react";
 import { useAuth } from "@clerk/clerk-react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import LoadingSVG from "./assets/Loading.svg";
 
 const DashboardLayout = () => {
