@@ -6,6 +6,7 @@ import axios from "axios";
 import FilterSeminars from "../../ReceivedSeminarRequests/FilterSeminars";
 import { Link } from "react-router-dom";
 
+
 const OverviewP2 = () => {
     const [combinedArray, setCombinedArray] = useState([]);
     const [seminars, setSeminars] = useState([]);

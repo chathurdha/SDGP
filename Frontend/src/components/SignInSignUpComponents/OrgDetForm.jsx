@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useUser, useOrganization } from '@clerk/clerk-react';
 import axios from 'axios';
+import logo from "/src/assets/fullLogo.svg"
 
 
 
@@ -63,7 +64,7 @@ function OrgDetForm() {
     <div className='w-screen h-screen flex justify-center items-center relative'>
       <div className="absolute top-0 left-0 m-4 mt-4">
           <img
-            src="/src/assets/fullLogo.svg"
+            src={logo}
             alt="Logo"
             className={`h-8 w-auto sm:h-15 sm:w-auto ml-6 ${
               showShadow ? "" : "block"

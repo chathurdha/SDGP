@@ -2,6 +2,7 @@ import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import contactUs from "/src/assets/contactUs.jpg"
 
 function ContactUs() {
   const form = useRef();
@@ -83,7 +84,7 @@ function ContactUs() {
           {/* Second Column */}
           <div className="hidden md:block">
             <img
-              src="/src/assets/contactUs.jpg"
+              src={contactUs}
               alt="Image"
               className="object-cover w-full h-full rounded-md"
             />

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 // import { Link } from "react-router-dom";
 import axios from "axios";
+import aboutUs from "/src/assets/aboutUs pic.svg"
+import logo from "/src/assets/Logo.png"
 //imp
 // import { useUser } from '@clerk/clerk-react';
 
@@ -107,7 +109,7 @@ const VolunteerOverview = () => {
           {!isMobile && (
             <img
               className="w-full lg:w-[80%] h-auto absolute"
-              src="/src/assets/aboutUs pic.svg"
+              src={aboutUs}
               alt=""
             />
           )}
@@ -126,7 +128,7 @@ const VolunteerOverview = () => {
           <div className="absolute flex flex-col justify-center items-center w-full lg:w-[60%]">
             <img
               className="w-[60%] md:w-[30%] lg:w-[40%] h-auto mb-4"
-              src="/src/assets/Logo.png"
+              src={logo}
               alt=""
             />
             {!isMobile && (

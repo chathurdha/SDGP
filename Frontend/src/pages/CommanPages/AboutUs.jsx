@@ -2,6 +2,10 @@
 
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import aboutUs from  "/src/assets/aboutUs pic.svg"
+import logo from "/src/assets/Logo.png"
+import aboutBg1 from "/src/assets/aboutbg1.png"
+import aboutBg2 from "/src/assets/aboutbg2.png"
 
 function AboutUs() {
   return (
@@ -14,13 +18,13 @@ function AboutUs() {
         <div className="mt-[15%] flex justify-center items-center relative">
           <img
             className="w-full lg:w-[80%] h-auto absolute"
-            src="/src/assets/aboutUs pic.svg"
+            src={aboutUs}
             alt=""
           />
           <div className="absolute flex flex-col justify-center items-center w-full lg:w-[60%]">
             <img
               className="w-[20%] lg:w-[40%] h-auto mb-4"
-              src="/src/assets/Logo.png"
+              src={logo}
               alt=""
             />
             <p className="w-[80%] lg:w-[60%] text-sm text-center text-[#FFFFFF]">
@@ -50,14 +54,14 @@ function AboutUs() {
           </p>
           <img
             className="w-[25%] h-auto absolute right-0 mr-[8%]"
-            src="/src/assets/aboutbg1.png"
+            src={aboutBg1}
             alt=""
           />
         </div>
         <div className="flex items-center mt-14">
           <img
             className="w-[30%] h-auto relative  left-0 mt-4"
-            src="/src/assets/aboutbg2.png"
+            src={aboutBg2}
             alt=""
           />
           <div className="w-[60%] lg:w-[40%] ml-[18%] mr-10">

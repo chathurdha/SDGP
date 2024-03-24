@@ -13,7 +13,7 @@ export function getVolunteerCount(allVolunteers,organization) {
 
 const Organizations = () => {
 
-  const ProfPic = "null";
+  
 
   const [allVolunteers, setAllVolunteers] = useState([]);
   const [organizations, setOrganizations] = useState([]);
@@ -22,6 +22,7 @@ const Organizations = () => {
   const sortedOrganizations = organizations.sort(
     (a, b) => b.volunteerCount - a.volunteerCount
   );
+
 
   // Get the top 6 organizations
   const topOrganizations = sortedOrganizations.slice(0, 6);
@@ -52,6 +53,8 @@ const Organizations = () => {
     fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations");
   }, []);
 
+  // ProfPic = organization?.ProfPic;
+
   return (
     <div className="w-screen flex justify-center items-center bg-gradient-to-t from-[#D9ECFF] to-white">
       <div className="w-[80%] h-full pb-14">
@@ -67,7 +70,7 @@ const Organizations = () => {
             >
               <img
                 className="h-20 w-20 object-cover rounded-full"
-                src={ProfPic}
+                src={organization?.ProfPic}
                 alt={organization.name}
               />
               <h2 className="text-lg font-semibold mt-4 mb-2">{organization.name}</h2>
