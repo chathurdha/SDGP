@@ -3,8 +3,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    review: {
+    schoolName: {
         type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    rating: {
+        type: Number,
         required: true
     },
     posivite: { 
@@ -25,7 +33,9 @@ const reviewSchema = new Schema({
     seminarId: { 
         type: mongoose.SchemaTypes.ObjectId,
         required: true
-    }
+    },
+
+
 }, {
     timestamps: true,
 });

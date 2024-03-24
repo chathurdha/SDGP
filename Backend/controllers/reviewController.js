@@ -35,7 +35,9 @@ const getReview = async (req, res) => {
 // Create a review
 const createReview = async (req, res) => {
     const { 
-        review,
+        schoolName,
+        description,
+        rating,
         positive,
         negative,
         neutral,
@@ -44,7 +46,9 @@ const createReview = async (req, res) => {
 
     try {
         const newReview = await Review.create({
-            review,
+            schoolName,
+            description,
+            rating,
             positive,
             negative,
             neutral,
