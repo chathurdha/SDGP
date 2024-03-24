@@ -1,6 +1,5 @@
 // RootLayout.jsx
-
-import React from "react";
+/* eslint-disable react/prop-types */
 import {  useUser } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 
@@ -55,3 +54,6 @@ const RootLayout = ({ children }) => {
 };
 
 export default RootLayout;
+
+
+/* eslint-enable react/prop-types */

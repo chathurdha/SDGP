@@ -29,6 +29,7 @@ export default function AddReviewCard() {
         if(!response.ok) {
             setError(json.error);
         }
+        console.log(error)
 
         if(response.ok){
             setRating('');

@@ -12,18 +12,22 @@ const LoadingScreen = () => {
   // let nextPageComponent;
   console.log(`${User}`);
 
-  if (isSignedIn) {
-    if (UserType === '"Volunteer"') {
-      console.log(`UserType: ${UserType}`);
-      setNextPageComponent("/Volunteer/Overview/");
-    } else if (UserType === '"School"') {
-      setNextPageComponent("/School/Overview");
-    } else if (UserType === '"Organization"') {
-      setNextPageComponent("/Organization/Overview");
-    } else {
-      console.error(`Unhandled UserType: ${UserType}`);
+    try {
+      if (isSignedIn) {
+        if (UserType === '"Volunteer"') {
+          console.log(`UserType: ${UserType}`);
+          setNextPageComponent("/Volunteer/Overview/");
+        } else if (UserType === '"School"') {
+          setNextPageComponent("/School/Overview");
+        } else if (UserType === '"Organization"') {
+          setNextPageComponent("/Organization/Overview");
+        } else {
+          console.error(`Unhandled UserType: ${UserType}`);
+        }
+      }
+    }catch(error){
+      console.log("error : "+error)
     }
-  }
 
   return (
     <div>
