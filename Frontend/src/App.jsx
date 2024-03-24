@@ -37,6 +37,7 @@ import SchlOverview from "./pages/SchoolPage/SchoolOverview";
 import RequestForm from "./pages/SchoolPage/RequestForm";
 // import SendReview from "./pages/SchoolPage/AddReview"
 import SclDetForm from "./components/SignInSignUpComponents/SclDetForm"
+import AddReview from './components/School/AddReviewCard';
 
 const App = () => {
   return (
@@ -106,7 +107,7 @@ const App = () => {
               path="/School/Upcoming-Seminar"
               element={<div>vol up sem</div>}
             />
-            <Route path="/School/Add-Review" element={<div>vol up sem</div>} />
+            <Route path="/School/Add-Review" element={<AddReview />} />
             <Route path="/School/Details" element={<SclDetForm />} />
           </Route>
         </Routes>
