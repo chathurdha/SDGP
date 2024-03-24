@@ -15,6 +15,7 @@ function OrgDetForm() {
     const Name = organization?.name;
     const OrgID = organization?.id;
     const UserID = user?.id;
+    const ProfPic = organization?.imageUrl;
     
     const [Description, setDescription] = useState("");
     const [phnNbr, setPhnNbr] = useState("");
@@ -52,7 +53,8 @@ function OrgDetForm() {
             "description":Description,
             "phone":phnNbr,
             "website":WebSite,
-            "userID":UserID
+            "userID":UserID,
+            "ProfPic":ProfPic
           })
 
     }

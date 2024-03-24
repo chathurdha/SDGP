@@ -26,7 +26,11 @@ const Schema = mongoose.Schema;
     userID: {
           type: String,
           required: true
-    }
+    },
+    ProfPic: {
+        type: String,
+        required: true
+    },
 });
 
 module.exports = mongoose.model('Organization', organizationSchema);

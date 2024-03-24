@@ -13,6 +13,8 @@ export function getVolunteerCount(allVolunteers,organization) {
 
 const Organizations = () => {
 
+  const ProfPic = "null";
+
   const [allVolunteers, setAllVolunteers] = useState([]);
   const [organizations, setOrganizations] = useState([]);
 
@@ -65,7 +67,7 @@ const Organizations = () => {
             >
               <img
                 className="h-20 w-20 object-cover rounded-full"
-                src={`/src/assets/${organization._id}.jpeg`}
+                src={ProfPic}
                 alt={organization.name}
               />
               <h2 className="text-lg font-semibold mt-4 mb-2">{organization.name}</h2>
