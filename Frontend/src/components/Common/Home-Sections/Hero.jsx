@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import heroGirl from "/src/assets/hero_girl.svg"
 
 function Hero() {
   return (
@@ -29,7 +30,7 @@ function Hero() {
         <div className="h-[50%] md:w-[40%] md:h-full relative flex justify-center items-end">
           <img
             className="md:block max-h-[90%] h-auto object-contain"
-            src="/src/assets/hero_girl.svg"
+            src={heroGirl}
             alt=""
           />
         </div>
