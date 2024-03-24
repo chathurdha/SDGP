@@ -35,6 +35,7 @@ const AddReviewCard = ({ seminar, onClose }) => {
             seminarId: seminar._id
         };
 
+<<<<<<< HEAD
         const response = await fetch('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/reviews', {
             method: 'POST',
             headers: {
@@ -51,6 +52,11 @@ const AddReviewCard = ({ seminar, onClose }) => {
         console.log(error)
 
         if(response.ok){
+=======
+        try {
+            const response = await axios.post('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/reviews', review);
+            console.log('New Review added successfully', response.data);
+>>>>>>> b2a5eaa (Chenge the links)
             setRating('');
             setTitle('');
             setDescription('');
