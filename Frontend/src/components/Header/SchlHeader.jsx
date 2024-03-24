@@ -1,31 +1,8 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SignOutButton, UserButton } from "@clerk/clerk-react";
 
 const SchoolHeader = () => {
-  const [profilePic, setProfilePic] = useState(""); // State for school profile picture
-
-  // Sample school data (replace with your actual data)
-  const schoolData = [
-    {
-      id: 1,
-      profilePic: "/src/assets/school1.jpg",
-    },
-    // Add more school objects as needed
-  ];
-
-  // Function to fetch school profile picture based on ID
-  const fetchProfilePic = (id) => {
-    // Replace this with actual logic to fetch school profile picture
-    const school = schoolData.find((school) => school.id === id);
-    if (school) {
-      setProfilePic(school.profilePic);
-    }
-  };
-
-  useEffect(() => {
-    // Fetch school profile picture when component mounts
-    fetchProfilePic(1); // Replace 1 with the actual school ID
-  }, []);
+  
 
   return (
     <header className="bg-white py-3 px-4 fixed w-screen z-10 shadow-md">
@@ -46,18 +23,15 @@ const SchoolHeader = () => {
 
         {/* Organization profile picture and sign-out button */}
         <div className="flex items-center space-x-4">
-          <img
-            src={profilePic}
-            alt="Profile"
-            className="h-10 w-10 rounded-full"
-          />{" "}
-          {/* Organization profile picture */}
-          <Link
-            to="/"
-            className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm font-saira"
-          >
-            Sign out
-          </Link>
+          <UserButton />
+          <SignOutButton >
+            <Link
+              to="/"
+              className="bg-custom-purple hover:bg-white text-white hover:text-custom-purple hover:border border-custom-purple py-2 px-3 rounded text-sm font-saira"
+            >
+              Sign out
+            </Link>
+          </ SignOutButton>
         </div>
       </div>
     </header>

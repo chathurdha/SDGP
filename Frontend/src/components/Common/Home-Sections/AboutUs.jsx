@@ -1,4 +1,4 @@
-/* eslint-disable no-irregular-whitespace */
+ 
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -72,4 +72,4 @@ function AboutUs() {
 
 export default AboutUs;
 
-/* eslint-enable no-irregular-whitespace */
+ 
