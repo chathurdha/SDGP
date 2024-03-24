@@ -10,7 +10,7 @@ const VolunteerAddress = ( {
     rotatedVolunteerIds
 } ) => {
     return (
-        <div className={`grid grid-cols-4 gap-4 ${
+        <div className={`grid grid-cols-4 mb-4 md:mb-0 gap-4 ${
             !rotatedVolunteerIds.includes(volunteer._id) ? 'hidden' : ''
             }`}
             onClick={isMobile ? () => handleToggle(volunteer._id) : null}
@@ -20,7 +20,7 @@ const VolunteerAddress = ( {
                     className='text-2xl'
                 />
             </div>
-            <div className="col-span-3 text-left flex items-center justify-start">{volunteer.address}</div>
+            <div className="col-span-3 text-left font-sans text-sm flex items-center justify-start">{volunteer.address}</div>
         </div>
     );
 }

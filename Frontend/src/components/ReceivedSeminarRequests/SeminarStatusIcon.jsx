@@ -10,7 +10,7 @@ const SeminarStatusIcon = ({
         const status = seminarStatuses[seminarId];
     
         return (
-            <div className={`${
+            <div className={`flex justify-center ${
               !rotatedSeminarIds.includes(seminarId) ? "md:flex items-center" : ""
             }`}>
                 <FontAwesomeIcon

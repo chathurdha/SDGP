@@ -7,7 +7,7 @@ const SchoolFirstLetter = ({ name }) => {
     const firstLetters = words.map((word) => word[0].toUpperCase()).join("");
   
     return (
-      <p className="font-bold text-xl">
+      <p className="font-semibold text-xl">
         {firstLetters}
       </p>
     );

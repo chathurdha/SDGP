@@ -29,7 +29,7 @@ const SeminarHeader = ({
                     )}
                 </div>
                 <div className={`md:col-span-4 lg:col-span-8 flex flex-row items-center`}>
-                    <h1 className="w-full text-2xl font-bold md:pr-2 text-center md:text-left">{seminar.schoolName}</h1>
+                    <h1 className="w-full font-serif text-2xl font-light text-gray-700 md:pr-2 text-center md:text-left">{seminar.schoolName}</h1>
                     {!isMobile && (
                     <FontAwesomeIcon
                         icon={faAngleDown}

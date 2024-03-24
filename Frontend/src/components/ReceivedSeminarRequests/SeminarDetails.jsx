@@ -21,31 +21,31 @@ const SeminarDetails = ({
                 >
                     <div className="">    
                         <div className="flex flex-col md:flex-row mb-4 md:mb-1">
-                            <p className="font-bold mr-2">Expected Seminar Date:</p>
+                            <p className="font-semibold text-gray-700 font-sans mr-2">Expected Seminar Date:</p>
                             {/* <p className="md:text-left">{seminar.expDate}</p> */}
                             {/* <p className="md:text-left">{datePart}</p> */}
-                            <p className="md:text-left">{formattedDate}</p>
+                            <p className="md:text-left font-sans">{formattedDate}</p>
                         </div>
                         <div className="flex flex-col md:flex-row mb-4 md:mb-1">
-                            <p className="font-bold mr-2">Subject:</p>
-                            <p className="md:text-left">{seminar.subject}</p>
+                            <p className="font-semibold text-gray-700 font-sans mr-2">Subject:</p>
+                            <p className="md:text-left font-sans">{seminar.subject}</p>
                         </div>
                         <div className="flex flex-col md:flex-row mb-4 md:mb-1">
-                            <p className="font-bold mr-2">Estimated Student Count:</p>
-                            <p className="md:text-left">{seminar.expStudentCount}</p>
+                            <p className="font-semibold text-gray-700 font-sans mr-2">Estimated Student Count:</p>
+                            <p className="md:text-left font-sans">{seminar.expStudentCount}</p>
                         </div>
                         <div className="flex flex-col md:flex-row mb-4 md:mb-1">
-                            <p className="font-bold mr-2">Expected Teacher Count:</p>
-                            <p className="md:text-left">{seminar.expTeacherCount}</p>
+                            <p className="font-semibold text-gray-700 font-sans mr-2">Expected Teacher Count:</p>
+                            <p className="md:text-left font-sans">{seminar.expTeacherCount}</p>
                         </div>
                         <div className="flex flex-col md:flex-row mb-4 md:mb-1">
-                            <p className="font-bold mr-2">Grade:</p>
-                            <p className="md:text-left">{seminar.grade}</p>
+                            <p className="font-semibold text-gray-700 font-sans mr-2">Grade:</p>
+                            <p className="md:text-left font-sans">{seminar.grade}</p>
                         </div>
                     </div>
                     <div className="flex flex-col md:grid md:grid-cols-3 mb-4">
-                        <p className="font-bold mr-2">Additional request:</p>
-                        <p className="text-justify md:col-span-2">{seminar.additionalRequests}</p>
+                        <p className="font-semibold text-gray-700 font-sans mr-2">Additional request:</p>
+                        <p className="text-justify md:col-span-2 font-sans">{seminar.additionalRequests}</p>
                     </div>
                 </div>
             )

@@ -25,7 +25,7 @@ import PrevSeminar from "./pages/OrganizationPges/PrevSeminar";
 import UpSeminar from "./pages/OrganizationPges/UpSeminar";
 import OrgSeminar from "./components/Organization/section/OrgSeminar";
 // import Seminar from "./components/Profiles/SeminarBtns";
-import OrgOverviewPg from "./pages/OrganizationPges/OrgOverviewPg";
+// import OrgOverviewPg from "./pages/OrganizationPges/OrgOverviewPg";
 import OrgReceivedSeminarRequests from "./pages/OrganizationPges/ReceivedSeminarRequests";
 import OrgReceivedVolunteerRequests from "./pages/OrganizationPges/ReceivedVolunteerRequests";
 import OrgDetForm from "./components/SignInSignUpComponents/OrgDetForm";
@@ -75,7 +75,8 @@ const App = () => {
               path="/Organization/Upcoming-Seminar"
               element={<UpSeminar />}
             />
-            <Route path="/Organization/Overview" element={<OrgOverviewPg />} />
+            {/* <Route path="/Organization/Overview" element={<OrgOverviewPg />} /> */}
+            <Route path="/Organization/Overview" element={<div></div>} />
             <Route
               path="/Orgnization/Received-Seminar-Requests"
               element={<OrgReceivedSeminarRequests />}

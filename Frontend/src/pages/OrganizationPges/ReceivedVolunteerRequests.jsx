@@ -132,10 +132,10 @@ const ReceivedSeminarRequests = () => {
     <>
       <OrgHeader />
       <ProfNav />
-      <div className="container mx-auto p-4">
+      <div className="container p-4 w-[80%] m-auto mb-10 md:ml-20">
         {Object.entries(groupedVolunteers).map(([date, filterVolunteers]) => (
           <div key={date}>
-            <h2 className="text-xl font-semibold mt-8 mb-4 text-left">
+            <h2 className="text-lg mx-[6%] font-mono font-medium mt-8 mb-4 text-left">
               {date}
             </h2>
             <FilterVolunteers

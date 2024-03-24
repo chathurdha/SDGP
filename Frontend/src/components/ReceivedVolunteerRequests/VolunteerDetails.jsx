@@ -21,22 +21,22 @@ const VoluneerDetails = ({
             >
                 <div>
                     <div className="flex flex-col md:flex-row mb-4 md:mb-1">
-                        <p className="font-bold mr-2">Request Date:</p>
-                        <p className="md:text-left">{formattedDate}</p>
+                        <p className="font-semibold text-gray-700 font-sans mr-2">Request Date:</p>
+                        <p className="md:text-left font-sans">{formattedDate}</p>
                     </div>
                     <div className="flex flex-col md:flex-row mb-4 md:mb-1">
-                        <p className="font-bold mr-2">Request Time:</p>
-                        <p className="md:text-left">{formattedTime}</p>
+                        <p className="font-semibold text-gray-700 font-sans mr-2">Request Time:</p>
+                        <p className="md:text-left font-sans">{formattedTime}</p>
                     </div>
                 </div>
                 <div>
                     <div className="flex flex-col md:flex-row mb-4 md:mb-1">
-                        <p className="font-bold mr-2">Full Name:</p>
-                        <p className="col-span-2 md:text-left">{volunteer.name}</p>
+                        <p className="font-semibold text-gray-700 font-sans mr-2">Full Name:</p>
+                        <p className="col-span-2 md:text-left font-sans">{volunteer.name}</p>
                     </div>
                     <div className="flex flex-col md:flex-row mb-4 md:mb-1">
-                        <p className="md:text-left font-bold mr-2">Volunteer ID:</p>
-                        <p className="md:text-left">{volunteer.volunteerId}</p>
+                        <p className="md:text-left font-semibold text-gray-700 font-sans mr-2">Volunteer ID:</p>
+                        <p className="md:text-left font-sans">{volunteer.volunteerId}</p>
                     </div>
                 </div>
             </div>
