@@ -4,9 +4,10 @@ import ProcessDate from './ProcessDate';
 import axios from 'axios';
 
 const Card = ({ seminar }) => {
-    const { formattedDate } = ProcessDate(seminar);
+    const { formattedDate, isPast } = ProcessDate(seminar);
     const imagePath = './images/' + seminar._id + '.jpeg';
     const [status, setStatus] = useState(seminar.status);
+    const today = new Date().toISOString().split('T')[0];
 
     const handleCompleted = async () => {
         if (status !== 'completed') {
@@ -31,11 +32,12 @@ const Card = ({ seminar }) => {
                     <Ratings rating={seminar.rating} />
                     <p>{formattedDate}</p>
                 </div>
-                {status !== 'completed' ? (
+                {today > seminar.expDate && status !== 'completed' && (
                     <button onClick={handleCompleted} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Mark as Completed
                     </button>
-                ) : (
+                )}
+                {status === 'completed' && (
                     <p className="text-green-500 font-semibold">Completed</p>
                 )}
             </div>
