@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import format from "date-fns/format";
 import isToday from "date-fns/isToday";
 import axios from "axios";
+import { useUser } from '@clerk/clerk-react';
+
 
 import FilterVolunteers from "../../components/ReceivedVolunteerRequests/FilterVolunteers";
 import ProfNav from "../../components/navbar/ProfNav";
@@ -9,10 +11,25 @@ import OrgHeader from "../../components/Header/OrgHeader";
 import Footer from "../../components/Footer/Footer";
 
 const ReceivedSeminarRequests = () => {
+
+  // const user = useUser().user;
+  // console.log(user?.id)
+
   const [volunteers, setVolunteers] = useState([]);
+  const [organizations, setOrganizations] = useState([]);
   const [filteredVolunteers, setFilteredVolunteers] = useState([]);
   const [updatedVolunteers, setUpdatedVolunteers] = useState([]);
   const [groupedVolunteers, setGroupedVolunteers] = useState({});
+
+  const user = useUser().user;
+  console.log(user?.id)
+
+  const clarkId = organizations.find((org) => org.userID === user?.id);
+  console.log(clarkId);
+
+  // const clarkId = organizations.find((org) => org.userID === user?.id);
+  // console.log(clarkId);
+
   // const [rotatedVolunteerIds, setRotatedVolunteerIds] = useState([]);
   // const [volunteerStatuses, setVolunteerStatuses] = useState({});
 
@@ -51,6 +68,20 @@ const ReceivedSeminarRequests = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
+        const apiUrl = "http://localhost:4000/api/organizations";
+        const response = await axios.get(apiUrl);
+        setOrganizations(response.data);
+      };
+
+      fetchData();
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      const fetchData = async () => {
         const apiUrl = "http://localhost:4000/api/volunteers";
         const response = await axios.get(apiUrl);
         setVolunteers(response.data);
@@ -73,11 +104,13 @@ const ReceivedSeminarRequests = () => {
 
   useEffect(() => {
     const updatedVolunteers = filteredVolunteers.filter(
-      (volunteer) => volunteer.orgID === "65f0b4ea09f477d188a48fab"
+      // (volunteer) => volunteer.orgID === "65f0b4ea09f477d188a48fab"
+      (volunteer) => volunteer.orgID === clarkId?._id
     ); //important
     setUpdatedVolunteers(updatedVolunteers);
     console.log(updatedVolunteers);
-  }, [filteredVolunteers]);
+  // }, [filteredVolunteers,clarkId]);
+}, [clarkId]);
 
   useEffect(() => {
     const newGroupedVolunteers = {};
