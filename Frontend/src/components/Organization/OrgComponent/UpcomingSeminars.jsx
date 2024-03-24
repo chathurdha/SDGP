@@ -6,6 +6,7 @@ export default function UpcomingSeminars(){
     const [seminars, setSeminars] = useState([]);
     const [organizations, setOrganizations] = useState([]);
     const user = useUser();
+    const today = new Date().toISOString().split('T')[0];
 
     useEffect(() => {
         const fetchSeminars = async () => {
@@ -36,7 +37,7 @@ export default function UpcomingSeminars(){
 
     const currentOrganizationId = organizations && organizations.filter((organization) => organization.userId === user.id);
     const acceptedSeminars = seminars && seminars.filter((seminar) => seminar.status === 'accepted');
-    const upcomingSeminars = acceptedSeminars && acceptedSeminars.filter((seminar) => new Date(seminar.date) > new Date());
+    const upcomingSeminars = acceptedSeminars && currentOrganizationId.length > 0 && acceptedSeminars.filter((seminar) => new Date(seminar.expDate) > new Date(today) && seminar.organizationId === currentOrganizationId[0]._id);
 
 
     return(
