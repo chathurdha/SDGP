@@ -1,4 +1,4 @@
-/* eslint-disable no-irregular-whitespace */
+ 
 
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -48,4 +48,4 @@ const OverviewP4 = () => {
 
 export default OverviewP4;
 
-/* eslint-enable no-irregular-whitespace */
+ 
