@@ -2,7 +2,7 @@ import SeminarBtns from "../../components/Profiles/SeminarBtns";
 import Navbar from "../../components/navbar/ProfNav";
 import OrgHeader from "../../components/Header/OrgHeader";
 import Footer from "../../components/Footer/Footer";
-import OrgUpComingSeminar from "../../components/Organization/OrgUpComingSeminar";
+import UpcomingSeminars from "../../components/Organization/OrgComponent/UpcomingSeminars.jsx";
 
 function UpSeminar() {
   return (
@@ -14,7 +14,7 @@ function UpSeminar() {
         previousPageUrl="/Organization/Previous-Seminar"
       />
       <div>
-        <OrgUpComingSeminar />
+        <UpcomingSeminars />
       </div>
       <Footer />
     </>

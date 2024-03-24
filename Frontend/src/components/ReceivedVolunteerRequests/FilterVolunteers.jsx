@@ -55,7 +55,7 @@ const FilterVolunteers = ({
                 filterVolunteers.map((volunteer) => (
                     <div
                         key={volunteer._id}
-                        className="md:min-h-36 rounded-lg border border-gray-200 shadow-md mb-4 w-full p-4 md:grid md:grid-cols-3"
+                        className="md:min-h-36 md:mx-[5%] rounded-lg border border-gray-200 shadow-md mb-4 w-full p-4 md:grid md:grid-cols-3"
                     >
                         <div className={`col-span-2 grid ${
                             !rotatedVolunteerIds.includes(volunteer._id) ? 'grid-rows-1' : ''

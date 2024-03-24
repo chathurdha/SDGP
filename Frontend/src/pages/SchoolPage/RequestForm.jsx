@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 // import "react-datepicker/dist/react-datepicker.css";
 import { isMobile } from "react-device-detect";
 import axios from "axios";
-//imp
-// import { useUser } from '@clerk/clerk-react';
+import { useUser } from '@clerk/clerk-react';
 
 import OrganizationSelect from "../../components/Common/PastE-Sections/OrganizationSelect";
 import CheckboxInput from "../../components/RequestForm/CheckboxInput";
@@ -17,13 +16,25 @@ import SchlHeader from "../../components/Header/SchlHeader";
 import Footer from "../../components/Footer/Footer";
 
 const RequestForm = () => {
-  //imp
-  // const user = useUser().user;
 
   const [organizations, setOrganizations] = useState([]);
+  const [schools, setSchools] = useState([]);
   const [successMessage, setSuccessMessage] = useState("");
   const [selectedOrganization, setSelectedOrganization] = useState([]);
   console.log(selectedOrganization);
+
+  const user = useUser().user;
+  console.log(user?.id)
+
+  const clarkId = schools.find((sch) => sch.userID === user?.id);
+  // const clarkId = schools.find((sch) => sch.userID === "user_2e6jirQ66OfqhiVRk3qMygDQ5cx");
+  console.log(clarkId);
+
+  // const [organizations, setOrganizations] = useState([]);
+  // const [schools, setSchools] = useState([]);
+  // const [successMessage, setSuccessMessage] = useState("");
+  // const [selectedOrganization, setSelectedOrganization] = useState([]);
+  // console.log(selectedOrganization);
 
   const [formData, setFormData] = useState({
     organizationName: "",
@@ -96,7 +107,7 @@ const RequestForm = () => {
     setSelectedOrganization(selectedOrganization);
     setFormData((prevData) => ({
       ...prevData,
-      organizationName: selectedOrganization.value,
+      organizationName: selectedOrganization?.value,
     }));
   };
 
@@ -181,7 +192,8 @@ const RequestForm = () => {
             additionalRequests:
               formData.additionalRequests || "No additional requests",
             expDate: formData.selectedDate,
-            schoolId: "65f0a01b5e34ced181cf1ab5",
+            // schoolId: "65f0a01b5e34ced181cf1ab5",
+            schoolId: clarkId?._id,
             //imp
             // schoolId: user?.id,
             organizationId: selectedObject._id,
@@ -205,33 +217,66 @@ const RequestForm = () => {
           errors: {},
         });
         setTimeout(() => {
-          setSuccessMessage("");
-        }, 15000);
+          window.location.reload();
+        }, 2000);
       } catch (error) {
         console.error("Error submitting form:", error);
       }
     }
   };
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations"
+  //       );
+  //       console.log("Organizations:", response.data);
+  //       setOrganizations(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching organization data:", error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
+
   useEffect(() => {
-    const fetchData = async () => {
+
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async (apiUrl) => {
+      // setIsLoading(true); // Set loading to true before fetching
       try {
-        const response = await axios.get(
-          "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations"
-        );
-        console.log("Organizations:", response.data);
-        setOrganizations(response.data);
+        const response = await axios.get(apiUrl);
+        switch (apiUrl) {
+          case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations":
+            setOrganizations(response.data);
+            console.log(response.data);
+            break;
+          case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/schools":
+            setSchools(response.data);
+            break;
+          default:
+            console.warn("Unexpected API URL:", apiUrl);
+        }
       } catch (error) {
-        console.error("Error fetching organization data:", error);
+        console.error("Error fetching data:", error);
+      } finally {
+        // setIsLoading(false); // Set loading to false after fetching
       }
     };
-    fetchData();
+
+    fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/schools");
+    fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations");
   }, []);
 
   return (
     <>
       <SchlHeader />
-      <SchlNavBar />
+      <div className="pt-[2%] pb-[1%]">
+        <SchlNavBar />
+      </div>
       <div className="bg-gray-100 shadow rounded px-8 pt-6 pb-8 ">
         <h1 className="text-3xl font-semibold text-center mb-8 mt-4">
           Request Form
@@ -343,10 +388,12 @@ const RequestForm = () => {
             </div>
           </div> */}
 
-            <TextInput
+            <NumberInput
               label="Grade"
               name="grade"
               value={formData.grade}
+              min={1}
+              max={13}
               onChange={handleChange}
               error={formData.errors.grade}
             />
@@ -425,7 +472,7 @@ const RequestForm = () => {
           </div> */}
 
             <TextAreaInput
-              label="Additional Requests"
+              label="Additional Requests (Optional)"
               name="additionalRequests"
               value={formData.additionalRequests}
               onChange={handleChange}
