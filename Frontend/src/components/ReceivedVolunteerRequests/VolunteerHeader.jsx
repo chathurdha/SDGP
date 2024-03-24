@@ -26,7 +26,7 @@ const VolunteerHeader = ({
                         <SchoolFirstLetter name={volunteer.name} />
                     )}
                 </div>
-                <h1 className="flex items-center md:col-span-4 w-full text-2xl font-bold md:pr-2 justify-center md:justify-start md:text-left my-4 md:my-0">{volunteer.name}</h1>
+                <h1 className="flex items-center md:col-span-4 w-full font-serif text-2xl font-light text-gray-700 md:pr-2 justify-center md:justify-start md:text-left my-4 md:my-0">{volunteer.name}</h1>
                 {!isMobile && (
                     <div className="flex items-center justify-start">
                         <FontAwesomeIcon
