@@ -1,8 +1,15 @@
+   
+/* eslint-disable react/prop-types */
+
+
+
+
 import { useState, useEffect } from 'react';
 import Ratings from '../Common/PastE-Sections/Ratings';
 import ProcessDate from '../Common/PastE-Sections/ProcessDate';
 import axios from 'axios';
 import AddReviewCard from './AddReviewCard.jsx';
+ 
 
 const ReviewSemCard = ({ seminar }) => {
     const { formattedDate } = ProcessDate(seminar);
@@ -62,3 +69,7 @@ const ReviewSemCard = ({ seminar }) => {
 };
 
 export default ReviewSemCard;
+
+
+/* eslint-enable react/prop-types */
+

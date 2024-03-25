@@ -1,10 +1,15 @@
+ /* eslint-disable react/prop-types */
+
+
+
+
 import { useState } from 'react';
 import Ratings from './Ratings';
 import ProcessDate from './ProcessDate';
 import axios from 'axios';
 
 const Card = ({ seminar }) => {
-    const { formattedDate, isPast } = ProcessDate(seminar);
+    const { formattedDate } = ProcessDate(seminar);
     const imagePath = './images/' + seminar._id + '.jpeg';
     const [status, setStatus] = useState(seminar.status);
     const today = new Date().toISOString().split('T')[0];
@@ -46,3 +51,7 @@ const Card = ({ seminar }) => {
 }
 
 export default Card;
+
+
+/* eslint-enable react/prop-types */
+
