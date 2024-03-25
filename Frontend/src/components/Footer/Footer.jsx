@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "/src/assets/fullLogo.svg";
 
 const Footer = () => {
   return (
@@ -12,7 +13,7 @@ const Footer = () => {
           {/* First Column */}
           <div className="col-span-1">
             <img
-              src="/src/assets/fullLogo.svg"
+              src={logo}
               alt="Logo"
               className="h-10 w-17 mb-4"
             />
