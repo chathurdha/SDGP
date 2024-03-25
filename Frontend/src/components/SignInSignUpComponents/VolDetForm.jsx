@@ -18,13 +18,31 @@ function VolDetForm() {
     const VolunteerProfileImageAvailable = user?.hasImage;
     let VolunteerProfileColor = "null";
     if (! VolunteerProfileImageAvailable) { 
-      const colours = ["slate", "green", "yellow", "blue", "red", "pink", "orange", "amber", "lime", "emerald", "teal", "cyan", "sky", "indigo", "violet", "purple", "fuchsia"];
-      const shade = [200, 300, 400, 500]
+      const colors = [
+        "#d3d3d3", // Light Gray
+        "#a9a9a9", // Medium Gray
+        "#708090", // Slate Gray
+        "#ccccff", // Light Blue
+        "#aaccaa", // Pale Green
+        "#e6e6fa", // Lavender
+        "#ffe0cc", // Light Peach
+        "#f0e68c", // Khaki
+        "#c2c2f0", // Light Lavender
+        "#d9d9f3", // Light Blue Gray
+        "#e0e0e0", // Dove Gray
+        "#b3b3cc", // Light Blueish Gray
+        "#d6abab", // Dusty Rose
+        "#c9c9b9", // Taupe
+        "#e2cac4", // Light Beige
+        "#d2b48c", // Tan
+        "#c7a5a5", // Dusty Pink
+        "#999999", // Dark Gray
+        "#b3ccff", // Light Cornflower Blue
+      ];
 
-      const RandomColour = Math.floor(Math.random() * colours.length)
-      const RandomShade = Math.floor(Math.random() * shade.length)
+      const RandomColour = Math.floor(Math.random() * colors.length)
 
-      const randColour = `bg-${colours[RandomColour]}-${shade[RandomShade]}`
+      const randColour = colors[RandomColour];
       VolunteerProfileColor = randColour.replace(/\s+/g, '');
     }
     
