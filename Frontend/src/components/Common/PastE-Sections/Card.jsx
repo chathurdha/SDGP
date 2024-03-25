@@ -1,9 +1,5 @@
  /* eslint-disable react/prop-types */
-
-
-
-
-import { useState } from 'react';
+ import {useEffect, useState} from 'react';
 import Ratings from './Ratings';
 import ProcessDate from './ProcessDate';
 import axios from 'axios';
