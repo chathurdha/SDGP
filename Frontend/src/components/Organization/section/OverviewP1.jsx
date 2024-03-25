@@ -36,7 +36,7 @@ function OverviewP1() {
 
     return (
         <>
-            <div className="pt-[4%] relative">
+            <div className="pt-[4%] relative ">
                 <div className="mt-[15%] flex justify-center items-center relative">
                     <img
                         className="w-full lg:w-[80%] h-auto absolute"
@@ -53,7 +53,8 @@ function OverviewP1() {
                     </div>
                 </div>
             </div>
-            <div className="pt-[20%] pl-[12%] relative"></div>
+            <div className="pt-[20%] pl-[12%] relative "></div>
+
         </>
     );
 }

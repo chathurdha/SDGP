@@ -95,17 +95,7 @@ const ProfNav = () => {
                 Seminars
               </Link>
             </li>
-            <li>
-              <Link
-                to="/OrgStatistics"
-                className={`text-${
-                  isActive("/OrgStatistics") ? "custom-green" : "#1B2336"
-                } hover:text-gray-300 text-sm`}
-                style={{ fontFamily: "Saira" }}
-              >
-                Statistics
-              </Link>
-            </li>
+            
           </ul>
         ) : (
           // Render dropdown for smaller screens
@@ -186,17 +176,7 @@ const ProfNav = () => {
                     Seminars
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/"
-                    className={`block px-4 py-2 text-${
-                      isActive("/about-us") ? "custom-green" : "#1B2336"
-                    } hover:text-gray-300 text-sm`}
-                    onClick={() => handleLinkClick("Statistics")}
-                  >
-                    Statistics
-                  </Link>
-                </li>
+                
               </ul>
             )}
           </div>
