@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import image4 from "/src/assets/image 4.png"
-
+import image4 from "/src/assets/image 4.png";
+import greenTria from "/src/assets/greenTria.svg";
 
 function PastEvent() {
   return (
@@ -43,11 +43,11 @@ function PastEvent() {
       </div>
       <img
         className="md:block h-[15%] md:h-[10%] mb-4 object-cover absolute bottom-0 left-16 right-0 pointer-events-none hidden"
-        src="/src/assets/greenTria.svg"
+        src={greenTria}
         alt=""
       />
     </div>
   );
 }
 
-export default PastEvent
+export default PastEvent;
