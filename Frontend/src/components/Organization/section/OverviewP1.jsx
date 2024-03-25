@@ -3,26 +3,36 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import AboutUs from "/src/assets/aboutUs pic.svg";
+import { useUser } from "@clerk/clerk-react";
 
 function OverviewP1() {
-    const [orgName, setOrgName] = useState("");
-    const [orgDescription, setOrgDescription] = useState("");
 
+    const [organizations, setOrganizations] = useState([])
+
+
+
+    
+    const user = useUser().user;
+    console.log(user?.id)
+
+    const clarkId = organizations.find((org) => org.userID === user?.id);
+    // const clarkId = schools.find((sch) => sch.userID === "user_2e6jirQ66OfqhiVRk3qMygDQ5cx");
+    console.log(clarkId);
+    console.log(organizations)
     useEffect(() => {
-        const fetchOrgData = async () => {
+        const fetchOrganizations = async () => {
             try {
-                const id = "65f0b4ea09f477d188a48fab";
-                const response = await axios.get(`https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations/${id}`);
-                const { name, description } = response.data; // Assuming API response contains name and description fields
-                setOrgName(name);
-                setOrgDescription(description);
-                console.log(name, description);
+                const response = await axios.get("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations");
+                setOrganizations(response.data);
             } catch (error) {
-                console.error("Error fetching organization data:", error);
+                console.error("Error fetching organizations:", error);
             }
-        }
-        fetchOrgData();
+        };
+
+        fetchOrganizations();
     }, []);
+
+
 
     return (
         <>
@@ -35,10 +45,10 @@ function OverviewP1() {
                     />
                     <div className="absolute flex flex-col justify-center items-center w-full lg:w-[60%]">
                         <h1 className="w-[20%] lg:w-[40%] h-auto mb-4 text-3xl font-medium text-center text-[#FFFFFF]">
-                            {orgName}
+                            {clarkId?.name}
                         </h1>
                         <p className="w-[80%] lg:w-[60%] text-sm text-center text-[#FFFFFF]">
-                            {orgDescription}
+                            {clarkId?.description}
                         </p>
                     </div>
                 </div>
