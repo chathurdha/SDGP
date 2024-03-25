@@ -180,8 +180,8 @@ const RequestForm = () => {
         const response = await axios.post(
           "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars",
           {
-            // name: 'Seminar',
-            // description: 'Seminar',
+            name: clarkId?.name,
+            description: `${formData.subject} seminar for grade ${formData.grade} students.`,
             // rating: 0,
             location: formData.location,
             // status: 'Pending',
