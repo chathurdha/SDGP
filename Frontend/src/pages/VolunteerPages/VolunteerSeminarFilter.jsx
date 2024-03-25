@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import axios from 'axios';
+// import { useState } from 'react';
+// import axios from 'axios';
 import SeminarHeader from '../../components/ReceivedSeminarRequests/SeminarHeader';
 import SeminarDetails from '../../components/ReceivedSeminarRequests/SeminarDetails';
 import SeminarStatusIcon from '../../components/ReceivedSeminarRequests/SeminarStatusIcon';

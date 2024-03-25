@@ -1,9 +1,14 @@
+ /* eslint-disable react/prop-types */
+
+
+
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useUser } from '@clerk/clerk-react';
+// import { useUser } from '@clerk/clerk-react';
 
 const AddReviewCard = ({ seminar, onClose }) => {
-    const [title, setTitle] = useState('');
+    // const [title, setTitle] = useState('');
     const [rating, setRating] = useState('');
     const [description, setDescription] = useState('');
     const [error, setError] = useState('');
@@ -52,7 +57,7 @@ const AddReviewCard = ({ seminar, onClose }) => {
 
         if(response.ok){
             setRating('');
-            setTitle('');
+            // setTitle('');
             setDescription('');
             setError(null);
             onClose(); // Close the review card after successful submission
@@ -118,3 +123,8 @@ const AddReviewCard = ({ seminar, onClose }) => {
 };
 
 export default AddReviewCard;
+
+
+
+ 
+
