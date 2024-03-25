@@ -34,9 +34,9 @@ import OrgOwinerCreate from "./components/SignInSignUpComponents/OrgOwner-Create
 //School pages
 import SchlOverview from "./pages/SchoolPage/SchoolOverview";
 import RequestForm from "./pages/SchoolPage/RequestForm";
+import SchoolsUpcomingSeminars from "./pages/SchoolPage/SchoolsUpcomingSeminars.jsx";
 // import SendReview from "./pages/SchoolPage/AddReview"
 import SclDetForm from "./components/SignInSignUpComponents/SclDetForm"
-// import AddReview from './components/School/AddReviewCard';
 import ReviewBackground from "./pages/SchoolPage/ReviewBackground.jsx";
 
 const App = () => {
@@ -106,7 +106,7 @@ const App = () => {
             <Route path="/School/Seminar-Request" element={<RequestForm />} />
             <Route
               path="/School/Upcoming-Seminar"
-              element={<div>vol up sem</div>}
+              element={<SchoolsUpcomingSeminars />}
             />
             <Route path="/School/Add-Review" element={<ReviewBackground />} />
             <Route path="/School/Details" element={<SclDetForm />} />
