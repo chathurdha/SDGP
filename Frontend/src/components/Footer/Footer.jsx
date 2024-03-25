@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer
       className=" text-white py-10 bg-cover bg-center relative"
-      sstyle={{ backgroundImage: `url(${Footerbg3})` }}
+      style={{ backgroundImage: `url(${Footerbg3})` }}
     >
       <div className="absolute inset-0 "></div>
       <div className="container mx-auto px-4 relative">
