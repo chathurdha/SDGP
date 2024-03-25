@@ -5,13 +5,18 @@ import ProcessDate from './ProcessDate';
 import axios from 'axios';
 import { useUser } from '@clerk/clerk-react';
 
+
 const Card = ({ seminar }) => {
+
+    const newStr = seminar.name.replace(" ", "_");
 
     const [type, setType] = useState(false);
     const {user} = useUser();
 
     const { formattedDate } = ProcessDate(seminar);
-    const imagePath = './images/' + seminar._id + '.jpeg';
+    // const imagePath = './images/' + seminar._id + '.jpeg';
+    const imagePath = `./images/${newStr}.jpeg`;
+
     const [status, setStatus] = useState(seminar.status);
     const today = new Date().toISOString().split('T')[0];
 
