@@ -7,8 +7,13 @@ import { useState } from 'react';
 import Ratings from './Ratings';
 import ProcessDate from './ProcessDate';
 import axios from 'axios';
+import { useUser } from '@clerk/clerk-react';
 
 const Card = ({ seminar }) => {
+
+    const [type, setType] = useState(false);
+    const {user} = useUser();
+
     const { formattedDate } = ProcessDate(seminar);
     const imagePath = './images/' + seminar._id + '.jpeg';
     const [status, setStatus] = useState(seminar.status);
@@ -27,6 +32,14 @@ const Card = ({ seminar }) => {
         }
     };
 
+    useEffect(() => {
+        if (user?.unsafeMetadata?.Type === "Organization") {
+          setType(true);
+        } else {
+          setType(false);
+        }
+      }, [user]);
+
     return (
         <div className='bg-white rounded-md shadow-md hover:shadow-lg pb-2 mx-2 mb-4'>
             <img src={imagePath} alt={seminar.name + " image :" + seminar._id} className='w-full h-60 object-cover mb-2 rounded-lg' />
@@ -37,12 +50,12 @@ const Card = ({ seminar }) => {
                     <Ratings rating={seminar.rating} />
                     <p>{formattedDate}</p>
                 </div>
-                {today > seminar.expDate && status !== 'completed' && (
+                {type && today > seminar.expDate && status !== 'completed' && (
                     <button onClick={handleCompleted} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Mark as Completed
                     </button>
                 )}
-                {status === 'completed' && (
+                {type && status === 'completed' && (
                     <p className="text-green-500 font-semibold">Completed</p>
                 )}
             </div>

@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
+// import { useUser } from '@clerk/clerk-react';
 
 import Card from "./Card";
 
 const MatchingSeminars = ({ seminars }) => {
+
   return (
     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
       {seminars &&
