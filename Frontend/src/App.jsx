@@ -36,7 +36,7 @@ import SchlOverview from "./pages/SchoolPage/SchoolOverview";
 import RequestForm from "./pages/SchoolPage/RequestForm";
 // import SendReview from "./pages/SchoolPage/AddReview"
 import SclDetForm from "./components/SignInSignUpComponents/SclDetForm"
-import AddReview from './components/School/AddReviewCard';
+// import AddReview from './components/School/AddReviewCard';
 import ReviewBackground from "./pages/SchoolPage/ReviewBackground.jsx";
 
 const App = () => {

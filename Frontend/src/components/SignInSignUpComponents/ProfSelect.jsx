@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom"; // Import Link from React Router
 import logo from "/src/assets/fullLogo.svg";
 import { useState, useEffect } from "react";
+import person from "/src/assets/person.png";
 
 // Reusable button component
 function RoleButton({ roleName, to, imageSrc }) {
@@ -78,17 +79,17 @@ function ProfSelect() {
             <RoleButton
               roleName="Organization"
               to="/Organization/Owner-Create"
-              imageSrc="/src/assets/person.png"
+              imageSrc={person}
             />
             <RoleButton
               roleName="Volunteer"
               to="/Volunteer/Sign-up"
-              imageSrc="/src/assets/person.png"
+              imageSrc={person}
             />
             <RoleButton
               roleName="School"
               to="/School/Sign-up"
-              imageSrc="/src/assets/person.png"
+              imageSrc={person}
             />
           </div>
         </div>
