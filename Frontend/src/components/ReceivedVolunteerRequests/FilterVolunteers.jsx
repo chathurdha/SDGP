@@ -24,7 +24,7 @@ const FilterVolunteers = ({
         }));
 
         try {
-            const apiUrl = `http://localhost:4000/api/volunteers/${id}`;
+            const apiUrl = `https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers/${id}`;
 
             const response = await axios.patch(apiUrl, {
                 status: newStatus, // Update only the "status" property

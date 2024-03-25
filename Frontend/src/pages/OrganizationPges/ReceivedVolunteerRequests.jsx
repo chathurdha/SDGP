@@ -40,7 +40,7 @@ const ReceivedSeminarRequests = () => {
   //     }));
 
   //     try {
-  //         const apiUrl = `http://localhost:4000/api/volunteers/${id}`;
+  //         const apiUrl = `https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers/${id}`;
 
   //         const response = await axios.patch(apiUrl, {
   //             status: newStatus, // Update only the "status" property
@@ -68,7 +68,7 @@ const ReceivedSeminarRequests = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const apiUrl = "http://localhost:4000/api/organizations";
+        const apiUrl = "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations";
         const response = await axios.get(apiUrl);
         setOrganizations(response.data);
       };
@@ -82,7 +82,7 @@ const ReceivedSeminarRequests = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const apiUrl = "http://localhost:4000/api/volunteers";
+        const apiUrl = "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/volunteers";
         const response = await axios.get(apiUrl);
         setVolunteers(response.data);
       };
