@@ -36,7 +36,7 @@ const ReceivedSeminarRequests = () => {
   //     });
 
   //     try {
-  //         const apiUrl = `http://localhost:4000/api/seminars/${id}`;
+  //         const apiUrl = `https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars/${id}`;
 
   //         const response = await axios.patch(apiUrl, {
   //         status: newStatus, // Update only the "status" property
@@ -66,7 +66,7 @@ const ReceivedSeminarRequests = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const apiUrl = "http://localhost:4000/api/organizations";
+        const apiUrl = "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations";
         const response = await axios.get(apiUrl);
         setOrganizations(response.data);
       };
@@ -83,11 +83,11 @@ const ReceivedSeminarRequests = () => {
       try {
         const response = await axios.get(apiUrl);
         switch (apiUrl) {
-          case "http://localhost:4000/api/schools":
+          case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/schools":
             setSchools(response.data);
             console.log(response.data);
             break;
-          case "http://localhost:4000/api/seminars":
+          case "https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars":
             setSeminars(response.data);
             break;
           default:
@@ -100,8 +100,8 @@ const ReceivedSeminarRequests = () => {
       }
     };
 
-    fetchData("http://localhost:4000/api/schools");
-    fetchData("http://localhost:4000/api/seminars");
+    fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/schools");
+    fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars");
   }, []);
 
   // New useEffect for fetchCombinedArray
