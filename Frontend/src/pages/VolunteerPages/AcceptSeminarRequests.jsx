@@ -27,12 +27,14 @@ const AcceptSeminarRequests = () => {
   const clarkId = volunteers.find((vol) => vol.userID === user?.id);
   console.log(clarkId);
 
-  const handleUpdateStatus = async (id, newStatus, newExpTeaCount) => {
-    console.log(id, newStatus);
+  const handleUpdateStatus = async (seminar, newStatus, newExpTeaCount) => {
+  // const handleUpdateStatus = async (id, newStatus, newExpTeaCount, filterSeminars) => {
+    console.log(seminar._id, newStatus);
     setSeminarStatuses((prevStatus) => {
       return {
         ...prevStatus, //'...' spread operator to copy the previous state
-        [id]: newStatus,
+        // [id]: newStatus,
+        [seminar._id]: newStatus,
       };
     });
 
@@ -40,23 +42,29 @@ const AcceptSeminarRequests = () => {
       //imp
       // const volunteer = volunteers.filter((volunteer) => volunteer.userId === user?.id);
 
-      const apiUrl = `https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars/${id}`;
+      const apiUrl = `https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars/${seminar._id}`;
+
+      const newVolunteer = clarkId?._id ? { volunteerId: clarkId?._id } : {};
+      const existingVolunteers = seminar.volunteers || [];
+      const volunteersCopy = [...existingVolunteers];
+      volunteersCopy.push(newVolunteer);
 
       const response = await axios.patch(apiUrl, {
         // status: newStatus, // Update only the "status" property
         expTeacherCount: newExpTeaCount,
+        volunteers: volunteersCopy,
         // volunteers: {
         //   // volunteerId: "616c81d8f6c4b5c2a0c5b4d",
         //   volunteerId: clarkId?._id,
         //   //imp
         //   // volunteerId: volunteer[0]._id
         // },
-        volunteers: [
-          {
-            volunteerId: clarkId?._id,
-            // volunteerId: volunteer[0]._id
-          },
-        ],
+        // volunteers: [
+        //   {
+        //     volunteerId: clarkId?._id,
+        //     // volunteerId: volunteer[0]._id
+        //   },
+        // ],
       });
 
       if (response.status !== 200) {
@@ -224,7 +232,7 @@ const AcceptSeminarRequests = () => {
     const filterSeminars = seminarRequests.filter(
       // (seminar) => seminar.organizationId === "65f0b51909f477d188a48fad"
       // (seminar) => seminar.organizationId === clarkId?._id
-      (seminar) => seminar.organizationId === findOrganizationForVolunteer(clarkId?._id).orgID
+      (seminar) => seminar.organizationId === findOrganizationForVolunteer(clarkId?._id)?.orgID
     ); //important
     console.log(filterSeminars);
     setFilterSeminars(filterSeminars);
@@ -274,6 +282,7 @@ const AcceptSeminarRequests = () => {
               seminarStatuses={seminarStatuses}
               handleToggle={handleToggle}
               handleUpdateStatus={handleUpdateStatus}
+              // handleUpdateStatus={handleUpdateStatus(filterSeminars)}
             />
           </div>
         ))}
