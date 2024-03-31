@@ -84,8 +84,10 @@ const VolunteerSeminarFilter = ({
                     />
         
                     <SeminarActionButtons
-                    onReject={() => handleUpdateStatus(seminar._id, "rejected")}
-                    onAccept={() => handleUpdateStatus(seminar._id, "accepted" , seminar.expTeacherCount-=1)}
+                    // onReject={() => handleUpdateStatus(seminar._id, "rejected")}
+                    onReject={() => handleUpdateStatus(seminar, "rejected")}
+                    // onAccept={() => handleUpdateStatus(seminar._id, "accepted" , seminar.expTeacherCount-=1)}
+                    onAccept={() => handleUpdateStatus(seminar, "accepted" , seminar.expTeacherCount-=1)}
                     seminar={seminar}
                     seminarStatuses={seminarStatuses}
                     />
