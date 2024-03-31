@@ -126,7 +126,7 @@ const UpcomingOrganization = () => {
         setSpecificSeminar(combinedArray);
 
         console.log(specificSeminar);
-     }, [filteredSeminars, filteredOrganizations])
+     }, [filteredSeminars, filteredOrganizations]);
 
 
 
