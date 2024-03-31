@@ -57,7 +57,7 @@ const UpcomingOrganization = () => {
     
       useEffect(() => {
         // if (!isLoading && seminars.length > 0 && organizations.length > 0) {
-        if (!seminars || !organizations) return;
+        if (seminars.length > 0 && organizations.length > 0) {
 
         const filterdSeminar = seminars.filter((seminar) => seminar.status === "accepted");
         setFilteredSeminars(filterdSeminar);
@@ -70,14 +70,17 @@ const UpcomingOrganization = () => {
         // const specificOrganization = organizations.filter((organization) => organization._id === "66057acb44b3a40ab4435a64");
         setFilteredOrganizations(specificOrganization);
         console.log(specificOrganization);
+      }
 
         // }
     // }, []); 
       }, [isLoading, seminars, organizations]);
 
-    
+    console.log(filteredSeminars);
+    console.log(filteredOrganizations);
 
     useEffect(() => {
+      if (!filteredSeminars || !filteredOrganizations) return;
         const specificSeminar = filteredSeminars?.filter((seminar) => seminar.organizationId === filteredOrganizations[0]._id);
         setSpecificSeminar(specificSeminar)
         console.log(specificSeminar);
@@ -123,26 +126,23 @@ const UpcomingOrganization = () => {
 
       
     console.log (specificSeminar)
-    useEffect(() => {
-      if (!specificSeminar)return ;
       
-        const table = useMaterialReactTable({
-            columns,
-            data: specificSeminar,
-            enableDensityToggle: false,
-            enableFullScreenToggle: false,
-            enableHiding: false,
-            visibleInShowHideMenu: false,
-            enableColumnActions: false,
-        
-            initialState: { 
-              showColumnFilters: false, 
-              density: 'spacious'
-             },
-          });
-          return <MaterialReactTable table={table} />;
+    const table = useMaterialReactTable({
+        columns,
+        data: specificSeminar,
+        enableDensityToggle: false,
+        enableFullScreenToggle: false,
+        enableHiding: false,
+        visibleInShowHideMenu: false,
+        enableColumnActions: false,
+    
+        initialState: { 
+          showColumnFilters: false, 
+          density: 'spacious'
+          },
+      });
+      return <MaterialReactTable table={table} />;
       
-    }, [seminars, organizations])
     
     //   const table = useMaterialReactTable({
     //     columns,
