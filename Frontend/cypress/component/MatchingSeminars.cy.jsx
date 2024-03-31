@@ -1,5 +1,5 @@
 import React from 'react'
-import MatchingSeminars from '../../src/components/Common/PastE-Sections/MatchingSeminars.jsx'
+import MatchingSeminars from '../../src/components/Common/PastE-Sections/MatchingSeminars'
 
 describe('<MatchingSeminars />', () => {
   it('renders', () => {
