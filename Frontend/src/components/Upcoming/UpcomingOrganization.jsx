@@ -16,6 +16,7 @@ const UpcomingOrganization = () => {
 
     const [seminars, setSeminars] = useState([]);
     const [organizations, setOrganizations] = useState([]);
+    const [schools, setSchools] = useState([]);
     const [filteredSeminars, setFilteredSeminars] = useState([]);
     const [filteredOrganizations, setFilteredOrganizations] = useState([]);
 
@@ -24,6 +25,23 @@ const UpcomingOrganization = () => {
     // const [filteredSeminars, setFilteredSeminars] = useState([]);
 
     const [isLoading, setIsLoading] = useState(true);
+
+    const ProcessDate = (seminar) => {
+
+      const date = seminar.expDate ? new Date(seminar.expDate) : null;
+  
+      // Format date (using padStart for consistent day/month length)
+      const formattedDate = date?.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          })
+          .split('/')
+          //   .reverse()
+          .join('.') || 'N/A';
+  
+      return  formattedDate ;
+    }
 
     useEffect(() => {
         const fetchData = async (apiUrl) => {
@@ -39,6 +57,9 @@ const UpcomingOrganization = () => {
                     setSeminars(response.data);
                     console.log(response.data);
                     break;
+                case 'https://sisu-saviya-6510ee9f562c.herokuapp.com/api/schools':
+                    setSchools(response.data);
+                    console.log(response.data);
                 default:
                     console.warn('Unexpected API URL:', apiUrl);
                 }
@@ -51,6 +72,7 @@ const UpcomingOrganization = () => {
   
         fetchData('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/organizations');
         fetchData('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars');
+        fetchData('https://sisu-saviya-6510ee9f562c.herokuapp.com/api/schools');
         // setIsLoading(false);
 
     }, []);
@@ -82,7 +104,27 @@ const UpcomingOrganization = () => {
     useEffect(() => {
       if (!filteredSeminars || !filteredOrganizations) return;
         const specificSeminar = filteredSeminars?.filter((seminar) => seminar.organizationId === filteredOrganizations[0]._id);
-        setSpecificSeminar(specificSeminar)
+
+        const findSchoolForSeminar = (seminarId) => {
+          return schools.find((school) => school._id === seminarId);
+        };
+
+        const combinedArray = specificSeminar.map((seminar) => {
+          const school = findSchoolForSeminar(seminar.schoolId);
+          return {
+            ...seminar,
+            schoolId: school?._id,
+            schoolName: school?.name,
+            schoolAddress: school?.address,
+            processedDate: ProcessDate(seminar),
+            // schoolProfileColor: school?.profileColor,
+            // schoolProfileImageAvailable: school?.profileImageAvailable,
+          };
+        });
+        // setSpecificSeminar(specificSeminar);
+        console.log(combinedArray);
+        setSpecificSeminar(combinedArray);
+
         console.log(specificSeminar);
      }, [filteredSeminars, filteredOrganizations])
 
@@ -94,7 +136,7 @@ const UpcomingOrganization = () => {
         () => [
           {
             header: 'School Name',
-            accessorKey: 'school',
+            accessorKey: 'schoolName',
             filterVariant: 'multi-select',
           },
           {
@@ -102,23 +144,26 @@ const UpcomingOrganization = () => {
             accessorKey: 'location',
             filterVariant: 'multi-select',
           },
-          {
-            header: 'Team Assigned To',
-            accessorKey: 'headVolunteer',
-            filterVariant: 'multi-select',
-          },
+          // {
+          //   header: 'Team Assigned To',
+          //   accessorKey: 'headVolunteer',
+          //   filterVariant: 'multi-select',
+          // },
           {
             header: 'Date',
-            accessorFn: (originalRow) => new Date(originalRow.date), //convert to date for sorting and filtering
-            id: 'date',
-            filterVariant: 'date-range',
-            Cell: ({ cell }) => cell.getValue().toLocaleDateString(), // convert back to string for display
-            maxSize: 180,
+            accessorKey: 'processedDate',
+            // accessorFn: (originalRow) => new Date(originalRow.date), //convert to date for sorting and filtering
+            // id: 'expDate',
+            // // filterVariant: 'date-range',
+            // Cell: ({ cell }) => cell.getValue().toLocaleDateString(), // convert back to string for display
+            // maxSize: 180,
+            enableSorting: false
           },
           {
             header: 'Additional Requirements',
-            accessorKey: 'addReq',
+            accessorKey: 'additionalRequests',
             minSize: 200,
+            enableSorting: false
           },
         ],
         [],
@@ -130,6 +175,27 @@ const UpcomingOrganization = () => {
     const table = useMaterialReactTable({
         columns,
         data: specificSeminar,
+        muiTableHeadCellProps: {
+          sx: {
+            fontWeight: 'bold',
+            fontSize: '16px',
+            backgroundColor: "#8260E2", // Use deep purple as the background color
+            color: 'white', // Ensure contrasting text color
+            padding: '8px 16px', // Add some padding
+            border: '1px solid rgba(0, 0, 0, 0.1)', // Subtle border
+          },
+        },
+        muiTableBodyCellProps: {
+          sx: {
+            fontSize: '14px',
+            fontFamily: 'Arial', // Maintain Arial font family
+            '&:hover': { // Apply styles on hover
+              backgroundColor: 'rgba(0, 0, 0, 0.05)', // Slight background change on hover
+              cursor: 'pointer', // Indicate clickable element
+            },
+          },
+        },
+        enableFilters: false,
         enableDensityToggle: false,
         enableFullScreenToggle: false,
         enableHiding: false,
