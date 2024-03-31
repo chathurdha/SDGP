@@ -6,7 +6,18 @@ import circle from "/src/assets/cirlce.svg"
 
 function AboutUs() {
   const [seminarsData, setSeminarsData] = useState([]);
-  const firstThreeElements = seminarsData.slice(0, 3);
+  const [seminars, setSeminars] = useState([]);
+  const firstThreeElements = seminars?.slice(0, 3);
+
+  useEffect(() => {
+    if (seminarsData.length > 0) {
+      const seminars = seminarsData.filter((seminar) => {
+        // return new Date(seminar.expDate) < new Date();
+        return seminar.status === "completed";
+      });
+      setSeminars(seminars);
+    }
+  }, [seminarsData]);
 
   useEffect(() => {
     const fetchSeminars = async () => {
