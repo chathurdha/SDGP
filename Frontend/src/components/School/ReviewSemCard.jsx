@@ -17,6 +17,16 @@ import image4 from '../../assets/seminarImages/4.jpeg';
 import image5 from '../../assets/seminarImages/5.jpeg';
 import image6 from '../../assets/seminarImages/6.jpeg';
 import image7 from '../../assets/seminarImages/7.jpeg';
+import image8 from '../../assets/seminarImages/8.jpeg';
+import image9 from '../../assets/seminarImages/9.jpeg';
+import image10 from '../../assets/seminarImages/10.jpeg';
+import image11 from '../../assets/seminarImages/11.jpeg';
+import image12 from '../../assets/seminarImages/12.jpeg';
+import image13 from '../../assets/seminarImages/13.jpeg';
+import image14 from '../../assets/seminarImages/14.jpeg';
+import image15 from '../../assets/seminarImages/15.jpeg';
+import image16 from '../../assets/seminarImages/16.jpeg';
+import image17 from '../../assets/seminarImages/17.jpeg';
  
 
 const ReviewSemCard = ({ seminar }) => {
@@ -25,7 +35,7 @@ const ReviewSemCard = ({ seminar }) => {
     const [isAddingReview, setIsAddingReview] = useState(false);
     const [hasReview, setHasReview] = useState(false);
 
-    const images = [image1, image2, image3, image4, image5, image6, image7];
+    const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17];
     const [randomImagePath, setRandomImagePath] = useState('');
 
     useEffect(() => {
