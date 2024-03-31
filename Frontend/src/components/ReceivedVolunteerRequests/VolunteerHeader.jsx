@@ -17,9 +17,13 @@ const VolunteerHeader = ({
                 className="grid md:grid-cols-6 lg:grid-cols-8"
                 onClick={isMobile ? () => handleToggle(volunteer._id) : null}
             >
-                <div className={`md:w-14 md:h-14 w-12 h-12 place-self-center rounded-full flex justify-center items-center
+                {/* <div className={`md:w-14 md:h-14 w-12 h-12 place-self-center rounded-full flex justify-center items-center
                     ${!volunteer.volunteerProfileColor ? 'bg-green-400' : `${volunteer.volunteerProfileColor}`}        
-                `}>
+                `}> */}
+                <div 
+                    className={`md:w-14 md:h-14 w-12 h-12 place-self-center rounded-full flex justify-center items-center`}
+                    style={{ backgroundColor: volunteer.volunteerProfileColor }}
+                >
                     {volunteer.volunteerProfileImageAvailable ? (
                         <ProfileImage id={volunteer._id} />
                     ) : (

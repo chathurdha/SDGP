@@ -3,6 +3,7 @@ import format from "date-fns/format";
 import isToday from "date-fns/isToday";
 import axios from "axios";
 import { useUser } from '@clerk/clerk-react';
+import fish from "../../assets/fish.gif";
 
 
 import FilterVolunteers from "../../components/ReceivedVolunteerRequests/FilterVolunteers";
@@ -132,7 +133,37 @@ const ReceivedSeminarRequests = () => {
     <>
       <OrgHeader />
       <ProfNav />
-      <div className="container p-4 w-[80%] m-auto mb-10 md:ml-20">
+      {updatedVolunteers.length >0 ? (
+        <div className="container p-4 w-[80%] m-auto mb-10 md:ml-20">
+          {Object.entries(groupedVolunteers).map(([date, filterVolunteers]) => (
+            <div key={date}>
+              <h2 className="text-lg mx-[6%] font-mono font-medium mt-8 mb-4 text-left">
+                {date}
+              </h2>
+              <FilterVolunteers
+                filterVolunteers={filterVolunteers}
+                // rotatedVolunteerIds={rotatedVolunteerIds}
+                // handleToggle={handleToggle}
+                // handleUpdateStatus={handleUpdateStatus}
+                // volunteerStatuses={volunteerStatuses}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="flex justify-center items-center h-64 mx-12">
+          <img
+            src={fish}
+            alt="Loading"
+            className="w-28 h-28 mr-4"
+          />
+          <h1 className="text-2xl font-medium text-center">
+            Oops! It seems like there's no content here yet. <br></br> Don't worry, the
+            page will get filled after some interaction!
+          </h1>
+        </div>
+      )}
+      {/* <div className="container p-4 w-[80%] m-auto mb-10 md:ml-20">
         {Object.entries(groupedVolunteers).map(([date, filterVolunteers]) => (
           <div key={date}>
             <h2 className="text-lg mx-[6%] font-mono font-medium mt-8 mb-4 text-left">
@@ -147,7 +178,7 @@ const ReceivedSeminarRequests = () => {
             />
           </div>
         ))}
-      </div>
+      </div> */}
       <Footer />
     </>
   );
