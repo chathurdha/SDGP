@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import fish from "../../assets/fish.gif"
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import SearchButton from "../../components/Common/PastE-Sections/SearchButton";
@@ -242,6 +242,21 @@ const PastEvents = () => {
     fetchData("https://sisu-saviya-6510ee9f562c.herokuapp.com/api/seminars");
   }, [selectedOrganizationObject, selectedLocationObject, selectedYearObject]);
 
+
+
+  if (matchingObjects.length == 0){
+    return (
+      <div>
+        <Navbar />
+        <div className="flex justify-center items-center h-screen">
+          <img src={fish} alt="Loading" className="w-1/6 h-1/6" />
+          <h1 className="text-4xl font-bold text-center">Oops! It seems like there's no content here yet. Don't worry, the page will get filled after some interaction !</h1>
+        </div>
+        <Footer />
+      </div>
+    );
+  }else{
+
   return (
     <>
       <Navbar />
@@ -304,7 +319,8 @@ const PastEvents = () => {
       </div>
       <Footer />
     </>
-  );
+  )
+  }
 };
 
 export default PastEvents;
