@@ -15,6 +15,18 @@ const PastEvents = () => {
   const [allSeminars, setAllSeminars] = useState([]);
   const [seminars, setSeminars] = useState([]);
 
+  const [selectedOrganization, setSelectedOrganization] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState([]);
+  const [selectedYear, setSelectedYear] = useState([]);
+
+  const [selectedOrganizationObject, setSelectedOrganizationObject] =
+    useState(null);
+  const [selectedLocationObject, setSelectedLocationObject] = useState(null);
+  const [selectedYearObject, setSelectedYearObject] = useState(null);
+
+  const [matchingObjects, setMatchingObjects] = useState(seminars);
+  console.log(matchingObjects);
+
   // const seminars = allSeminars.filter((seminar) => {
   //   return new Date(seminar.expDate) > new Date();
   // });
@@ -60,18 +72,6 @@ const PastEvents = () => {
     label: year,
   }));
   console.log(yearOptions);
-
-  const [selectedOrganization, setSelectedOrganization] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState([]);
-  const [selectedYear, setSelectedYear] = useState([]);
-
-  const [selectedOrganizationObject, setSelectedOrganizationObject] =
-    useState(null);
-  const [selectedLocationObject, setSelectedLocationObject] = useState(null);
-  const [selectedYearObject, setSelectedYearObject] = useState(null);
-
-  const [matchingObjects, setMatchingObjects] = useState(seminars);
-  console.log(matchingObjects);
 
   const handleClick = () => {
     console.log("Button clicked!");
@@ -244,18 +244,18 @@ const PastEvents = () => {
 
 
 
-  if (matchingObjects.length == 0){
-    return (
-      <div>
-        <Navbar />
-        <div className="flex justify-center items-center h-screen">
-          <img src={fish} alt="Loading" className="w-1/6 h-1/6" />
-          <h1 className="text-4xl font-bold text-center">Oops! It seems like there's no content here yet. Don't worry, the page will get filled after some interaction !</h1>
-        </div>
-        <Footer />
-      </div>
-    );
-  }else{
+  // if (matchingObjects.length == 0){
+  //   return (
+  //     <div>
+  //       <Navbar />
+  //       <div className="flex justify-center items-center h-screen">
+  //         <img src={fish} alt="Loading" className="w-1/6 h-1/6" />
+  //         <h1 className="text-4xl font-bold text-center">Oops! It seems like there's no content here yet. Don't worry, the page will get filled after some interaction !</h1>
+  //       </div>
+  //       <Footer />
+  //     </div>
+  //   );
+  // }else{
 
   return (
     <>
@@ -320,7 +320,7 @@ const PastEvents = () => {
       <Footer />
     </>
   )
-  }
+  // }
 };
 
 export default PastEvents;

@@ -3,6 +3,7 @@ import format from "date-fns/format";
 import isToday from "date-fns/isToday";
 import axios from "axios";
 import { useUser } from '@clerk/clerk-react';
+import fish from "../../assets/fish.gif";
 
 import FilterSeminars from "../../components/ReceivedSeminarRequests/FilterSeminars";
 import Footer from "../../components/Footer/Footer";
@@ -175,13 +176,50 @@ const ReceivedSeminarRequests = () => {
     console.log(newGroupedSeminars);
   }, [filterSeminars]);
 
+  console.log(filterSeminars);
   console.log(combinedArray);
+  console.log(groupedSeminars);
 
   return (
     <>
       <OrgHeader />
       <ProfNav />
-      <div className="h-[90vh] pt-[3%] container mx-auto p-4">
+      {filterSeminars.length > 0 ? (
+        <div>
+        <p>h1</p>
+        <div className="h-[90vh] pt-[3%] container mx-auto p-4">
+          {Object.entries(groupedSeminars).map(([date, filterSeminars]) => (
+            <div key={date}>
+              <h2 className="text-lg mx-[6%] font-mono font-medium mt-8 mb-4 text-left">
+                {date}
+              </h2>
+              <FilterSeminars
+                filterSeminars={filterSeminars}
+                // rotatedSeminarIds={rotatedSeminarIds}
+                // seminarStatuses={seminarStatuses}
+                // handleToggle={handleToggle}
+                // handleUpdateStatus={handleUpdateStatus}
+                // isLoading={isLoading}
+              />
+            </div>
+          ))}
+        </div>
+        </div>
+      ) : (
+        <div className="flex justify-center items-center h-64 mx-12">
+          <img
+            src={fish}
+            alt="Loading"
+            className="w-28 h-28 mr-4"
+          />
+          <h1 className="text-2xl font-medium text-center">
+            Oops! It seems like there's no content here yet.<br></br> Don't worry, the
+            page will get filled after some interaction!
+          </h1>
+        </div>
+      )}
+
+      {/* <div className="h-[90vh] pt-[3%] container mx-auto p-4">
         {Object.entries(groupedSeminars).map(([date, filterSeminars]) => (
           <div key={date}>
             <h2 className="text-lg mx-[6%] font-mono font-medium mt-8 mb-4 text-left">
@@ -197,7 +235,7 @@ const ReceivedSeminarRequests = () => {
             />
           </div>
         ))}
-      </div>
+      </div> */}
       <Footer />
     </>
   );
