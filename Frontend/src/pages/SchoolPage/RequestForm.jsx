@@ -528,7 +528,7 @@ const RequestForm = () => {
         </div>
 
         <div className={`md:flex ${isMobile ? "" : "mx-3"} mt-2`}>
-          <div className="md:w-full px-3">
+          <div className="md:w-full flex justify-center px-3">
             <button
               className="w-36 mt-4 md:ml-4 px-3 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               type="button"
