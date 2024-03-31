@@ -43,6 +43,8 @@ import SclDetForm from "./components/SignInSignUpComponents/SclDetForm"
 
 import ReviewBackground from "./pages/SchoolPage/ReviewBackground.jsx";
 
+import VolunteerUpSeminar from "./pages/VolunteerPages/VolunteerUpSeminar.jsx";
+
 const App = () => {
   return (
     <Router>
@@ -103,7 +105,7 @@ const App = () => {
             />
             <Route
               path="/Volunteer/Upcoming-Seminar"
-              element={<div>vol up sem</div>}
+              element={<VolunteerUpSeminar />}
             />
 
             <Route path="/School/Overview" element={<SchlOverview />} />
