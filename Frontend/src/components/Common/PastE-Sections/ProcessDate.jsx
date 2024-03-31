@@ -1,6 +1,6 @@
 const ProcessDate = (seminar) => {
 
-    const date = seminar.createdAt ? new Date(seminar.createdAt) : null;
+    const date = seminar.expDate ? new Date(seminar.expDate) : null;
 
     // Format date (using padStart for consistent day/month length)
     const formattedDate = date?.toLocaleDateString('en-US', {

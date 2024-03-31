@@ -197,9 +197,16 @@ const PastEvents = () => {
   };
 
   useEffect(() => {
+    // if (allSeminars.length > 0) {
+    //   const seminars = allSeminars.filter((seminar) => {
+    //     return new Date(seminar.expDate) < new Date();
+    //   });
+    //   setSeminars(seminars);
+    //   setMatchingObjects(seminars);
+    // }
     if (allSeminars.length > 0) {
       const seminars = allSeminars.filter((seminar) => {
-        return new Date(seminar.expDate) < new Date();
+        return seminar.status === "completed";
       });
       setSeminars(seminars);
       setMatchingObjects(seminars);
