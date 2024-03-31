@@ -97,29 +97,31 @@ const UpcomingSchool = () => {
         console.log(specificSchool);
 
         }
-      }, [isLoading, seminars, schools]);
+      }, [isLoading, seminars, schools, organizations]);
 
     console.log(specificSeminar);
 
     useEffect(() => {
-        if (!filteredSeminars || !filteredSchools) return;
+        if (!filteredSeminars || !filteredSchools || !organizations) return;
         const specificSeminar = filteredSeminars.filter((seminar) => seminar.schoolId === filteredSchools[0]._id);
+        console.log(specificSeminar);
+        console.log(organizations);
   
-          const findOrganizationForSeminar = (seminarId) => {
-            console.log(seminarId)
-            return organizations.find((organization) => organization._id === seminarId);
-          };
-          const combinedArray = specificSeminar.map((seminar) => {
-            const organization = findOrganizationForSeminar(seminar.organizationId);
-            console.log(organization);
-            return {
-              ...seminar,
-              organizationId: organization?._id,
-              organizationName: organization?.name,
-              processedDate: ProcessDate(seminar),
+        const findOrganizationForSeminar = (seminarId) => {
+          console.log(seminarId)
+          return organizations.find((organization) => organization._id === seminarId);
+        };
+        const combinedArray = specificSeminar.map((seminar) => {
+          const organization = findOrganizationForSeminar(seminar.organizationId);
+          console.log(organization);
+          return {
+            ...seminar,
+            organizationId: organization?._id,
+            organizationName: organization?.name,
+            processedDate: ProcessDate(seminar),
 
-            };
-          });
+          };
+        });
           setSpecificSeminar(specificSeminar);
           console.log(combinedArray);
           setSpecificSeminar(combinedArray);
