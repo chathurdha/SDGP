@@ -127,7 +127,8 @@ const AcceptSeminarRequests = () => {
         };
         const filteredSeminars = seminars.filter(
           (seminar) =>
-            seminar.status === "pending" && seminar.expTeacherCount > 0
+            // seminar.status === "pending" && seminar.expTeacherCount > 0
+            seminar.status === "accepted" && seminar.expTeacherCount > 0
         );
         console.log(filteredSeminars);
 
@@ -212,12 +213,18 @@ const AcceptSeminarRequests = () => {
   }, [combinedArray]);
 // }, []);
 
+  console.log(clarkId?._id);
+
   useEffect(() => {
     console.log(clarkId?._id);
     console.log(seminarRequests);
+    const findOrganizationForVolunteer = (volunteerId) => {
+      return volunteers.find((volunteer) => volunteer._id === volunteerId);
+    };
     const filterSeminars = seminarRequests.filter(
       // (seminar) => seminar.organizationId === "65f0b51909f477d188a48fad"
-      (seminar) => seminar.organizationId === clarkId?._id
+      // (seminar) => seminar.organizationId === clarkId?._id
+      (seminar) => seminar.organizationId === findOrganizationForVolunteer(clarkId?._id).orgID
     ); //important
     console.log(filterSeminars);
     setFilterSeminars(filterSeminars);
@@ -247,7 +254,9 @@ const AcceptSeminarRequests = () => {
     setGroupedSeminars(newGroupedSeminars);
   }, [filterSeminars]);
 
+  console.log(filterSeminars);
   console.log(combinedArray);
+  console.log(groupedSeminars);
 
   return (
     <>
