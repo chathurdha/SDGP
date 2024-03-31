@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 //imp
-// import { useUser } from '@clerk/clerk-react';
+import { useUser } from '@clerk/clerk-react';
 
 const UpcomingVolunteer = () => {
-
-        //imp
-    // const user = useUser().user;
 
     const [seminars, setSeminars] = useState([]);
     const [volunteers, setVolunteers] = useState([]);
@@ -15,6 +12,13 @@ const UpcomingVolunteer = () => {
     // const [filteredSeminars, setFilteredSeminars] = useState([]);
 
     const [isLoading, setIsLoading] = useState(true);
+
+    //imp
+    const user = useUser().user;
+    console.log(user?.id);
+
+    // const clarkId = volunteers.find((volunteer) => volunteer.userID === user?.id);
+    // console.log(clarkId);
 
     useEffect(() => {
         const fetchData = async (apiUrl) => {
@@ -54,8 +58,9 @@ const UpcomingVolunteer = () => {
         console.log(filterdSeminar);
 
         //imp
-        // const specificOrganization = organizations.filter((organization) => organization.userId === user?.id);
-        const specificVolunteer = volunteers.filter((volunteer) => volunteer._id === "65fc59d319242601dccb22a4");
+        // const specificVolunteer = volunteers.filter((volunteer) => volunteer.userId === user?.id);
+        const specificVolunteer = volunteers.filter((volunteer) => volunteer.userID === user?.id);
+        // const specificVolunteer = volunteers.filter((volunteer) => volunteer._id === "65fc59d319242601dccb22a4");
         setFilteredVolunteers(specificVolunteer);
         console.log(specificVolunteer);
 
