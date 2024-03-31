@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfNav from './SchlNavBar'
+import ProfNav from '../../src/components/navbar/SchlNavBar.jsx'
 
 describe('<ProfNav />', () => {
   it('renders', () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import AboutUs from './AboutUs'
+import AboutUs from '../../src/pages/CommanPages/AboutUs.jsx'
 
 describe('<AboutUs />', () => {
   it('renders', () => {
