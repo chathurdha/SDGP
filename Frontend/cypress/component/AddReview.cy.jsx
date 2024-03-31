@@ -1,5 +1,5 @@
 import React from 'react'
-import AddReview from './AddReview'
+import AddReview from '../../src/components/AddReview.jsx'
 
 describe('<AddReview />', () => {
   it('renders', () => {
